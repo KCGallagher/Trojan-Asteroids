@@ -7,4 +7,4 @@ M_P = 0.001  # planetary mass
 R = 5.2  # average planetary radius from sun
 
 PRECISION = 100  # evaluation points per orbit
-ORBIT_NUM = 5  # number of orbits
+ORBIT_NUM = 1  # number of orbits
