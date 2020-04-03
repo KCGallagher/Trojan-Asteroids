@@ -1,3 +1,4 @@
+import math
 import numpy as np
 
 # USER DEFINED CONSTANTS
@@ -8,3 +9,10 @@ R = 5.2  # average planetary radius from sun
 
 PRECISION = 1000  # evaluation points per orbit
 ORBIT_NUM = 30  # number of orbits
+
+# DERIVED CONSTANTS
+solar_rad = R * M_P / (M_S + M_P)  # distance from origin to sun in CoM frame
+planet_rad = R * M_S / (M_S + M_P)
+period = math.sqrt(R ** 3 / (M_S + M_P))
+omega = 2 * np.pi / period  # angular velocity of frame
+time_span = np.linspace(0, ORBIT_NUM * period, int(ORBIT_NUM * PRECISION))
