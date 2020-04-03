@@ -42,9 +42,9 @@ def rot_derivatives(t, y):
     # Note that solar radius has opposite orientation
     planet_dr3 = ((planet_rad - x_pos) ** 2 + y_pos ** 2) ** 1.5
 
-    virtual_force_x = -x_pos * omega ** 2 + 2 * omega * y_vel
-    virtual_force_y = -y_pos * omega ** 2 - 2 * omega * x_vel
-
+    virtual_force_x = x_pos * omega ** 2 + 2 * omega * y_vel
+    virtual_force_y = y_pos * omega ** 2 - 2 * omega * x_vel
+    # return -G * (M_S * y_pos / solar_dr3 + M_P * y_pos / planet_dr3) + virtual_force_y
     return (
         x_vel,
         y_vel,
@@ -54,8 +54,13 @@ def rot_derivatives(t, y):
             + M_P * (x_pos - planet_rad) / planet_dr3
         )
         + virtual_force_x,
-        -G * (M_S * y_pos / solar_dr3 + M_P * y_pos / planet_dr3 + virtual_force_y),
+        -G * (M_S * y_pos / solar_dr3 + M_P * y_pos / planet_dr3) + virtual_force_y,
     )
+
+
+print(rot_derivatives(0, (rcos, rsin, 0, 0)))
+
+print("test over")
 
 
 def rotating_frame(y0_rot=(rcos, rsin, 0, 0)):
@@ -65,7 +70,7 @@ def rotating_frame(y0_rot=(rcos, rsin, 0, 0)):
         t_span=(0, ORBIT_NUM * period),
         y0=y0_rot,
         t_eval=np.linspace(
-            0, ORBIT_NUM * period, ORBIT_NUM * PRECISION
+            0, ORBIT_NUM * period, int(ORBIT_NUM * PRECISION)
         ),  # selects points for storage
     )
 
@@ -96,8 +101,7 @@ def stat_acceleration(x_pos, y_pos, t):
     )
 
 
-time_span = np.linspace(0, ORBIT_NUM * period, ORBIT_NUM * PRECISION)
-print(stat_acceleration(-1, -1, time_span))
+# time_span = np.linspace(0, ORBIT_NUM * period, int(ORBIT_NUM * PRECISION))
 
 
 def stat_derivatives(t, y):
@@ -122,7 +126,6 @@ initial_conditions = (
     -vsin,
     vcos,
 )
-print(initial_conditions)
 
 
 def stationary_frame(y0_stat=initial_conditions):
@@ -132,6 +135,6 @@ def stationary_frame(y0_stat=initial_conditions):
         t_span=(0, ORBIT_NUM * period),
         y0=y0_stat,
         t_eval=np.linspace(
-            0, ORBIT_NUM * period, ORBIT_NUM * PRECISION
+            0, ORBIT_NUM * period, int(ORBIT_NUM * PRECISION)
         ),  # selects points for storage
     )

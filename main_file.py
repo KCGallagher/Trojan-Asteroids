@@ -14,11 +14,12 @@ for i in range(len(orbit_sol.t)):
 solar_rad = R * M_P / (M_S + M_P)  # distance from origin to sun in CoM frame
 planet_rad = R * M_S / (M_S + M_P)
 period = math.sqrt(R ** 3 / (M_S + M_P))
-time_span = np.linspace(0, ORBIT_NUM * period, ORBIT_NUM * PRECISION)
+time_span = np.linspace(0, ORBIT_NUM * period, int(ORBIT_NUM * PRECISION))
 
-plt.plot(time_span, (-orbit_sol.y[0, :]))
+lagrange_x = planet_rad - R / 2
+plt.plot(time_span, (np.abs(lagrange_x - orbit_sol.y[0, :])))
 plt.yscale("log", basey=10)
-plt.ylabel("error on x_pos")
+plt.ylabel("absolute error on x_pos")
 plt.xlabel("time")
 plt.show()
 
@@ -46,6 +47,10 @@ plt.legend()
 plt.title("Rotating Frame")
 plt.show()
 
+plt.plot(orbit_sol.y[0, :], orbit_sol.y[1, :], label="Greeks")
+plt.title("Rotating Frame just Greeks")
+plt.show()
+
 
 orbit_sol2 = orbits.stationary_frame(
     # y0_stat=(2.597396111680207, 4.507828683528303, -1.3769877532043, 2.3897875502501607)
@@ -53,7 +58,7 @@ orbit_sol2 = orbits.stationary_frame(
 for i in range(len(orbit_sol2.t)):
     print(orbit_sol2.t[i], orbit_sol2.y[0, i], orbit_sol.y[1, i])
 
-time_span = np.linspace(0, ORBIT_NUM * period, ORBIT_NUM * PRECISION)
+time_span = np.linspace(0, ORBIT_NUM * period, int(ORBIT_NUM * PRECISION))
 
 plt.plot(0, 0, label="CoM", color="black", marker="x", linestyle="None")
 plt.plot(
