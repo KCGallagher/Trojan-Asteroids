@@ -44,7 +44,6 @@ def rot_derivatives(t, y):
 
     virtual_force_x = x_pos * omega ** 2 + 2 * omega * y_vel
     virtual_force_y = y_pos * omega ** 2 - 2 * omega * x_vel
-    # return -G * (M_S * y_pos / solar_dr3 + M_P * y_pos / planet_dr3) + virtual_force_y
     return (
         x_vel,
         y_vel,
@@ -56,11 +55,6 @@ def rot_derivatives(t, y):
         + virtual_force_x,
         -G * (M_S * y_pos / solar_dr3 + M_P * y_pos / planet_dr3) + virtual_force_y,
     )
-
-
-print(rot_derivatives(0, (rcos, rsin, 0, 0)))
-
-print("test over")
 
 
 def rotating_frame(y0_rot=(rcos, rsin, 0, 0)):
