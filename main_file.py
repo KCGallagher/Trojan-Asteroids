@@ -12,13 +12,13 @@ orbit_sol = orbits.rotating_frame()
 # for i in range(len(orbit_sol.t)):
 #     print(orbit_sol.t[i], orbit_sol.y[0, i], orbit_sol.y[1, i])
 
-
 lagrange_x = planet_rad - R / 2
 plt.plot(time_span, (np.abs(lagrange_x - orbit_sol.y[0, :])))
 plt.yscale("log", basey=10)
 plt.ylabel("absolute error on x_pos")
 plt.xlabel("time")
 plt.show()
+
 
 plt.plot(
     orbits.solar_pos(0)[0],

@@ -1,3 +1,6 @@
+# CURRENT VERSION OF ORBITS.PY (03/04/2020, 20;36)
+# RUNS, HOWEVER GIVES CRESENT MOON SHAPE IN STAT FRAME
+
 import math
 import numpy as np
 from scipy import integrate
@@ -89,6 +92,9 @@ def rot_derivatives(t, y):
     )
 
     return np.concatenate((velocity, acceleration))
+
+
+print(rot_derivatives(0, (1, 1, 0, 0, 0, 0)))
 
 
 def rotating_frame(y0_rot=(rcos, rsin, 0, 0, 0, 0)):
