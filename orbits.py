@@ -20,6 +20,7 @@ greek_v = omega * (greek_rad)
 
 lagrange = (planet_rad - R / 2, R * math.sqrt(3) / 2, 0)
 # are these necessary as well as initial conditions?
+# decide later which are most useful to import etc
 
 # Initial conditions for Greeks, given as equillibrium state but can be changed in XXXXX
 cos, sin = np.cos(greek_theta), np.sin(greek_theta)
@@ -58,9 +59,11 @@ def rot_derivatives(t, y):
     solar_dr3 = np.linalg.norm(solar_pos(0) - position) ** 3  # should this be zero?
     planet_dr3 = np.linalg.norm(planet_pos(0) - position) ** 3
 
-    virtual_force_x = position[0] * omega ** 2 + 2 * omega * velocity[1]
-    virtual_force_y = position[1] * omega ** 2 - 2 * omega * velocity[0]
-    virtual_force_z = 0  # change this!!
+    virtual_force = (
+        position[0] * omega ** 2 + 2 * omega * velocity[1],
+        position[1] * omega ** 2 - 2 * omega * velocity[0],
+        0,
+    )
 
     acceleration = (
         -G
@@ -68,11 +71,11 @@ def rot_derivatives(t, y):
             M_S * (position[0] - solar_pos(0)[0]) / solar_dr3
             + M_P * (position[0] - planet_pos(0)[0]) / planet_dr3
         )
-        + virtual_force_x,
+        + virtual_force[0],
         -G * (M_S * position[1] / solar_dr3 + M_P * position[1] / planet_dr3)
-        + virtual_force_y,
+        + virtual_force[1],
         -G * (M_S * position[2] / solar_dr3 + M_P * position[2] / planet_dr3)
-        + virtual_force_z,
+        + virtual_force[2],
     )
 
     return np.concatenate((velocity, acceleration))
