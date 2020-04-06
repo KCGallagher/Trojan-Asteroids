@@ -7,50 +7,89 @@ import orbits
 from constants import M_P, M_S, ORBIT_NUM, PRECISION, G, R  # User defined constants
 from constants import lagrange, omega, time_span  # Derived constants
 
+SAMPLE = int(500)  # Sample every n points
+
 # Set up orbits for each body
+orbit_sun = orbits.solar_pos(time_span)
+orbit_jupiter = orbits.planet_pos(time_span)
 orbit_greeks = orbits.stationary_frame(
     (lagrange[0], lagrange[1], 0, -omega * lagrange[1], omega * lagrange[0], 0)
 )
 orbit_trojans = orbits.stationary_frame(
-    (lagrange[0], -lagrange[1], 0, -omega * lagrange[1], -omega * lagrange[0], 0)
+    (lagrange[0], -lagrange[1], 0, omega * lagrange[1], omega * lagrange[0], 0)
 )
-orbit_list = [orbit_greeks, orbit_trojans]
+orbit_list = [orbit_sun, orbit_jupiter, orbit_greeks, orbit_trojans]
+bodies = ["Sun", "Jupiter", "Greeks", "Trojans"]
+N = len(bodies)
+
+orbit_data = np.zeros(
+    (len(orbit_trojans.t[0::SAMPLE]), 2, int(N))
+)  # select time coordinate, spatial coordinate (x/y), and index of body in list 'bodies'
 
 
-def data_gen(orbit_data):
-    gen_list = (
-        [orbit_data.y[0, t], orbit_data.y[1, t]]
-        for t in np.arange(
-            0, ORBIT_NUM * PRECISION, 100
-        )  # step size of 100 pulls out each 100th point to speed up animation
-    )
-    return gen_list
+for i in range(N):
+    if type(orbit_list[i]) is np.ndarray:  # Different format of orbit results
+        orbit_data[:, 0, i] = orbit_list[i][0][0::SAMPLE]
+        orbit_data[:, 1, i] = orbit_list[i][1][0::SAMPLE]
+    else:
+        orbit_data[:, 0, i] = orbit_list[i].y[0, 0::SAMPLE]
+        orbit_data[:, 1, i] = orbit_list[i].y[1, 0::SAMPLE]
 
 
-def init_g():
-    return point_g
-
-
-def run_g(data):
-    t, y = data
-    point_g.set_data(t, y)
-    return point_g
-
-
-fig = plt.figure()
+fig = plt.figure(figsize=(6, 6))
 ax = plt.axes(xlim=(-8, 8), ylim=(-8, 8))
-ax.set_aspect(aspect=1)
+ax.set_aspect(aspect=1)  # So that circular orbits will not be distorted
 
-(point_g,) = ax.plot([0], [0], "go", label="Greeks")
-point_g.set_data(0, 0)
+markers = [12, 8, 4, 4]
+colours = ["yellow", "red", "blue", "green"]
+points = []
+for i in range(N):
+    point = ax.plot(
+        [],
+        [],
+        label=bodies[i],
+        marker="o",
+        linestyle="none",
+        markersize=markers[i],
+        color=colours[i],
+    )
+    points.append(point)
+points = np.ndarray.tolist(np.squeeze(points))
+ax.legend(loc="upper center", bbox_to_anchor=(0.5, 1.00), ncol=4)
 
-ani = animation.FuncAnimation(
-    fig, run_g, data_gen(orbit_greeks), init_func=init_g, interval=1
+
+def init():
+    """ Iterates over all bodies to initialize the data """
+    for line in points:
+        line.set_data([], [])
+    return points
+
+
+def animate(t):
+    """Takes in the frame point in time(t) as the parameter and creates a function dependant on t for each body """
+    for i in range(N):
+        points[i].set_data([orbit_data[t, 0, i], orbit_data[t, 1, i]])
+    return points
+
+
+anim = animation.FuncAnimation(
+    fig,
+    animate,
+    init_func=init,
+    frames=ORBIT_NUM * int(PRECISION / SAMPLE),
+    interval=1,
+    blit=True,
 )
+
 plt.title("Asteroid orbit in static frame")
 plt.xlabel("X distance/ AU")
 plt.ylabel("Y distance/ AU")
-plt.legend()
-plt.show()
+# plt.legend()
 
-# ani.save("asteroid_orbit.gif", writer="imagemagick")
+
+writer = animation.FFMpegWriter(
+    fps=60, metadata=dict(artist="Kit Gallagher"), bitrate=1800
+)
+# anim.save("movie.mp4", writer=writer)
+
+plt.show()
