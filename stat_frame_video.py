@@ -7,7 +7,7 @@ import orbits
 from constants import M_P, M_S, ORBIT_NUM, PRECISION, G, R  # User defined constants
 from constants import lagrange, omega, time_span  # Derived constants
 
-SAMPLE = int(500)  # Sample every n points
+SAMPLE = int(5)  # Sample every n points
 
 # Set up orbits for each body
 orbit_sun = orbits.solar_pos(time_span)
@@ -39,8 +39,9 @@ for i in range(N):
 fig = plt.figure(figsize=(6, 6))
 ax = plt.axes(xlim=(-8, 8), ylim=(-8, 8))
 ax.set_aspect(aspect=1)  # So that circular orbits will not be distorted
+time_marker = ax.text(0.02, 0.05, "", transform=ax.transAxes)
 
-markers = [12, 8, 4, 4]
+markers = [12, 8, 2, 2]
 colours = ["yellow", "red", "blue", "green"]
 points = []
 for i in range(N):
@@ -69,16 +70,20 @@ def animate(t):
     """Takes in the frame point in time(t) as the parameter and creates a function dependant on t for each body """
     for i in range(N):
         points[i].set_data([orbit_data[t, 0, i], orbit_data[t, 1, i]])
-    return points
+    time_marker.set_text(str("{:.1f}".format(orbit_trojans.t[t] * SAMPLE)) + " years")
+    # return (points, time_marker)
+    return points + [time_marker]
 
 
 anim = animation.FuncAnimation(
     fig,
     animate,
     init_func=init,
-    frames=ORBIT_NUM * int(PRECISION / SAMPLE),
-    interval=1,
+    # frames=ORBIT_NUM * int(PRECISION / SAMPLE),
+    frames=5 * int(PRECISION / SAMPLE),
+    interval=0.75,
     blit=True,
+    repeat=False,
 )
 
 plt.title("Asteroid orbit in static frame")
@@ -90,6 +95,6 @@ plt.ylabel("Y distance/ AU")
 writer = animation.FFMpegWriter(
     fps=60, metadata=dict(artist="Kit Gallagher"), bitrate=1800
 )
-# anim.save("movie.mp4", writer=writer)
+anim.save("movie.mp4", writer=writer)
 
 plt.show()
