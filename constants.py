@@ -16,3 +16,4 @@ planet_rad = R * M_S / (M_S + M_P)
 period = math.sqrt(R ** 3 / (M_S + M_P))
 omega = 2 * np.pi / period  # angular velocity of frame
 time_span = np.linspace(0, ORBIT_NUM * period, int(ORBIT_NUM * PRECISION))
+lagrange = (planet_rad - R / 2, R * math.sqrt(3) / 2, 0)
