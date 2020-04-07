@@ -7,19 +7,20 @@ import orbits
 from constants import M_P, M_S, ORBIT_NUM, PRECISION, G, R  # User defined constants
 from constants import lagrange, omega, time_span  # Derived constants
 
-SAMPLE = int(5)  # Sample every n points
+SAMPLE = int(1)  # Sample every n points
 
 # Set up orbits for each body
 orbit_sun = orbits.solar_pos(time_span)
 orbit_jupiter = orbits.planet_pos(time_span)
+orbit_lagrange = orbits.lagrange_pos(time_span)
 orbit_greeks = orbits.stationary_frame(
     (lagrange[0], lagrange[1], 0, -omega * lagrange[1], omega * lagrange[0], 0)
 )
 orbit_trojans = orbits.stationary_frame(
     (lagrange[0], -lagrange[1], 0, omega * lagrange[1], omega * lagrange[0], 0)
 )
-orbit_list = [orbit_sun, orbit_jupiter, orbit_greeks, orbit_trojans]
-bodies = ["Sun", "Jupiter", "Greeks", "Trojans"]
+orbit_list = [orbit_sun, orbit_jupiter, orbit_lagrange, orbit_greeks, orbit_trojans]
+bodies = ["Sun", "Jupiter", "Lagrange", "Greeks", "Trojans"]
 N = len(bodies)
 
 orbit_data = np.zeros(
@@ -41,15 +42,16 @@ ax = plt.axes(xlim=(-8, 8), ylim=(-8, 8))
 ax.set_aspect(aspect=1)  # So that circular orbits will not be distorted
 time_marker = ax.text(0.02, 0.05, "", transform=ax.transAxes)
 
-markers = [12, 8, 2, 2]
-colours = ["yellow", "red", "blue", "green"]
+markers = [12, 8, 5, 2, 2]
+colours = ["yellow", "red", "black", "blue", "green"]
+shapes = ["o", "o", "x", "o", "o"]
 points = []
 for i in range(N):
     point = ax.plot(
         [],
         [],
         label=bodies[i],
-        marker="o",
+        marker=shapes[i],
         linestyle="none",
         markersize=markers[i],
         color=colours[i],
@@ -81,7 +83,7 @@ anim = animation.FuncAnimation(
     init_func=init,
     # frames=ORBIT_NUM * int(PRECISION / SAMPLE),
     frames=5 * int(PRECISION / SAMPLE),
-    interval=0.75,
+    interval=0.5,
     blit=True,
     repeat=False,
 )

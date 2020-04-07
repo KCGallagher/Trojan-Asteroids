@@ -77,3 +77,19 @@ plt.plot(orbit_sol2.y[0, :], orbit_sol2.y[1, :], label="Greeks")
 plt.title("Stationary Frame")
 plt.legend()
 plt.show()
+
+
+plt.plot(
+    time_span,
+    np.linalg.norm(
+        [
+            (orbit_sol2.y[0, :] - orbits.planet_pos(time_span)[0]),
+            (orbit_sol2.y[1, :] - orbits.planet_pos(time_span)[1]),
+        ],
+        axis=0,
+    ),
+)
+plt.title("Separtion between Jupiter and Asteroid in rotating frame")
+plt.ylabel("Separation / AU")
+plt.xlabel("Time / years")
+plt.show()
