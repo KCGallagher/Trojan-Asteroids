@@ -8,12 +8,12 @@ import orbits
 from constants import M_P, M_S, ORBIT_NUM, PRECISION, G, R  # User defined constants
 from constants import solar_rad, planet_rad, period, time_span  # Derived constants
 
-#ROTATING FRAME
+# ROTATING FRAME
 orbit_sol = orbits.rotating_frame()
 # for i in range(len(orbit_sol.t)):
 #     print(orbit_sol.t[i], orbit_sol.y[0, i], orbit_sol.y[1, i])
 
-#DEVIATION FROM LAGRANGE POINT
+# DEVIATION FROM LAGRANGE POINT
 lagrange_x = planet_rad - R / 2
 # plt.plot(time_span, (np.abs(lagrange_x - orbit_sol.y[0, :])))
 plt.plot(time_span, ((lagrange_x - orbit_sol.y[0, :])))
@@ -25,7 +25,7 @@ plt.title("Asteroid Deviation from Lagrange point")
 plt.savefig("asteroid_deviation_linear.png")
 plt.show()
 
-#MOTION IN ROTATING FRAME
+# MOTION IN ROTATING FRAME
 plt.plot(
     orbits.solar_pos(0)[0],
     0,
@@ -55,12 +55,12 @@ plt.title("Rotating Frame just Greeks")
 plt.show()
 
 #################################################################
-#STATIONARY FRAME
+# STATIONARY FRAME
 orbit_sol2 = orbits.stationary_frame()
 # for i in range(len(orbit_sol2.t)):
 #     print(orbit_sol2.t[i], orbit_sol2.y[0, i], orbit_sol.y[1, i])
 
-#STATIONARY FRAME
+# STATIONARY FRAME
 plt.plot(0, 0, label="CoM", color="black", marker="x", linestyle="None")
 plt.plot(
     orbits.solar_pos(time_span)[0],
@@ -84,10 +84,7 @@ plt.plot(orbit_sol2.y[0, :], orbit_sol2.y[1, :], label="Greeks")
 plt.title("Stationary Frame")
 plt.legend()
 plt.show()
-<<<<<<< Updated upstream
-=======
 
-#DEVIATION FROM LAGRANGE POINT
 plt.plot(
     time_span,
     np.linalg.norm(
@@ -98,9 +95,9 @@ plt.plot(
         axis=0,
     ),
 )
+
 plt.title("Separtion between Jupiter and Greeks in Rotating Frame")
 plt.ylabel("Separation / AU")
 plt.xlabel("Time / years")
 # plt.savefig("longseparation.png")
 plt.show()
->>>>>>> Stashed changes

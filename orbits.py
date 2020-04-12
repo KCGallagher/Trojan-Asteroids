@@ -45,8 +45,6 @@ def planet_pos(t=0):
     return np.array([planet_rad * np.cos(omega * t), planet_rad * np.sin(omega * t), 0])
 
 
-<<<<<<< Updated upstream
-=======
 def lagrange_pos(t=0):
     return np.array(
         [
@@ -57,7 +55,6 @@ def lagrange_pos(t=0):
     )
 
 
->>>>>>> Stashed changes
 # assuming massive bodies do not deviate from xy plane
 
 
