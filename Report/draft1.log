@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7300 64-bit) (preloaded format=pdflatex 2020.2.13)  6 APR 2020 10:06
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7300 64-bit) (preloaded format=pdflatex 2020.2.13)  8 APR 2020 14:23
 entering extended mode
 **./draft1.tex
 (draft1.tex
@@ -1269,7 +1269,7 @@ g"
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
 (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 65.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 45.
 
  ("C:\Users\KitG\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
@@ -1278,7 +1278,7 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 g"
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 65.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 45.
 
  ("C:\Users\KitG\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -1288,7 +1288,7 @@ g"
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
 LaTeX Font Info:    Font shape `T1/XCharter-TLF/m/n' will be
-(Font)              scaled to size 8.0pt on input line 65.
+(Font)              scaled to size 8.0pt on input line 45.
 )
 Package biblatex Info: Reference section=0 on input line 29.
 Package biblatex Info: Reference segment=0 on input line 29.
@@ -1323,43 +1323,78 @@ LaTeX Font Info:    Font shape `T1/XCharter-TLF/m/n' will be
 (Font)              scaled to size 14.4pt on input line 42.
 LaTeX Font Info:    Font shape `T1/XCharter-TLF/b/n' will be
 (Font)              scaled to size 14.4pt on input line 42.
+LaTeX Font Info:    Trying to load font information for TS1+XCharter-TLF on inp
+ut line 43.
 
+("C:\Users\KitG\AppData\Local\Programs\MiKTeX 2.9\tex/latex/xcharter\ts1xcharte
+r-tlf.fd"
+File: TS1XCharter-TLF.fd 2017/06/25 (autoinst) Font definitions for TS1/XCharte
+r-TLF.
+)
+LaTeX Font Info:    Font shape `TS1/XCharter-TLF/m/n' will be
+(Font)              scaled to size 10.95pt on input line 43.
+Package microtype Info: Character `textlbrackdbl ' is missing
+(microtype)             in font `TS1/XCharter-TLF/m/n/10.95'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `textrbrackdbl ' is missing
+(microtype)             in font `TS1/XCharter-TLF/m/n/10.95'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `texttildelow ' is missing
+(microtype)             in font `TS1/XCharter-TLF/m/n/10.95'.
+(microtype)             Ignoring protrusion settings for this character.
 
-LaTeX Warning: Reference `Ravindran2017' on page 1 undefined on input line 43.
+Underfull \hbox (badness 1122) in paragraph at lines 45--46
+[]\T1/XCharter-TLF/m/n/10.95 (+20) These La-grange points are taken from La-
+ []
 
-
-AED: lastpage setting LastPage
+LaTeX Font Info:    Font shape `T1/XCharter-TLF/b/n' will be
+(Font)              scaled to size 12.0pt on input line 49.
 [1{C:/Users/KitG/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}
 
 
-
 ]
-(draft1.aux)
+LaTeX Font Info:    Font shape `T1/XCharter-TLF/m/it' will be
+(Font)              scaled to size 10.95pt on input line 81.
 
-LaTeX Warning: There were undefined references.
 
+AED: lastpage setting LastPage
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+Make it at least 13.59999pt.
+We now make it that large for the rest of the document.
+This may cause the page layout to be inconsistent, however.
+
+[2
+
+] (draft1.aux)
 Package logreq Info: Writing requests to 'draft1.run.xml'.
 \openout1 = `draft1.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 17462 strings out of 481565
- 302998 string characters out of 2914627
- 983217 words of memory out of 3000000
- 32378 multiletter control sequences out of 15000+200000
- 611437 words of font info for 82 fonts, out of 3000000 for 9000
+ 17562 strings out of 481565
+ 305856 string characters out of 2914627
+ 987521 words of memory out of 3000000
+ 32420 multiletter control sequences out of 15000+200000
+ 631588 words of font info for 121 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 47i,11n,54p,1133b,1703s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 47i,11n,54p,1133b,1707s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/KitG/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/xcharter/xch
-_uy5hgr.enc}{C:/Users/KitG/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/ba
-se/8r.enc}<C:/Users/KitG/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/x
-charter/XCharter-Bold.pfb><C:/Users/KitG/AppData/Local/Programs/MiKTeX 2.9/font
-s/type1/public/xcharter/XCharter-Roman.pfb><C:/Users/KitG/AppData/Local/Program
-s/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Users/KitG/AppData/Local/P
-rograms/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on draft1.pdf (1 page, 122062 bytes).
+_uy5hgr.enc}{C:/Users/KitG/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/xc
+harter/xch_q7u3cc.enc}{C:/Users/KitG/AppData/Local/Programs/MiKTeX 2.9/fonts/en
+c/dvips/base/8r.enc}<C:/Users/KitG/AppData/Local/Programs/MiKTeX 2.9/fonts/type
+1/public/xcharter/XCharter-Bold.pfb><C:/Users/KitG/AppData/Local/Programs/MiKTe
+X 2.9/fonts/type1/public/xcharter/XCharter-Italic.pfb><C:/Users/KitG/AppData/Lo
+cal/Programs/MiKTeX 2.9/fonts/type1/public/xcharter/XCharter-Roman.pfb><C:/User
+s/KitG/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.p
+fb><C:/Users/KitG/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts
+/cm/cmr8.pfb><C:/Users/KitG/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/publi
+c/amsfonts/cm/cmsy8.pfb><C:/Users/KitG/AppData/Local/Programs/MiKTeX 2.9/fonts/
+type1/urw/helvetic/uhvb8a.pfb><C:/Users/KitG/AppData/Local/Programs/MiKTeX 2.9/
+fonts/type1/urw/helvetic/uhvro8a.pfb>
+Output written on draft1.pdf (2 pages, 201065 bytes).
 PDF statistics:
- 24 PDF objects out of 1000 (max. 8388607)
+ 46 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 18945 words of extra memory for PDF output out of 20736 (max. 10000000)
+ 26625 words of extra memory for PDF output out of 29859 (max. 10000000)
 

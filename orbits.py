@@ -45,6 +45,19 @@ def planet_pos(t=0):
     return np.array([planet_rad * np.cos(omega * t), planet_rad * np.sin(omega * t), 0])
 
 
+<<<<<<< Updated upstream
+=======
+def lagrange_pos(t=0):
+    return np.array(
+        [
+            greek_rad * np.cos(omega * t + greek_theta),
+            greek_rad * np.sin(omega * t + greek_theta),
+            0,
+        ]
+    )
+
+
+>>>>>>> Stashed changes
 # assuming massive bodies do not deviate from xy plane
 
 
@@ -91,7 +104,7 @@ def rotating_frame(y0_rot=(rcos, rsin, 0, 0, 0, 0)):
 
     return integrate.solve_ivp(
         fun=rot_derivatives,
-        method="LSODA",  ###on adams advice
+        method="Radau",  # Or LSODA for non-stiff alternative
         t_span=(0, ORBIT_NUM * period),
         y0=y0_rot,
         t_eval=time_span,  # selects points for storage
@@ -138,7 +151,7 @@ def stationary_frame(y0_stat=(rcos, rsin, 0, -vsin, vcos, 0)):
     """
     return integrate.solve_ivp(
         fun=stat_derivatives,
-        method="LSODA",  ##on adams advice
+        method="Radau",  # Or LSODA for non-stiff alternative
         t_span=(0, ORBIT_NUM * period),
         y0=y0_stat,
         t_eval=time_span,

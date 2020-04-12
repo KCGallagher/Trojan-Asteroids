@@ -2187,7 +2187,13 @@
     <bcf:datasource type="file" datatype="bibtex">references.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="0">
-    <bcf:citekey order="1">Nakamura2008</bcf:citekey>
+    <bcf:citekey order="1">Lagrange1772</bcf:citekey>
+    <bcf:citekey order="2">Nakamura2008</bcf:citekey>
+    <bcf:citekey order="3">Dormand1980</bcf:citekey>
+    <bcf:citekey order="4">Lambert1991</bcf:citekey>
+    <bcf:citekey order="5">Byrne1987</bcf:citekey>
+    <bcf:citekey order="6">Hairer2010</bcf:citekey>
+    <bcf:citekey order="7">Frank1985</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">

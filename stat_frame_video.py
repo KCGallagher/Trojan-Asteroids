@@ -7,6 +7,11 @@ import orbits
 from constants import M_P, M_S, ORBIT_NUM, PRECISION, G, R  # User defined constants
 from constants import lagrange, omega, time_span  # Derived constants
 
+<<<<<<< Updated upstream
+=======
+SAMPLE = int(100)  # Sample every n points
+
+>>>>>>> Stashed changes
 # Set up orbits for each body
 orbit_greeks = orbits.stationary_frame(
     (lagrange[0], lagrange[1], 0, -omega * lagrange[1], omega * lagrange[0], 0)

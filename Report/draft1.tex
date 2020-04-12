@@ -5,7 +5,7 @@
 
 \input{structure.tex} % Specifies the document structure and loads requires packages
 \graphicspath{{"/Users/Kit/OneDrive/Documents/Computing/Trojan Asteroids/Report/Figures"}}
-
+\newcommand*{\subscript}[1]{\ensuremath{_\textrm{{\scriptsize #1}}}}
 
 %	ARTICLE INFORMATION
 
@@ -38,10 +38,59 @@
 
 %	ARTICLE CONTENTS
 
+%Use https://leancrew.com/all-this/2016/08/lagrange-points-redux/ to create your own contour plot?
+\section{Introduction}
+The Jupiter trojans, commonly known as the Trojan asteroids, are two large groups of asteroids that share the planet Jupiter's orbit around the Sun. These two groups are called the Greeks and the Trojans, named after opposing sides in the mythological Trojan war, and lead/trail Jupiter respectively in its orbit. They correspond to Jupiter's two stable Lagrange points: L\subscript{4}, lying 60° ahead of the planet in its orbit, and L\subscript{5}, 60° behind, with asteroids distributed in two elongated, curved regions around these Lagrangian points. CITE
 
-\section{History}
-This is a test with bib \ref{Ravindran2017}. Alternatively we consider \cite{Nakamura2008}.Nakamura2008
+These Lagrange points are taken from Lagrange's initial analysis of the three-body problem in 1772 \cite{Lagrange1772}, were he demonstrated the existence of five equilibrium points for an object of negligible mass orbiting under the gravitational effect of two larger masses. Three of these equilibrium points, L\subscript{1} - L\subscript{3} lie on the line joining the two masses maxima in the potential function, making them unstable. Each of the remaining two points, L4 and L5, lies at the apex of an equilateral triangle with base equal to the separation of the two masses (see Fig. 1); stable motion is possible around them despite them being maxima due to the Coriolis force.  INSERT FIGURE - possibly from \cite{Marzari2002} which provides a solid analysis
 
+Include 1:1 orbit resonance details for the jupiter one
+
+
+
+\textit{
+The first Jupiter trojan discovered, 588 Achilles, was spotted in 1906 by German astronomer Max Wolf.[2] A total of 7,040 Jupiter trojans have been found as of October 2018.[3] By convention, they are each named from Greek mythology after a figure of the Trojan War, hence the name "Trojan". The total number of Jupiter trojans larger than 1 km in diameter is believed to be about 1 million, approximately equal to the number of asteroids larger than 1 km in the asteroid belt.[1] Like main-belt asteroids, Jupiter trojans form families.[4] }
+
+\subsection{Trojan Asteroids}
+previous lit
+Alternatively we consider \cite{Nakamura2008}
+
+\subsection{Orbit Geometry}
+Including mathematical assumptions in analysis
+
+\subsubsection{Assumptions}
+Circular orbit
+Constant Jupiter-Sun separation
+Planar orbit
+Negligible asteroid mass
+Newtonian gravity
+
+symmetries:
+trojan and greek symmetry (analysis focused on greeks)
+rotational symmetry - arbitrary initial point 
+direction of orbit
+"The combination of these symmetries allows the problem to be simplified. Such that
+only the Greeks, orbiting counter-clockwise, with perturbations at t = 0, need to be
+investigated."
+
+\section{Methodology}
+\subsection{Integration Method}
+The default solver is RK45 (an explicit Runge-Kutta method of order 5(4) \cite{Dormand1980}) however this is non-stiff, giving a deviation in asteroid position (from the Lagrange point) in the order of $ 10^{-4}$ AU in the rotating frame over 50 years. This is larger than expected, suggesting the system of equations requires an unreasonable small step size for  numerically stability with respect to this numerical method, even regions where the solution curve is smooth \cite{Lambert1991}. This suggests the system is stiff, and solvers designed for this typically do more work per step, allowing them to take much larger steps, and have improved numerical stability compared to the non-stiff solvers \cite{Byrne1987}. 
+
+Instead the stiff "Radau" solver (an implicit Runge-Kutta method of the Radau IIA family of order 5 \cite{Hairer2010}) is used for increased stability \cite{Frank1985}, and achieves a deviation in asteroid position in the order of $ 10^{-13}$ AU instead. This also ensures stability in the rotating frame, with deviations of 0.76\% in asteroid separation from Jupiter over $ 10^{3} $ years, compared to 53\% for the best non-stiff solvers.
+
+%Can add more detail on A vs B stability (I believe B stability is relevant here but maybe check this)
+\section{Results}
+\subsection{Orbit Stability}
+\subsection{Wander Analysis}
+\subsubsection{Perturbations in z-direction}
+
+\section{Discussion}
+\section{Conclusion}
+
+
+
+%Talk about animations here too? or after solver method
 \printbibliography
 
 \end{document}
