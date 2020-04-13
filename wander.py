@@ -115,13 +115,13 @@ def wander(position, samples=1):
 # need other way to define stability as other stable orbits away from lagrange point may form
 
 
-import matplotlib
-from matplotlib.colors import BoundaryNorm
-from matplotlib.ticker import MaxNLocator
+# import matplotlib
+# from matplotlib.colors import BoundaryNorm
+# from matplotlib.ticker import MaxNLocator
 
 
-grid_size = 0.001
-sampling_points = 6
+grid_size = 0.04
+sampling_points = 1
 # make these smaller to increase the resolution
 dx, dy = grid_size / sampling_points, grid_size / sampling_points
 
@@ -144,39 +144,57 @@ for i, j in np.ndindex(z.shape):
 # x and y are bounds, so z should be the value *inside* those bounds.
 # Therefore, remove the last value from the z array.
 z = z[:-1, :-1]
-# levels = MaxNLocator(nbins=15).tick_values(z.min(), z.max())
 
-# pick the desired colormap, sensible levels, and define a normalization
-# instance which takes data values and translates those into levels.#
-
+# pick the desired colormap
 # cmap = plt.get_cmap("PiYG")
-# norm = BoundaryNorm(levels, ncolors=cmap.N, clip=True)
-
-# fig, (ax0, ax1) = plt.subplots(nrows=2)
 
 fig = plt.figure()
 ax0 = fig.add_subplot()
 
-im = ax0.pcolormesh(x, y, z)  # cmap=cmap)  # , norm=norm)
-fig.colorbar(im, ax=ax0)
-ax0.set_title("Wander over spatial coordinates in rotating frame")
+im = ax0.pcolormesh(x, y, z, label="x")  # cmap=cmap)  # , norm=norm)
+cbar = fig.colorbar(im)
+cbar.ax.set_ylabel("Wander /AU")
 
+ax0.set_title("Wander from starting point in the rotating frame")
+ax0.set_xlabel("Deviation from Lagrange point in x direction /AU")
+ax0.set_ylabel("Deviation from Lagrange point in y direction /AU")
 
-# # contours are *point* based plots, so convert our bound into point
-# # centers
-# cf = ax1.contourf(
-#     x[:-1, :-1] + dx / 2.0, y[:-1, :-1] + dy / 2.0, z, levels=levels, cmap=cmap
-# )
-# fig.colorbar(cf, ax=ax1)
-# ax1.set_title("contourf with levels")
-
-# adjust spacing between subplots so `ax1` title and `ax0` tick labels
-# don't overlap
-# fig.tight_layout()
-plt.savefig("testcolourmesh3.png")
-# plt.ticklabel_format(axis="both", style="", scilimits=None)
+# plt.savefig("testcolourmesh7.png")
 plt.show()
 
+import matplotlib
+from matplotlib.colors import BoundaryNorm
+from matplotlib.ticker import MaxNLocator
+
+fig = plt.figure()
+ax1 = fig.add_subplot()
+
+
+ax0.set_title("Wander from Starting Point in the Rotating Frame")
+ax0.set_xlabel("Deviation from Lagrange point in x direction /AU")
+ax0.set_ylabel("Deviation from Lagrange point in y direction /AU")
+
+levels = MaxNLocator(nbins=15).tick_values(z.min(), z.max())
+
+# pick the desired colormap, sensible levels, and define a normalization
+# instance which takes data values and translates those into levels.#
+
+cmap = plt.get_cmap("PiYG")
+norm = BoundaryNorm(levels, ncolors=cmap.N, clip=True)
+
+# contours are *point* based plots, so convert our bound into point
+# centers
+cf = ax1.contourf(
+    x[:-1, :-1] + dx / 2.0, y[:-1, :-1] + dy / 2.0, z, levels=levels, cmap=cmap
+)
+
+cbar = fig.colorbar(cf, ax=ax1)
+cbar.ax.set_ylabel("Wander /AU")
+ax1.set_title("Wander from Starting Point in the Rotating Frame")
+ax1.set_xlabel("Deviation from Lagrange point in x direction /AU")
+ax1.set_ylabel("Deviation from Lagrange point in y direction /AU")
+# plt.savefig("testcolourmesh7b.png")
+plt.show()
 
 # STATIONARY FRAME
 # for i in range(2):
