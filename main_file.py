@@ -101,3 +101,20 @@ plt.ylabel("Separation / AU")
 plt.xlabel("Time / years")
 # plt.savefig("longseparation.png")
 plt.show()
+
+plt.plot(
+    time_span,
+    np.linalg.norm(
+        [
+            (orbit_sol2.y[0, :] - orbits.lagrange_pos(time_span)[0]),
+            (orbit_sol2.y[1, :] - orbits.lagrange_pos(time_span)[1]),
+        ],
+        axis=0,
+    ),
+)
+
+plt.title("Deviation of Greeks from Lagrnage Point")
+plt.ylabel("Separation / AU")
+plt.xlabel("Time / years")
+plt.savefig("asteroid_deviation_stat.png")
+plt.show()

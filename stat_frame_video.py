@@ -7,7 +7,7 @@ import orbits
 from constants import M_P, M_S, ORBIT_NUM, PRECISION, G, R  # User defined constants
 from constants import lagrange, omega, time_span  # Derived constants
 
-SAMPLE = int(1)  # Sample every n points
+SAMPLE = int(100)  # Sample every n points
 
 # Set up orbits for each body
 orbit_sun = orbits.solar_pos(time_span)
@@ -97,6 +97,6 @@ plt.ylabel("Y distance/ AU")
 writer = animation.FFMpegWriter(
     fps=60, metadata=dict(artist="Kit Gallagher"), bitrate=1800
 )
-anim.save("movie.mp4", writer=writer)
+# anim.save("movie.mp4", writer=writer)
 
 plt.show()

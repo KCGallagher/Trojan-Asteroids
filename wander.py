@@ -110,5 +110,5 @@ plt.plot(
 
 plt.title("Stationary Frame")
 plt.legend()
-plt.savefig("drift5e-1.png")
+# plt.savefig("drift5e-1.png")
 plt.show()
