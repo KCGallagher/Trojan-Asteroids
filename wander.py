@@ -69,15 +69,15 @@ def max_wander(max_pertubation_size=0.01, samples=3):
 
 
 def wander(position, samples=1):
-    """Returns maximum deviation over orbit in the rotating frame for given initial point
+    """Returns maximum wander over orbit in the rotating frame for given initial point
 
-    It returns the maximum wander from the initial point (not the lagrange point) over this timespan
-    pertubation_size determies the relative magnitude of the perturbation as in perturb()
+    Wander is the maximum deviation from the initial point (not the lagrange point) over this timespan
+    position gives the spatial pertubation from the lagrange point
     Samples denotes the number of random pertubations sampled within that point for gives perturbation size
     """
-    init_cond = init_cond_rot
-    init_cond[0] += position[0]
-    init_cond[1] += position[1]
+    init_cond = init_cond_rot + np.array(
+        (position[0], position[1], 0, 0, 0, 0)
+    )  # add pertubation
     orbit = orbits.rotating_frame(init_cond)
     wander_t = np.zeros((len(orbit.t)))
     for i in range(len(orbit.t)):
@@ -120,8 +120,8 @@ from matplotlib.colors import BoundaryNorm
 from matplotlib.ticker import MaxNLocator
 
 
-grid_size = 0.01
-sampling_points = 8
+grid_size = 0.001
+sampling_points = 6
 # make these smaller to increase the resolution
 dx, dy = grid_size / sampling_points, grid_size / sampling_points
 
@@ -130,14 +130,8 @@ y, x = np.mgrid[
     slice(-grid_size, grid_size + dy, dy), slice(-grid_size, grid_size + dx, dx)
 ]
 
-print(wander((x[0, 12], y[0, 12])))
-print(wander((x[0, 16], y[0, 16])))
-print(wander((x[3, 7], y[3, 7])))
-print(wander((x[3, 8], y[3, 8])))
-
 import time
 
-# z = np.sin(x) ** 10 + np.cos(10 + y * x) * np.cos(x)
 z = np.zeros_like(x)
 print(np.shape(z))
 for i, j in np.ndindex(z.shape):
@@ -150,20 +144,20 @@ for i, j in np.ndindex(z.shape):
 # x and y are bounds, so z should be the value *inside* those bounds.
 # Therefore, remove the last value from the z array.
 z = z[:-1, :-1]
-levels = MaxNLocator(nbins=15).tick_values(z.min(), z.max())
-
+# levels = MaxNLocator(nbins=15).tick_values(z.min(), z.max())
 
 # pick the desired colormap, sensible levels, and define a normalization
-# instance which takes data values and translates those into levels.
-cmap = plt.get_cmap("PiYG")
-norm = BoundaryNorm(levels, ncolors=cmap.N, clip=True)
+# instance which takes data values and translates those into levels.#
+
+# cmap = plt.get_cmap("PiYG")
+# norm = BoundaryNorm(levels, ncolors=cmap.N, clip=True)
 
 # fig, (ax0, ax1) = plt.subplots(nrows=2)
 
 fig = plt.figure()
 ax0 = fig.add_subplot()
 
-im = ax0.pcolormesh(x, y, z, cmap=cmap, norm=norm)
+im = ax0.pcolormesh(x, y, z)  # cmap=cmap)  # , norm=norm)
 fig.colorbar(im, ax=ax0)
 ax0.set_title("Wander over spatial coordinates in rotating frame")
 
@@ -178,7 +172,7 @@ ax0.set_title("Wander over spatial coordinates in rotating frame")
 
 # adjust spacing between subplots so `ax1` title and `ax0` tick labels
 # don't overlap
-fig.tight_layout()
+# fig.tight_layout()
 plt.savefig("testcolourmesh3.png")
 # plt.ticklabel_format(axis="both", style="", scilimits=None)
 plt.show()
