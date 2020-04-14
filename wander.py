@@ -12,8 +12,8 @@ from constants import (
 )  # Derived constants
 
 # Initial Conditions
-init_cond_rot = np.array((lagrange[0], lagrange[1], 0, 0, 0, 0))  # in rotating frame
-init_cond_stat = np.array(
+initial_cond_rot = np.array((lagrange[0], lagrange[1], 0, 0, 0, 0))  # in rotating frame
+initial_cond_stat = np.array(
     (lagrange[0], lagrange[1], 0, -omega * lagrange[1], omega * lagrange[0], 0)
 )
 
@@ -21,17 +21,29 @@ greek_theta = np.arctan((R * math.sqrt(3) / 2) / (R / 2 - solar_rad))
 
 
 # Defined Functions
-def perturb(data, max_pertubation_size):
+def perturb(initial_cond, max_pertubation_size=0.01):
     """ Returns perturbed version of initial conditions array
 
-    data is the initial conditions, submitted as a numpy array
+    init_cond is the initial conditions, submitted as a numpy array
     pertubation_size is the relative magnitude of the perturbation, measured as 
     the percentage deivation from the lagrange point (for position)
     Note that this will give a different value each time it is run
     """
-    return data + data * (
-        max_pertubation_size * np.random.uniform(-1, 1, (np.shape(data)))
-    )  # random betweeon -1 and 1
+    # return data + data * (
+    #     max_pertubation_size * np.random.uniform(-1, 1, (np.shape(data)))
+    # )  # random between -1 and 1, perturbs position only for initial_cond_rot
+    # theta = np.random.uniform(0, 2 * math.pi)
+    # return data + data * (
+    #     max_pertubation_size
+    #     * np.random.rand()
+    #     * np.array((math.cos(theta), math.sin(theta), 0, 0, 0, 0))
+    # )  # random betweeon -1 and 1, perturbs position only for initial_cond_rot
+    rand_array = np.random.uniform(-1, 1, (np.shape(initial_cond)))
+    while np.linalg.norm(rand_array[0:2]) > 1:
+        rand_array = np.random.uniform(-1, 1, (np.shape(initial_cond)))
+    return initial_cond + initial_cond * (
+        max_pertubation_size * rand_array
+    )  # random between -1 and 1, selects points in circle of radius 1
 
 
 def max_wander(max_pertubation_size, samples):
@@ -46,24 +58,25 @@ def max_wander(max_pertubation_size, samples):
     """
     output = np.zeros((samples, 3))  # size of pertubation; size of wander
     for n in range(samples):
-        init_cond = perturb(init_cond_rot, max_pertubation_size)
-        orbit = orbits.rotating_frame(init_cond)
+        initial_cond = perturb(initial_cond_rot, max_pertubation_size)
+        orbit = orbits.rotating_frame(initial_cond)
         sample_wander = np.zeros((len(orbit.t)))
 
         perturb_theta = np.arctan(
-            (init_cond[1] - init_cond_rot[1]) / (init_cond[0] - init_cond_rot[0])
+            (initial_cond[1] - initial_cond_rot[1])
+            / (initial_cond[0] - initial_cond_rot[0])
         )
 
         for i in range(len(sample_wander)):
             sample_wander[i] = np.linalg.norm(
                 orbit.y[0:3, i]
-                - init_cond[0:3]
+                - initial_cond[0:3]
                 # - lagrange[0:3]
             )  # deviation in pos only
-        output[n, 0] = np.linalg.norm((init_cond[0:3] - lagrange[0:3])) * np.abs(
+        output[n, 0] = np.linalg.norm((initial_cond[0:3] - lagrange[0:3])) * np.abs(
             np.cos(greek_theta - perturb_theta)
         )  # radial component of pertubation
-        output[n, 1] = np.linalg.norm((init_cond[0:3] - lagrange[0:3])) * np.abs(
+        output[n, 1] = np.linalg.norm((initial_cond[0:3] - lagrange[0:3])) * np.abs(
             np.sin(greek_theta - perturb_theta)
         )  # tangential component of pertubation
         output[n, 2] = np.max(sample_wander)  # size of wander
@@ -78,26 +91,26 @@ def wander(pertubation, samples=1, pertubation_type="position"):
     Samples denotes the number of random pertubations sampled within that point for gives perturbation size
     """
     if pertubation_type == "position":
-        init_cond = init_cond_rot + np.array(
+        initial_cond = initial_cond_rot + np.array(
             (pertubation[0], pertubation[1], 0, 0, 0, 0)
         )  # add pertubation
     else:
-        init_cond = init_cond_rot + np.array(
+        initial_cond = initial_cond_rot + np.array(
             (0, 0, 0, pertubation[0], pertubation[1], 0)
         )  # add pertubation
 
-    orbit = orbits.rotating_frame(init_cond)
+    orbit = orbits.rotating_frame(initial_cond)
     wander_t = np.zeros((len(orbit.t)))
     for i in range(len(orbit.t)):
         wander_t[i] = np.linalg.norm(
             orbit.y[0:3, i]
-            - init_cond[0:3]
+            - initial_cond[0:3]
             # - lagrange[0:3]
         )  # deviation in pos only
     return np.max(wander_t)
 
 
-wander_data = max_wander(max_pertubation_size=0.001, samples=40)
+wander_data = max_wander(max_pertubation_size=0.001, samples=200)
 
 fig = plt.figure()
 ax = fig.add_subplot()
@@ -112,7 +125,7 @@ plt.plot(
     linewidth=0.75,
 )
 plt.plot(
-    wander_data[:, 0], wander_data[:, 2], linestyle="None", marker="x", color="navy"
+    wander_data[:, 0], wander_data[:, 2], linestyle="None", marker="+", color="navy"
 )
 
 plt.title("Wander against Pertubation size")
@@ -154,7 +167,7 @@ plt.show()
 
 
 # for i in range(3):
-#     plt.plot(perturb(init_cond_rot)[0], perturb(init_cond_rot)[1], marker="o")
+#     plt.plot(perturb(initial_cond_rot)[0], perturb(initial_cond_rot)[1], marker="o")
 # plt.show()
 
 # then run and compare max wander (with different definitions??)
@@ -239,15 +252,15 @@ plt.show()
 # STATIONARY FRAME
 
 # for i in range(2):
-#     orbit_sol2 = orbits.stationary_frame(perturb(init_cond_stat, 0.3))
+#     orbit_sol2 = orbits.stationary_frame(perturb(initial_cond_stat, 0.3))
 #     plt.plot(
 #         orbit_sol2.y[0, :], orbit_sol2.y[1, :], linewidth=1, linestyle="dotted",
 #     )
 
 # plt.plot(0, 0, label="CoM", color="black", marker="x", linestyle="None")
 # plt.plot(
-#     init_cond_stat[0],
-#     init_cond_stat[1],
+#     initial_cond_stat[0],
+#     initial_cond_stat[1],
 #     label="Lagrange Point",
 #     color="black",
 #     marker="+",
