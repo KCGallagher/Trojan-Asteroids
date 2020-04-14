@@ -68,16 +68,22 @@ def max_wander(max_pertubation_size=0.01, samples=3):
     return wander
 
 
-def wander(position, samples=1):
+def wander(pertubation, samples=1, pertubation_type="position"):
     """Returns maximum wander over orbit in the rotating frame for given initial point
 
     Wander is the maximum deviation from the initial point (not the lagrange point) over this timespan
     position gives the spatial pertubation from the lagrange point
     Samples denotes the number of random pertubations sampled within that point for gives perturbation size
     """
-    init_cond = init_cond_rot + np.array(
-        (position[0], position[1], 0, 0, 0, 0)
-    )  # add pertubation
+    if pertubation_type == "position":
+        init_cond = init_cond_rot + np.array(
+            (pertubation[0], pertubation[1], 0, 0, 0, 0)
+        )  # add pertubation
+    else:
+        init_cond = init_cond_rot + np.array(
+            (0, 0, 0, pertubation[0], pertubation[1], 0)
+        )  # add pertubation
+
     orbit = orbits.rotating_frame(init_cond)
     wander_t = np.zeros((len(orbit.t)))
     for i in range(len(orbit.t)):
@@ -121,7 +127,7 @@ def wander(position, samples=1):
 
 
 grid_size = 0.04
-sampling_points = 1
+sampling_points = 30
 # make these smaller to increase the resolution
 dx, dy = grid_size / sampling_points, grid_size / sampling_points
 
@@ -133,10 +139,9 @@ y, x = np.mgrid[
 import time
 
 z = np.zeros_like(x)
-print(np.shape(z))
 for i, j in np.ndindex(z.shape):
     start = time.time()
-    z[i, j] = wander((x[i, j], y[i, j]))
+    z[i, j] = wander((x[i, j], y[i, j]), pertubation_type="velocity")
     end = time.time()
     print(str((i, j)) + " in time " + str(end - start) + " s")
 
@@ -156,10 +161,10 @@ cbar = fig.colorbar(im)
 cbar.ax.set_ylabel("Wander /AU")
 
 ax0.set_title("Wander from starting point in the rotating frame")
-ax0.set_xlabel("Deviation from Lagrange point in x direction /AU")
-ax0.set_ylabel("Deviation from Lagrange point in y direction /AU")
+ax0.set_xlabel("Deviation from Lagrange velocity in x direction (AU/year)")
+ax0.set_ylabel("Deviation from Lagrange velocity in y direction (AU/year)")
 
-# plt.savefig("testcolourmesh7.png")
+plt.savefig("testvelocitymesh.png")
 plt.show()
 
 import matplotlib
@@ -168,11 +173,6 @@ from matplotlib.ticker import MaxNLocator
 
 fig = plt.figure()
 ax1 = fig.add_subplot()
-
-
-ax0.set_title("Wander from Starting Point in the Rotating Frame")
-ax0.set_xlabel("Deviation from Lagrange point in x direction /AU")
-ax0.set_ylabel("Deviation from Lagrange point in y direction /AU")
 
 levels = MaxNLocator(nbins=15).tick_values(z.min(), z.max())
 
@@ -191,9 +191,9 @@ cf = ax1.contourf(
 cbar = fig.colorbar(cf, ax=ax1)
 cbar.ax.set_ylabel("Wander /AU")
 ax1.set_title("Wander from Starting Point in the Rotating Frame")
-ax1.set_xlabel("Deviation from Lagrange point in x direction /AU")
-ax1.set_ylabel("Deviation from Lagrange point in y direction /AU")
-# plt.savefig("testcolourmesh7b.png")
+ax1.set_xlabel("Deviation from Lagrange velocity in x direction (AU/year)")
+ax1.set_ylabel("Deviation from Lagrange velocity in y direction (AU/year)")
+plt.savefig("testvelocitymeshb.png")
 plt.show()
 
 # STATIONARY FRAME
