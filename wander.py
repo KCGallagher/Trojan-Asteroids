@@ -18,8 +18,7 @@ init_cond_stat = np.array(
 )
 
 greek_theta = np.arctan((R * math.sqrt(3) / 2) / (R / 2 - solar_rad))
-print(greek_theta)
-cos, sin = np.cos(greek_theta), np.sin(greek_theta)
+
 
 # Defined Functions
 def perturb(data, max_pertubation_size):
@@ -39,7 +38,7 @@ def max_wander(max_pertubation_size, samples):
     """Returns maximum deviation over orbit in the rotating frame for given number of samples
 
     This calculates the distange from the initial point (not the lagrange point)
-    It returns a samples*3 array, giving the x and y components
+    It returns a samples*3 array, giving the radial and tangential components
     of the pertubation, and then the maximum wander over this timespan
 
     pertubation_size determies the relative magnitude of the perturbation as in perturb()
@@ -54,25 +53,18 @@ def max_wander(max_pertubation_size, samples):
         perturb_theta = np.arctan(
             (init_cond[1] - init_cond_rot[1]) / (init_cond[0] - init_cond_rot[0])
         )
-        sign = np.sign(init_cond[1] - init_cond_rot[1]) * np.sign(
-            init_cond[0] - init_cond_rot[0]
-        )
+
         for i in range(len(sample_wander)):
             sample_wander[i] = np.linalg.norm(
                 orbit.y[0:3, i]
                 - init_cond[0:3]
                 # - lagrange[0:3]
             )  # deviation in pos only
-        output[n, 0] = (
-            np.linalg.norm((init_cond[0:3] - lagrange[0:3]))
-            * np.abs(np.cos(greek_theta - perturb_theta))
-            # * sign
+        output[n, 0] = np.linalg.norm((init_cond[0:3] - lagrange[0:3])) * np.abs(
+            np.cos(greek_theta - perturb_theta)
         )  # radial component of pertubation
-        print(np.cos(greek_theta - perturb_theta))
-        output[n, 1] = (
-            np.linalg.norm((init_cond[0:3] - lagrange[0:3]))
-            * np.abs(np.sin(greek_theta - perturb_theta))
-            # * sign
+        output[n, 1] = np.linalg.norm((init_cond[0:3] - lagrange[0:3])) * np.abs(
+            np.sin(greek_theta - perturb_theta)
         )  # tangential component of pertubation
         output[n, 2] = np.max(sample_wander)  # size of wander
     return output
@@ -105,24 +97,58 @@ def wander(pertubation, samples=1, pertubation_type="position"):
     return np.max(wander_t)
 
 
-wander_data = max_wander(max_pertubation_size=0.001, samples=10)
-plt.plot(wander_data[:, 0], wander_data[:, 2], linestyle="None", marker="x")
+wander_data = max_wander(max_pertubation_size=0.001, samples=40)
+
+fig = plt.figure()
+ax = fig.add_subplot()
+
+coeff = np.polyfit(wander_data[:, 0], wander_data[:, 2], 1)
 plt.plot(
-    wander_data[:, 0],
-    np.poly1d(np.polyfit(wander_data[:, 0], wander_data[:, 2], 1))(wander_data[:, 0]),
-    linewidth=0.5,
+    [wander_data[:, 0].min(), wander_data[:, 0].max()],
+    [
+        wander_data[:, 0].min() * coeff[0] + coeff[1],
+        wander_data[:, 0].max() * coeff[0] + coeff[1],
+    ],
+    linewidth=0.75,
 )
-plt.plot(wander_data[:, 0], wander_data[:, 2], linestyle="None", marker="x")
+plt.plot(
+    wander_data[:, 0], wander_data[:, 2], linestyle="None", marker="x", color="navy"
+)
+
 plt.title("Wander against Pertubation size")
 plt.ylabel("Wander /AU")
 plt.xlabel("Radial Pertubation Size /AU")
+plt.text(
+    0.02,
+    0.95,
+    "Best fit coefficient: " + str("{0:.2f}".format(coeff[0])),
+    transform=ax.transAxes,
+    fontsize=9.5,
+)
+plt.text(
+    0.02,
+    0.9,
+    "Pearson correlation coefficient: "
+    + str("{0:.6f}".format(np.corrcoef(wander_data[:, 0], wander_data[:, 2])[0, 1])),
+    transform=ax.transAxes,
+    fontsize=9.5,
+)
 plt.savefig("wanderagainstradialpertubation.png")
 plt.show()
+
 
 plt.plot(wander_data[:, 1], wander_data[:, 2], linestyle="None", marker="x")
 plt.title("Wander against Pertubation size")
 plt.ylabel("Wander /AU")
 plt.xlabel("Tangential Pertubation Size /AU")
+# plt.text(
+#     0.02,
+#     0.95,
+#     "Pearson correlation coefficient: "
+#     + str("{0:.6f}".format(np.corrcoef(wander_data[:, 1], wander_data[:, 2])[0, 1])),
+#     transform=ax.transAxes,
+#     fontsize=9.5,
+# )
 plt.savefig("wanderagainsttangentialpertubation.png")
 plt.show()
 
