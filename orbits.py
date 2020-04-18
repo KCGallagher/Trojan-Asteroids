@@ -101,7 +101,7 @@ def rotating_frame(y0_rot=(rcos, rsin, 0, 0, 0, 0)):
 
     return integrate.solve_ivp(
         fun=rot_derivatives,
-        method="LSODA",  # Or LSODA for non-stiff alternative
+        method="Radau",  # Or LSODA for non-stiff alternative
         t_span=(0, ORBIT_NUM * period),
         y0=y0_rot,
         t_eval=time_span,  # selects points for storage

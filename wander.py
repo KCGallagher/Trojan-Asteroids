@@ -115,7 +115,7 @@ wander_data = max_wander(max_pertubation_size=0.001, samples=20)
 fig = plt.figure()
 ax = fig.add_subplot()
 
-coeff = np.polyfit(wander_data[:, 0], wander_data[:, 2], 1)
+coeff = np.polyfit(wander_data[:, 0], wander_data[:, 2], 1)  # for line of best fit
 plt.plot(
     [wander_data[:, 0].min(), wander_data[:, 0].max()],
     [
