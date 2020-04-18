@@ -110,7 +110,7 @@ def wander(pertubation, samples=1, pertubation_type="position"):
     return np.max(wander_t)
 
 
-wander_data = max_wander(max_pertubation_size=0.001, samples=200)
+wander_data = max_wander(max_pertubation_size=0.001, samples=20)
 
 fig = plt.figure()
 ax = fig.add_subplot()

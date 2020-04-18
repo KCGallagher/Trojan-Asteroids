@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7300 64-bit) (preloaded format=pdflatex 2020.2.13)  8 APR 2020 14:23
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7300 64-bit) (preloaded format=pdflatex 2020.2.13)  18 APR 2020 11:18
 entering extended mode
 **./draft1.tex
 (draft1.tex
@@ -1098,29 +1098,353 @@ fg"
 File: csquotes.cfg 
 )
 Package csquotes Info: Enabling multilingual quotes.
+) ("C:\Users\KitG\AppData\Local\Programs\MiKTeX 2.9\tex/latex/tools\bm.sty"
+Package: bm 2019/07/24 v1.2d Bold Symbol Support (DPC/FMi)
+\symboldoperators=\mathgroup6
+\symboldletters=\mathgroup7
+\symboldsymbols=\mathgroup8
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 141.
+LaTeX Info: Redefining \bm on input line 209.
+)
+("C:\Users\KitG\AppData\Local\Programs\MiKTeX 2.9\tex/latex/pgf/frontendlayer\t
+ikz.sty"
+("C:\Users\KitG\AppData\Local\Programs\MiKTeX 2.9\tex/latex/pgf/basiclayer\pgf.
+sty"
+("C:\Users\KitG\AppData\Local\Programs\MiKTeX 2.9\tex/latex/pgf/utilities\pgfrc
+s.sty"
+("C:\Users\KitG\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/utilities\pgf
+util-common.tex"
+\pgfutil@everybye=\toks37
+\pgfutil@tempdima=\dimen196
+\pgfutil@tempdimb=\dimen197
+
+("C:\Users\KitG\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/utilities\pgf
+util-common-lists.tex"))
+("C:\Users\KitG\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/utilities\pgf
+util-latex.def"
+\pgfutil@abb=\box50
+
+("C:\Users\KitG\AppData\Local\Programs\MiKTeX 2.9\tex/latex/ms\everyshi.sty"
+Package: everyshi 2001/05/15 v3.00 EveryShipout Package (MS)
+))
+("C:\Users\KitG\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/utilities\pgf
+rcs.code.tex"
+("C:\Users\KitG\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf\pgf.revision.
+tex")
+Package: pgfrcs 2020/01/08 v3.1.5b (3.1.5b)
+))
+Package: pgf 2020/01/08 v3.1.5b (3.1.5b)
+
+("C:\Users\KitG\AppData\Local\Programs\MiKTeX 2.9\tex/latex/pgf/basiclayer\pgfc
+ore.sty"
+("C:\Users\KitG\AppData\Local\Programs\MiKTeX 2.9\tex/latex/pgf/systemlayer\pgf
+sys.sty"
+("C:\Users\KitG\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/systemlayer\p
+gfsys.code.tex"
+Package: pgfsys 2020/01/08 v3.1.5b (3.1.5b)
+
+("C:\Users\KitG\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/utilities\pgf
+keys.code.tex"
+\pgfkeys@pathtoks=\toks38
+\pgfkeys@temptoks=\toks39
+
+("C:\Users\KitG\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/utilities\pgf
+keysfiltered.code.tex"
+\pgfkeys@tmptoks=\toks40
+))
+\pgf@x=\dimen198
+\pgf@y=\dimen199
+\pgf@xa=\dimen256
+\pgf@ya=\dimen257
+\pgf@xb=\dimen258
+\pgf@yb=\dimen259
+\pgf@xc=\dimen260
+\pgf@yc=\dimen261
+\pgf@xd=\dimen262
+\pgf@yd=\dimen263
+\w@pgf@writea=\write4
+\r@pgf@reada=\read5
+\c@pgf@counta=\count411
+\c@pgf@countb=\count412
+\c@pgf@countc=\count413
+\c@pgf@countd=\count414
+\t@pgf@toka=\toks41
+\t@pgf@tokb=\toks42
+\t@pgf@tokc=\toks43
+\pgf@sys@id@count=\count415
+
+("C:\Users\KitG\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/systemlayer\p
+gf.cfg"
+File: pgf.cfg 2020/01/08 v3.1.5b (3.1.5b)
+)
+Driver file for pgf: pgfsys-pdftex.def
+
+("C:\Users\KitG\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/systemlayer\p
+gfsys-pdftex.def"
+File: pgfsys-pdftex.def 2020/01/08 v3.1.5b (3.1.5b)
+
+("C:\Users\KitG\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/systemlayer\p
+gfsys-common-pdf.def"
+File: pgfsys-common-pdf.def 2020/01/08 v3.1.5b (3.1.5b)
+)))
+("C:\Users\KitG\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/systemlayer\p
+gfsyssoftpath.code.tex"
+File: pgfsyssoftpath.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+\pgfsyssoftpath@smallbuffer@items=\count416
+\pgfsyssoftpath@bigbuffer@items=\count417
+)
+("C:\Users\KitG\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/systemlayer\p
+gfsysprotocol.code.tex"
+File: pgfsysprotocol.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+))
+("C:\Users\KitG\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/basiclayer\pg
+fcore.code.tex"
+Package: pgfcore 2020/01/08 v3.1.5b (3.1.5b)
+
+("C:\Users\KitG\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/math\pgfmath.
+code.tex"
+("C:\Users\KitG\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/math\pgfmathc
+alc.code.tex"
+("C:\Users\KitG\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/math\pgfmathu
+til.code.tex")
+("C:\Users\KitG\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/math\pgfmathp
+arser.code.tex"
+\pgfmath@dimen=\dimen264
+\pgfmath@count=\count418
+\pgfmath@box=\box51
+\pgfmath@toks=\toks44
+\pgfmath@stack@operand=\toks45
+\pgfmath@stack@operation=\toks46
+)
+("C:\Users\KitG\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/math\pgfmathf
+unctions.code.tex"
+("C:\Users\KitG\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/math\pgfmathf
+unctions.basic.code.tex")
+("C:\Users\KitG\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/math\pgfmathf
+unctions.trigonometric.code.tex")
+("C:\Users\KitG\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/math\pgfmathf
+unctions.random.code.tex")
+("C:\Users\KitG\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/math\pgfmathf
+unctions.comparison.code.tex")
+("C:\Users\KitG\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/math\pgfmathf
+unctions.base.code.tex")
+("C:\Users\KitG\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/math\pgfmathf
+unctions.round.code.tex")
+("C:\Users\KitG\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/math\pgfmathf
+unctions.misc.code.tex")
+("C:\Users\KitG\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/math\pgfmathf
+unctions.integerarithmetics.code.tex")))
+("C:\Users\KitG\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/math\pgfmathf
+loat.code.tex"
+\c@pgfmathroundto@lastzeros=\count419
+))
+("C:\Users\KitG\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/math\pgfint.c
+ode.tex")
+("C:\Users\KitG\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/basiclayer\pg
+fcorepoints.code.tex"
+File: pgfcorepoints.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+\pgf@picminx=\dimen265
+\pgf@picmaxx=\dimen266
+\pgf@picminy=\dimen267
+\pgf@picmaxy=\dimen268
+\pgf@pathminx=\dimen269
+\pgf@pathmaxx=\dimen270
+\pgf@pathminy=\dimen271
+\pgf@pathmaxy=\dimen272
+\pgf@xx=\dimen273
+\pgf@xy=\dimen274
+\pgf@yx=\dimen275
+\pgf@yy=\dimen276
+\pgf@zx=\dimen277
+\pgf@zy=\dimen278
+)
+("C:\Users\KitG\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/basiclayer\pg
+fcorepathconstruct.code.tex"
+File: pgfcorepathconstruct.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+\pgf@path@lastx=\dimen279
+\pgf@path@lasty=\dimen280
+)
+("C:\Users\KitG\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/basiclayer\pg
+fcorepathusage.code.tex"
+File: pgfcorepathusage.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+\pgf@shorten@end@additional=\dimen281
+\pgf@shorten@start@additional=\dimen282
+)
+("C:\Users\KitG\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/basiclayer\pg
+fcorescopes.code.tex"
+File: pgfcorescopes.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+\pgfpic=\box52
+\pgf@hbox=\box53
+\pgf@layerbox@main=\box54
+\pgf@picture@serial@count=\count420
+)
+("C:\Users\KitG\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/basiclayer\pg
+fcoregraphicstate.code.tex"
+File: pgfcoregraphicstate.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+\pgflinewidth=\dimen283
+)
+("C:\Users\KitG\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/basiclayer\pg
+fcoretransformations.code.tex"
+File: pgfcoretransformations.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+\pgf@pt@x=\dimen284
+\pgf@pt@y=\dimen285
+\pgf@pt@temp=\dimen286
+)
+("C:\Users\KitG\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/basiclayer\pg
+fcorequick.code.tex"
+File: pgfcorequick.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+)
+("C:\Users\KitG\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/basiclayer\pg
+fcoreobjects.code.tex"
+File: pgfcoreobjects.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+)
+("C:\Users\KitG\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/basiclayer\pg
+fcorepathprocessing.code.tex"
+File: pgfcorepathprocessing.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+)
+("C:\Users\KitG\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/basiclayer\pg
+fcorearrows.code.tex"
+File: pgfcorearrows.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+\pgfarrowsep=\dimen287
+)
+("C:\Users\KitG\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/basiclayer\pg
+fcoreshade.code.tex"
+File: pgfcoreshade.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+\pgf@max=\dimen288
+\pgf@sys@shading@range@num=\count421
+\pgf@shadingcount=\count422
+)
+("C:\Users\KitG\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/basiclayer\pg
+fcoreimage.code.tex"
+File: pgfcoreimage.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+
+("C:\Users\KitG\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/basiclayer\pg
+fcoreexternal.code.tex"
+File: pgfcoreexternal.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+\pgfexternal@startupbox=\box55
+))
+("C:\Users\KitG\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/basiclayer\pg
+fcorelayers.code.tex"
+File: pgfcorelayers.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+)
+("C:\Users\KitG\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/basiclayer\pg
+fcoretransparency.code.tex"
+File: pgfcoretransparency.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+)
+("C:\Users\KitG\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/basiclayer\pg
+fcorepatterns.code.tex"
+File: pgfcorepatterns.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+)
+("C:\Users\KitG\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/basiclayer\pg
+fcorerdf.code.tex"
+File: pgfcorerdf.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+)))
+("C:\Users\KitG\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/modules\pgfmo
+duleshapes.code.tex"
+File: pgfmoduleshapes.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+\pgfnodeparttextbox=\box56
+)
+("C:\Users\KitG\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/modules\pgfmo
+duleplot.code.tex"
+File: pgfmoduleplot.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+)
+("C:\Users\KitG\AppData\Local\Programs\MiKTeX 2.9\tex/latex/pgf/compatibility\p
+gfcomp-version-0-65.sty"
+Package: pgfcomp-version-0-65 2020/01/08 v3.1.5b (3.1.5b)
+\pgf@nodesepstart=\dimen289
+\pgf@nodesepend=\dimen290
+)
+("C:\Users\KitG\AppData\Local\Programs\MiKTeX 2.9\tex/latex/pgf/compatibility\p
+gfcomp-version-1-18.sty"
+Package: pgfcomp-version-1-18 2020/01/08 v3.1.5b (3.1.5b)
+))
+("C:\Users\KitG\AppData\Local\Programs\MiKTeX 2.9\tex/latex/pgf/utilities\pgffo
+r.sty"
+("C:\Users\KitG\AppData\Local\Programs\MiKTeX 2.9\tex/latex/pgf/utilities\pgfke
+ys.sty"
+("C:\Users\KitG\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/utilities\pgf
+keys.code.tex"))
+("C:\Users\KitG\AppData\Local\Programs\MiKTeX 2.9\tex/latex/pgf/math\pgfmath.st
+y"
+("C:\Users\KitG\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/math\pgfmath.
+code.tex"))
+("C:\Users\KitG\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/utilities\pgf
+for.code.tex"
+Package: pgffor 2020/01/08 v3.1.5b (3.1.5b)
+
+("C:\Users\KitG\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/math\pgfmath.
+code.tex")
+\pgffor@iter=\dimen291
+\pgffor@skip=\dimen292
+\pgffor@stack=\toks47
+\pgffor@toks=\toks48
+))
+("C:\Users\KitG\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/frontendlayer
+/tikz\tikz.code.tex"
+Package: tikz 2020/01/08 v3.1.5b (3.1.5b)
+
+("C:\Users\KitG\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/libraries\pgf
+libraryplothandlers.code.tex"
+File: pgflibraryplothandlers.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+\pgf@plot@mark@count=\count423
+\pgfplotmarksize=\dimen293
+)
+\tikz@lastx=\dimen294
+\tikz@lasty=\dimen295
+\tikz@lastxsaved=\dimen296
+\tikz@lastysaved=\dimen297
+\tikz@lastmovetox=\dimen298
+\tikz@lastmovetoy=\dimen299
+\tikzleveldistance=\dimen300
+\tikzsiblingdistance=\dimen301
+\tikz@figbox=\box57
+\tikz@figbox@bg=\box58
+\tikz@tempbox=\box59
+\tikz@tempbox@bg=\box60
+\tikztreelevel=\count424
+\tikznumberofchildren=\count425
+\tikznumberofcurrentchild=\count426
+\tikz@fig@count=\count427
+
+("C:\Users\KitG\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/modules\pgfmo
+dulematrix.code.tex"
+File: pgfmodulematrix.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+\pgfmatrixcurrentrow=\count428
+\pgfmatrixcurrentcolumn=\count429
+\pgf@matrix@numberofcolumns=\count430
+)
+\tikz@expandcount=\count431
+
+("C:\Users\KitG\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/frontendlayer
+/tikz/libraries\tikzlibrarytopaths.code.tex"
+File: tikzlibrarytopaths.code.tex 2020/01/08 v3.1.5b (3.1.5b)
+)))
+("C:\Users\KitG\AppData\Local\Programs\MiKTeX 2.9\tex/generic/pgf/frontendlayer
+/tikz/libraries\tikzlibrarycalc.code.tex"
+File: tikzlibrarycalc.code.tex 2020/01/08 v3.1.5b (3.1.5b)
 )
 ("C:\Users\KitG\AppData\Local\Programs\MiKTeX 2.9\tex/latex/tools\tabularx.sty"
 Package: tabularx 2020/01/15 v2.11c `tabularx' package (DPC)
 ("C:\Users\KitG\AppData\Local\Programs\MiKTeX 2.9\tex/latex/tools\array.sty"
 Package: array 2019/08/31 v2.4l Tabular extension package (FMi)
-\col@sep=\dimen196
-\ar@mcellbox=\box50
-\extrarowheight=\dimen197
-\NC@list=\toks37
+\col@sep=\dimen302
+\ar@mcellbox=\box61
+\extrarowheight=\dimen303
+\NC@list=\toks49
 \extratabsurround=\skip91
 \backup@length=\skip92
-\ar@cellbox=\box51
+\ar@cellbox=\box62
 )
-\TX@col@width=\dimen198
-\TX@old@table=\dimen199
-\TX@old@col=\dimen256
-\TX@target=\dimen257
-\TX@delta=\dimen258
-\TX@cols=\count411
-\TX@ftn=\toks38
+\TX@col@width=\dimen304
+\TX@old@table=\dimen305
+\TX@old@col=\dimen306
+\TX@target=\dimen307
+\TX@delta=\dimen308
+\TX@cols=\count432
+\TX@ftn=\toks50
 )
 LaTeX Font Info:    Trying to load font information for T1+XCharter-TLF on inpu
-t line 29.
+t line 33.
 
 ("C:\Users\KitG\AppData\Local\Programs\MiKTeX 2.9\tex/latex/xcharter\t1xcharter
 -tlf.fd"
@@ -1128,55 +1452,55 @@ File: T1XCharter-TLF.fd 2017/06/25 (autoinst) Font definitions for T1/XCharter-
 TLF.
 )
 LaTeX Font Info:    Font shape `T1/XCharter-TLF/m/n' will be
-(Font)              scaled to size 10.95pt on input line 29.
+(Font)              scaled to size 10.95pt on input line 33.
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
 
 ("C:\Users\KitG\AppData\Local\Programs\MiKTeX 2.9\tex/latex/l3backend\l3backend
 -pdfmode.def"
 File: l3backend-pdfmode.def 2020-02-03 L3 backend support: PDF mode
-\l__kernel_color_stack_int=\count412
-\l__pdf_internal_box=\box52
+\l__kernel_color_stack_int=\count433
+\l__pdf_internal_box=\box63
 ) (draft1.aux)
 \openout1 = `draft1.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for T2A/cmr/m/n on input line 29.
-LaTeX Font Info:    Trying to load font information for T2A+cmr on input line 2
-9.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for T2A/cmr/m/n on input line 33.
+LaTeX Font Info:    Trying to load font information for T2A+cmr on input line 3
+3.
 
 ("C:\Users\KitG\AppData\Local\Programs\MiKTeX 2.9\tex/latex/cyrillic\t2acmr.fd"
 File: t2acmr.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
 )
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for LY1/ptm/m/n on input line 29.
-LaTeX Font Info:    Trying to load font information for LY1+ptm on input line 2
-9.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for LY1/ptm/m/n on input line 33.
+LaTeX Font Info:    Trying to load font information for LY1+ptm on input line 3
+3.
  ("C:\Users\KitG\AppData\Local\Programs\MiKTeX 2.9\tex/latex/ly1\ly1ptm.fd"
 File: ly1ptm.fd 2001/02/01 font definitions for LY1/ptm using Berry names.
 )
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Info: Redefining \microtypecontext on input line 29.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Info: Redefining \microtypecontext on input line 33.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `basictext'.
-LaTeX Info: Redefining \showhyphens on input line 29.
+LaTeX Info: Redefining \showhyphens on input line 33.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
@@ -1189,17 +1513,17 @@ File: mt-bch.cfg 2007/03/03 v1.5 microtype config. file: Bitstream Charter (RS)
 ("C:\Users\KitG\AppData\Local\Programs\MiKTeX 2.9\tex/context/base/mkii\supp-pd
 f.mkii"
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count413
-\scratchdimen=\dimen259
-\scratchbox=\box53
-\nofMPsegments=\count414
-\nofMParguments=\count415
-\everyMPshowfont=\toks39
-\MPscratchCnt=\count416
-\MPscratchDim=\dimen260
-\MPnumerator=\count417
-\makeMPintoPDFobject=\count418
-\everyMPtoPDFconversion=\toks40
+\scratchcounter=\count434
+\scratchdimen=\dimen309
+\scratchbox=\box64
+\nofMPsegments=\count435
+\nofMParguments=\count436
+\everyMPshowfont=\toks51
+\MPscratchCnt=\count437
+\MPscratchDim=\dimen310
+\MPnumerator=\count438
+\makeMPintoPDFobject=\count439
+\everyMPtoPDFconversion=\toks52
 )
 ("C:\Users\KitG\AppData\Local\Programs\MiKTeX 2.9\tex/latex/epstopdf-pkg\epstop
 df-base.sty"
@@ -1211,7 +1535,7 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
 Package lastpage Info: Please have a look at the pageslts package at
 (lastpage)             https://www.ctan.org/pkg/pageslts
-(lastpage)             ! on input line 29.
+(lastpage)             ! on input line 33.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1247,8 +1571,8 @@ Package lastpage Info: Please have a look at the pageslts package at
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-\c@mv@tabular=\count419
-\c@mv@boldtabular=\count420
+\c@mv@tabular=\count440
+\c@mv@boldtabular=\count441
 Package biblatex Info: Trying to load language 'english'...
 Package biblatex Info: ... file 'english.lbx' found.
 
@@ -1269,7 +1593,7 @@ g"
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
 (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msa on input line 45.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 48.
 
  ("C:\Users\KitG\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
@@ -1278,7 +1602,7 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 g"
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 45.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 48.
 
  ("C:\Users\KitG\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -1288,12 +1612,13 @@ g"
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
 LaTeX Font Info:    Font shape `T1/XCharter-TLF/m/n' will be
-(Font)              scaled to size 8.0pt on input line 45.
+(Font)              scaled to size 8.0pt on input line 48.
 )
-Package biblatex Info: Reference section=0 on input line 29.
-Package biblatex Info: Reference segment=0 on input line 29.
+Package biblatex Info: Reference section=0 on input line 33.
+Package biblatex Info: Reference segment=0 on input line 33.
+ ABD: EveryShipout initializing macros
 LaTeX Font Info:    Trying to load font information for OT1+phv on input line 3
-1.
+5.
 
 ("C:\Users\KitG\AppData\Local\Programs\MiKTeX 2.9\tex/latex/psnfss\ot1phv.fd"
 File: ot1phv.fd 2001/06/04 scalable font definitions for OT1/phv.
@@ -1303,28 +1628,30 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Font shape `T1/XCharter-TLF/m/n' will be
-(Font)              scaled to size 12.0pt on input line 31.
+(Font)              scaled to size 12.0pt on input line 35.
 LaTeX Font Info:    Font shape `T1/XCharter-TLF/m/n' will be
-(Font)              scaled to size 9.0pt on input line 31.
+(Font)              scaled to size 9.0pt on input line 35.
 LaTeX Font Info:    Font shape `T1/XCharter-TLF/m/sc' will be
-(Font)              scaled to size 10.95pt on input line 37.
+(Font)              scaled to size 10.95pt on input line 41.
 LaTeX Font Info:    Font shape `T1/XCharter-TLF/m/n' will be
-(Font)              scaled to size 32.60931pt on input line 37.
+(Font)              scaled to size 32.60931pt on input line 41.
 LaTeX Font Info:    Font shape `T1/XCharter-TLF/m/n' will be
-(Font)              scaled to size 47.95464pt on input line 37.
+(Font)              scaled to size 47.95464pt on input line 41.
 Package lettrine.sty Info: Targeted height = 32.60931pt
 (lettrine.sty)             (no accent, loversize=0),
 (lettrine.sty)             Lettrine height = 32.60916pt (\color {NavyBlue}{T});
 
-(lettrine.sty)             reported on input line 37.
+(lettrine.sty)             reported on input line 41.
 LaTeX Font Info:    Font shape `T1/XCharter-TLF/b/n' will be
-(Font)              scaled to size 10.95pt on input line 37.
+(Font)              scaled to size 10.95pt on input line 41.
 LaTeX Font Info:    Font shape `T1/XCharter-TLF/m/n' will be
-(Font)              scaled to size 14.4pt on input line 42.
+(Font)              scaled to size 14.4pt on input line 46.
 LaTeX Font Info:    Font shape `T1/XCharter-TLF/b/n' will be
-(Font)              scaled to size 14.4pt on input line 42.
+(Font)              scaled to size 14.4pt on input line 46.
+LaTeX Font Info:    Font shape `T1/XCharter-TLF/m/n' will be
+(Font)              scaled to size 6.0pt on input line 47.
 LaTeX Font Info:    Trying to load font information for TS1+XCharter-TLF on inp
-ut line 43.
+ut line 47.
 
 ("C:\Users\KitG\AppData\Local\Programs\MiKTeX 2.9\tex/latex/xcharter\ts1xcharte
 r-tlf.fd"
@@ -1332,7 +1659,7 @@ File: TS1XCharter-TLF.fd 2017/06/25 (autoinst) Font definitions for TS1/XCharte
 r-TLF.
 )
 LaTeX Font Info:    Font shape `TS1/XCharter-TLF/m/n' will be
-(Font)              scaled to size 10.95pt on input line 43.
+(Font)              scaled to size 10.95pt on input line 47.
 Package microtype Info: Character `textlbrackdbl ' is missing
 (microtype)             in font `TS1/XCharter-TLF/m/n/10.95'.
 (microtype)             Ignoring protrusion settings for this character.
@@ -1342,29 +1669,59 @@ Package microtype Info: Character `textrbrackdbl ' is missing
 Package microtype Info: Character `texttildelow ' is missing
 (microtype)             in font `TS1/XCharter-TLF/m/n/10.95'.
 (microtype)             Ignoring protrusion settings for this character.
-
-Underfull \hbox (badness 1122) in paragraph at lines 45--46
-[]\T1/XCharter-TLF/m/n/10.95 (+20) These La-grange points are taken from La-
- []
-
+LaTeX Font Info:    Font shape `T1/XCharter-TLF/m/it' will be
+(Font)              scaled to size 10.95pt on input line 53.
 LaTeX Font Info:    Font shape `T1/XCharter-TLF/b/n' will be
-(Font)              scaled to size 12.0pt on input line 49.
+(Font)              scaled to size 12.0pt on input line 59.
+<Figures/lagrange_points.png, id=4, 458.31226pt x 443.85825pt>
+File: Figures/lagrange_points.png Graphic file (type png)
+<use Figures/lagrange_points.png>
+Package pdftex.def Info: Figures/lagrange_points.png  used on input line 65.
+(pdftex.def)             Requested size: 231.88997pt x 224.58348pt.
+LaTeX Font Info:    Font shape `T1/XCharter-TLF/m/n' will be
+(Font)              scaled to size 10.0pt on input line 66.
+LaTeX Font Info:    Font shape `T1/XCharter-TLF/b/n' will be
+(Font)              scaled to size 10.0pt on input line 66.
+LaTeX Font Info:    Font shape `T1/XCharter-TLF/m/it' will be
+(Font)              scaled to size 10.0pt on input line 66.
+LaTeX Font Info:    Font shape `T1/XCharter-TLF/m/it' will be
+(Font)              scaled to size 8.0pt on input line 66.
+LaTeX Font Info:    Font shape `T1/XCharter-TLF/m/it' will be
+(Font)              scaled to size 7.0pt on input line 66.
+LaTeX Font Info:    Font shape `T1/XCharter-TLF/m/it' will be
+(Font)              scaled to size 5.0pt on input line 66.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
 [1{C:/Users/KitG/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}
 
 
 ]
-LaTeX Font Info:    Font shape `T1/XCharter-TLF/m/it' will be
-(Font)              scaled to size 10.95pt on input line 81.
+Underfull \hbox (badness 1418) in paragraph at lines 94--95
+[]\T1/XCharter-TLF/m/n/10.95 (+20) When trans-form-ing into this ro-tat-ing non
+-
+ []
 
-
-AED: lastpage setting LastPage
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
 Make it at least 13.59999pt.
 We now make it that large for the rest of the document.
 This may cause the page layout to be inconsistent, however.
 
-[2
+[2 <./Figures/lagrange_points.png>]
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `cmtt' (encoding: T1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+ [3]
+Underfull \hbox (badness 3118) in paragraph at lines 202--202
+[]\T1/XCharter-TLF/m/n/10.95 (+20) F. Marzari, H. Scholl, C. Mur-ray, and C.
+ []
+
+
+AED: lastpage setting LastPage
+[4
 
 ] (draft1.aux)
 Package logreq Info: Writing requests to 'draft1.run.xml'.
@@ -1372,29 +1729,37 @@ Package logreq Info: Writing requests to 'draft1.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 17562 strings out of 481565
- 305856 string characters out of 2914627
- 987521 words of memory out of 3000000
- 32420 multiletter control sequences out of 15000+200000
- 631588 words of font info for 121 fonts, out of 3000000 for 9000
+ 27885 strings out of 481565
+ 533419 string characters out of 2914627
+ 1183732 words of memory out of 3000000
+ 42427 multiletter control sequences out of 15000+200000
+ 703767 words of font info for 210 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 47i,11n,54p,1133b,1707s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Users/KitG/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/xcharter/xch
-_uy5hgr.enc}{C:/Users/KitG/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/xc
-harter/xch_q7u3cc.enc}{C:/Users/KitG/AppData/Local/Programs/MiKTeX 2.9/fonts/en
-c/dvips/base/8r.enc}<C:/Users/KitG/AppData/Local/Programs/MiKTeX 2.9/fonts/type
-1/public/xcharter/XCharter-Bold.pfb><C:/Users/KitG/AppData/Local/Programs/MiKTe
-X 2.9/fonts/type1/public/xcharter/XCharter-Italic.pfb><C:/Users/KitG/AppData/Lo
-cal/Programs/MiKTeX 2.9/fonts/type1/public/xcharter/XCharter-Roman.pfb><C:/User
-s/KitG/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.p
-fb><C:/Users/KitG/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts
-/cm/cmr8.pfb><C:/Users/KitG/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/publi
+ 60i,12n,77p,1133b,1707s stack positions out of 5000i,500n,10000p,200000b,50000s
+ <C:\Users\KitG\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi657\e
+ctt1000.pk>{C:/Users/KitG/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/xch
+arter/xch_uy5hgr.enc}{C:/Users/KitG/AppData/Local/Programs/MiKTeX 2.9/fonts/enc
+/dvips/xcharter/xch_q7u3cc.enc}{C:/Users/KitG/AppData/Local/Programs/MiKTeX 2.9
+/fonts/enc/dvips/base/8r.enc}<C:/Users/KitG/AppData/Local/Programs/MiKTeX 2.9/f
+onts/type1/public/xcharter/XCharter-Bold.pfb><C:/Users/KitG/AppData/Local/Progr
+ams/MiKTeX 2.9/fonts/type1/public/xcharter/XCharter-Italic.pfb><C:/Users/KitG/A
+ppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/xcharter/XCharter-Roman.pfb
+><C:/Users/KitG/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/c
+m/cmbx10.pfb><C:/Users/KitG/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/publi
+c/amsfonts/cm/cmex10.pfb><C:/Users/KitG/AppData/Local/Programs/MiKTeX 2.9/fonts
+/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/KitG/AppData/Local/Programs/MiKT
+eX 2.9/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/KitG/AppData/Local/Pr
+ograms/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/KitG/AppDa
+ta/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users
+/KitG/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb
+><C:/Users/KitG/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/c
+m/cmsy10.pfb><C:/Users/KitG/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/publi
 c/amsfonts/cm/cmsy8.pfb><C:/Users/KitG/AppData/Local/Programs/MiKTeX 2.9/fonts/
 type1/urw/helvetic/uhvb8a.pfb><C:/Users/KitG/AppData/Local/Programs/MiKTeX 2.9/
 fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on draft1.pdf (2 pages, 201065 bytes).
+Output written on draft1.pdf (4 pages, 395781 bytes).
 PDF statistics:
- 46 PDF objects out of 1000 (max. 8388607)
+ 105 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 26625 words of extra memory for PDF output out of 29859 (max. 10000000)
+ 41490 words of extra memory for PDF output out of 42996 (max. 10000000)
 
