@@ -14,39 +14,31 @@ from constants import (
     lagrange,
 )  # Derived constants
 
-# Initial Conditions
-initial_cond_rot = np.array((lagrange[0], lagrange[1], 0, 0, 0, 0))  # in rotating frame
-initial_cond_stat = np.array(
-    (lagrange[0], lagrange[1], 0, -omega * lagrange[1], omega * lagrange[0], 0)
-)
+mass = np.linspace(0.001, 0.02, 100)  # range of planetary masses
+max_wander = np.zeros_like(mass)
+for n in range(len(mass)):
+    import constants
 
-greek_theta = np.arctan((R * math.sqrt(3) / 2) / (R / 2 - solar_rad))
-cos = math.cos(greek_theta)
-sin = math.sin(greek_theta)
+    constants.M_P = mass[n]
+    constants.solar_rad = R * mass[n] / (M_S + mass[n])
+    constants.planet_rad = R * M_S / (M_S + mass[n])
+    constants.period = math.sqrt(R ** 3 / (M_S + mass[n]))
+    constants.omega = 2 * np.pi / constants.period  # angular velocity of frame
+    constants.lagrange = (constants.planet_rad - R / 2, R * math.sqrt(3) / 2, 0)
 
+    import orbits
 
-def wander(pertubation, samples=1, pertubation_type="position"):
-    """Returns maximum wander over orbit in the rotating frame for given initial point
-
-    Wander is the maximum deviation from the initial point (not the lagrange point) over this timespan
-    position gives the spatial pertubation from the lagrange point
-    Samples denotes the number of random pertubations sampled within that point for gives perturbation size
-    """
-    if pertubation_type == "position":
-        initial_cond = initial_cond_rot + np.array(
-            (pertubation[0], pertubation[1], 0, 0, 0, 0)
-        )  # add pertubation
-    else:
-        initial_cond = initial_cond_rot + np.array(
-            (0, 0, 0, pertubation[0], pertubation[1], 0)
-        )  # add pertubation
-
+    initial_cond = np.array((constants.lagrange[0], constants.lagrange[1], 0, 0, 0, 0))
     orbit = orbits.rotating_frame(initial_cond)
     wander_t = np.zeros((len(orbit.t)))
     for i in range(len(orbit.t)):
         wander_t[i] = np.linalg.norm(
-            orbit.y[0:3, i]
-            - initial_cond[0:3]
-            # - lagrange[0:3]
+            orbit.y[0:3, i] - initial_cond[0:3]
         )  # deviation in pos only
-    return np.max(wander_t)
+    max_wander[n] = np.max(wander_t)
+plt.plot(mass, max_wander)
+plt.title("Change in wander with different planet mass")
+plt.xlabel("Planet Mass /Solar Sasses")
+plt.ylabel("Wander /AU")
+plt.savefig("wanderwithplanetmass.png")
+plt.show()

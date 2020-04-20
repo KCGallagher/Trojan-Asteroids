@@ -5,11 +5,7 @@
 
 \input{structure.tex} % Specifies the document structure and loads requires packages
 \graphicspath{{"/Users/Kit/OneDrive/Documents/Computing/Trojan Asteroids/Report/Figures"}}
-\newcommand*{\subscript}[1]{\ensuremath{_\textrm{{\scriptsize #1}}}}
 
-\usepackage{bm}
-\usepackage{tikz}
-\usetikzlibrary{calc}
 
 %	ARTICLE INFORMATION
 
@@ -75,8 +71,6 @@ The three body problem, where the dynamics of three interacting bodies are deter
 
 In this report, I will consider the circular, restricted, three-body problem, where two of the bodies move in circular, coplanar orbits about their common centre of mass, unaffected by the negligible mass of the third body. I will also assume that all interactions are via Newtonian gravity.
 
-Rescaled solar system units are used for mathematical ease, so distances are measured in astronomical units (AU), time in earth years and mass in multiples of the solar mass.
-
 The system of differential coordinates determine the position and velocity of the asteroids, with two equations per spatial coordinate.
 \begin{equation}
 \frac{dr_{i}}{dt} = v_{i}, \frac{dv_{i}}{dt} = g_{i}, \quad i = x,y 
@@ -116,6 +110,7 @@ direction of orbit
 only the Greeks, orbiting counter-clockwise, with perturbations at t = 0, need to be
 investigated.
 "
+(This reduces computing time not hvaing to solve for trojans as well)
 
 \subsection{Orbit Geometry}
 As the three bodies considered here form an equilateral triangle in the initial equilibrium state, as depicted in Figure \ref{fig:geometry}, we can derive the polar coordinates of each body with respect to the centre of mass about which the bodies orbit.
@@ -179,14 +174,31 @@ Finally, equating the gravitational and centripetal forces on the planet allows 
 \end{equation}
 
 \section{Methodology}
+This system of coupled first-order differential equations was solved using the scipy solve\_ivp function. The time span was taken as 100 orbits (with 100 points sampled per orbit) unless otherwise stated; this corresponds to 1185 Earth years. Rescaled solar system units are used for mathematical ease, so distances are measured in astronomical units (AU), time in earth years and mass in multiples of the solar mass, and to prevent floating point overflows due to the magnitude of the quantities considered in SI units.
+
+
+The wander was defined as the maximum distance of the asteroid from the initial point during the orbit (for small perturbations this is also approximately the separation from the Lagrange point).
+Initial conditions are defined by the Lagrange point in each frame, with the initial velocity in the stationary frame defined by the period of Jupiter's orbit, and split into Cartesian components.
+
 \subsection{Integration Method}
 %Put this with theory as "numerical methods"?
 %Then all theory could be in methodology?
-The default solver is RK45 (an explicit Runge-Kutta method of order 5(4) \cite{Dormand1980}) however this is non-stiff, giving a deviation in asteroid position (from the Lagrange point) in the order of $ 10^{-4}$ AU in the rotating frame over 50 years. This is larger than expected, suggesting the system of equations requires an unreasonable small step size for  numerically stability with respect to this numerical method, even regions where the solution curve is smooth \cite{Lambert1991}. This suggests the system is stiff, and solvers designed for this typically do more work per step, allowing them to take much larger steps, and have improved numerical stability compared to the non-stiff solvers \cite{Byrne1987}. 
+Within solve\_ivp, the default solver is RK45 (an explicit Runge-Kutta method of order 5(4) \cite{Dormand1980}) however this is non-stiff, giving a deviation in asteroid position (from the Lagrange point) in the order of $ 10^{-4}$ AU in the rotating frame over 50 years. This is larger than expected, suggesting the system of equations requires an unreasonable small step size for  numerically stability with respect to this numerical method, even regions where the solution curve is smooth \cite{Lambert1991}. This suggests the system is stiff, and solvers designed for this typically do more work per step, allowing them to take much larger steps, and have improved numerical stability compared to the non-stiff solvers \cite{Byrne1987}. 
 
 Instead the stiff "Radau" solver (an implicit Runge-Kutta method of the Radau IIA family of order 5 \cite{Hairer2010}) is used for increased stability \cite{Frank1985}, and achieves a deviation in asteroid position in the order of $ 10^{-13}$ AU instead. This also ensures stability in the rotating frame, with deviations of 0.76\% in asteroid separation from Jupiter over $ 10^{3} $ years, compared to 53\% for the best non-stiff solvers.
 
 %Can add more detail on A vs B stability (I believe B stability is relevant here but maybe check this)
+
+\subsection{Programme Structure}
+Global constants such as solar mass, and sun\textendash planet separation, along with derived values from these such as orbital period and solar radius from centre of mass, as given in an importable python module "\textit{constants}".
+
+Functions to evaluate these coupled differential equation systems are defined in module "\textit{orbits}", while additional functions to evaluate the wander during the orbit (under different sampling routines) are implemented in "\textit{wander}". Further files then import these modules and produce the plots given in this report.
+
+To consider a varying planet mass, it was considered preferable to avoid reconstructing all functions to take this as an argument as this requires re-evaluating all initial derived constants. Therefore, I iterate over alternative masses, re-defining constant values in this instance, and then directly import the required functions to compute the orbit. \textbf{REPHRASE?}
+
+Complete code listings are given in appendix \ref{Code}.
+
+
 \section{Results}
 \subsection{Orbit Stability}
 \subsection{Wander Analysis}
@@ -199,6 +211,32 @@ Instead the stiff "Radau" solver (an implicit Runge-Kutta method of the Radau II
 
 %Talk about animations here too? or after solver method
 \printbibliography
+
+\onecolumn
+\begin{appendices}
+
+\section{Code 1} \label{Code}
+\begin{lstlisting}[language=Python]
+import math
+import numpy as np
+from scipy import integrate
+import matplotlib.pyplot as plt
+
+from constants import G, M_S, M_P, R, ORBIT_NUM, PRECISION  # User defined constants
+from constants import (
+	solar_rad,
+	planet_rad,
+	period,
+	omega,
+	time_span,
+)  # Derived constants
+
+
+\end{lstlisting}
+%Can add my own style guide to this, see suggestions on https://www.overleaf.com/learn/latex/code_listing
+%\section{Code 2}
+
+\end{appendices}
 
 \end{document}
 
