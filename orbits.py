@@ -46,6 +46,10 @@ def planet_pos(t=0):
 
 
 def lagrange_pos(t=0):
+    """Position of Greeks' lagrange point in 3-dimensions at time t
+
+    Note that z coordinate is fixed to 0, 
+    so movement is constrained to xy plane in this exact solution"""
     return np.array(
         [
             greek_rad * np.cos(omega * t + greek_theta),
