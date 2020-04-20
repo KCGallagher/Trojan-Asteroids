@@ -22,7 +22,7 @@ plt.ticklabel_format(axis="y", style="", scilimits=None)
 plt.ylabel("Magnitude of Deviation /AU")
 plt.xlabel("Time /years")
 plt.title("Asteroid Deviation from Lagrange point")
-plt.savefig("asteroid_deviation_linear.png")
+# plt.savefig("asteroid_deviation_linear.png")
 plt.show()
 
 # MOTION IN ROTATING FRAME
@@ -113,7 +113,7 @@ plt.plot(
     ),
 )
 
-plt.title("Deviation of Greeks from Lagrnage Point")
+plt.title("Deviation of Greeks from Lagrange Point")
 plt.ylabel("Separation / AU")
 plt.xlabel("Time / years")
 plt.savefig("asteroid_deviation_stat.png")

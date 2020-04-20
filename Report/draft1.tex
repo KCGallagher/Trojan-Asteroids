@@ -174,7 +174,7 @@ Finally, equating the gravitational and centripetal forces on the planet allows 
 \end{equation}
 
 \section{Methodology}
-This system of coupled first-order differential equations was solved using the scipy solve\_ivp function. The time span was taken as 100 orbits (with 100 points sampled per orbit) unless otherwise stated; this corresponds to 1185 Earth years. Rescaled solar system units are used for mathematical ease, so distances are measured in astronomical units (AU), time in earth years and mass in multiples of the solar mass, and to prevent floating point overflows due to the magnitude of the quantities considered in SI units.
+This system of coupled first-order ordinary differential equations (ODEs) was solved using the scipy solve\_ivp function. The time span was taken as 100 orbits (with 100 points sampled per orbit) unless otherwise stated; this corresponds to 1185 Earth years. Rescaled solar system units are used for mathematical ease, so distances are measured in astronomical units (AU), time in earth years and mass in multiples of the solar mass, and to prevent floating point overflows due to the magnitude of the quantities considered in SI units.
 
 
 The wander was defined as the maximum distance of the asteroid from the initial point during the orbit (for small perturbations this is also approximately the separation from the Lagrange point).
@@ -185,22 +185,30 @@ Initial conditions are defined by the Lagrange point in each frame, with the ini
 %Then all theory could be in methodology?
 Within solve\_ivp, the default solver is RK45 (an explicit Runge-Kutta method of order 5(4) \cite{Dormand1980}) however this is non-stiff, giving a deviation in asteroid position (from the Lagrange point) in the order of $ 10^{-4}$ AU in the rotating frame over 50 years. This is larger than expected, suggesting the system of equations requires an unreasonable small step size for  numerically stability with respect to this numerical method, even regions where the solution curve is smooth \cite{Lambert1991}. This suggests the system is stiff, and solvers designed for this typically do more work per step, allowing them to take much larger steps, and have improved numerical stability compared to the non-stiff solvers \cite{Byrne1987}. 
 
-Instead the stiff "Radau" solver (an implicit Runge-Kutta method of the Radau IIA family of order 5 \cite{Hairer2010}) is used for increased stability \cite{Frank1985}, and achieves a deviation in asteroid position in the order of $ 10^{-13}$ AU instead. This also ensures stability in the rotating frame, with deviations of 0.76\% in asteroid separation from Jupiter over $ 10^{3} $ years, compared to 53\% for the best non-stiff solvers.
+Instead the stiff "Radau" solver (an implicit Runge-Kutta method of the Radau IIA family of order 5 \cite{Hairer2010}) is used for increased stability \cite{Frank1985}, and achieves a deviation in asteroid position in the order of $ 10^{-13}$ AU instead. This also ensures stability in the stationary frame, with deviations of 0.76\% in asteroid separation from Jupiter over $ 10^{3} $ years, compared to 53\% for the best non-stiff solvers.
 
 %Can add more detail on A vs B stability (I believe B stability is relevant here but maybe check this)
 
 \subsection{Programme Structure}
-Global constants such as solar mass, and sun\textendash planet separation, along with derived values from these such as orbital period and solar radius from centre of mass, as given in an importable python module "\textit{constants}".
+Global constants such as solar mass, and sun\textendash planet separation, along with derived values from these such as orbital period and solar radius from centre of mass, are given in an importable python module "\textit{constants}".
 
-Functions to evaluate these coupled differential equation systems are defined in module "\textit{orbits}", while additional functions to evaluate the wander during the orbit (under different sampling routines) are implemented in "\textit{wander}". Further files then import these modules and produce the plots given in this report.
+Functions to evaluate these coupled differential equation systems are defined in module "\textit{orbits}", while additional functions to evaluate the wander during the orbit (under different sampling routines) are implemented in "\textit{wander}". Further files then import these modules and produce the plots given in this report, fully detailed in appendix \ref{structure}.
 
 To consider a varying planet mass, it was considered preferable to avoid reconstructing all functions to take this as an argument as this requires re-evaluating all initial derived constants. Therefore, I iterate over alternative masses, re-defining constant values in this instance, and then directly import the required functions to compute the orbit. \textbf{REPHRASE?}
 
 Complete code listings are given in appendix \ref{Code}.
 
 
+\subsection{Performance}
+Sampling 100 points per orbit for 100 orbits takes a mean time of 0.01723 seconds \textbf{(add error?)}, with sub-linear scaling for sampling rate and orbit number up to the array memory limit, achieved through the optimised integration routines within solve\_ivp.
+
+
 \section{Results}
-\subsection{Orbit Stability}
+\subsection{Stability of Lagrange Points}
+Considering the Greeks' orbit without perturbations applied, it has a maximum deviation of $4.68 \times 10^{-13}$ AU over 100 orbits (1185 years). This value is unchanged if 1000 orbits are considered instead, confirming the stability of this Lagrange point.
+
+
+
 \subsection{Wander Analysis}
 \subsubsection{Perturbations in z-direction}
 
@@ -214,8 +222,15 @@ Complete code listings are given in appendix \ref{Code}.
 
 \onecolumn
 \begin{appendices}
+\section{Program Structure} \label{structure}
+Global constants, along with derived values from these are given in an importable python module "\textit{constants}".
 
-\section{Code 1} \label{Code}
+Functions to evaluate these coupled differential equation systems are defined in module "\textit{orbits}", while additional functions to evaluate the wander during the orbit are implemented in "\textit{wander}".
+
+Wander from unperturbed initial conditions is calculated within \textit{lagrange\_stability}, with ODE solver performance also evaluated here.
+
+
+\section{Code Listings} \label{Code}
 \begin{lstlisting}[language=Python]
 import math
 import numpy as np

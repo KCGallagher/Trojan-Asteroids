@@ -9,6 +9,7 @@ from constants import (
     omega,
     time_span,
     lagrange,
+    greek_theta,
 )  # Derived constants
 
 # Initial Conditions
@@ -16,8 +17,6 @@ initial_cond_rot = np.array((lagrange[0], lagrange[1], 0, 0, 0, 0))  # in rotati
 initial_cond_stat = np.array(
     (lagrange[0], lagrange[1], 0, -omega * lagrange[1], omega * lagrange[0], 0)
 )
-
-greek_theta = np.arctan((R * math.sqrt(3) / 2) / (R / 2 - solar_rad))
 
 
 # Defined Functions
