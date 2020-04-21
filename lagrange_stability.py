@@ -9,6 +9,7 @@ from constants import (
     solar_rad,
     planet_rad,
     period,
+    omega,
     greek_theta,
     time_span,
     lagrange,
@@ -52,8 +53,6 @@ for i in range(len(orbit_values.t)):
         (orbit_values.y[0:3, i] - orbits.lagrange_pos(orbit_values.t[i])[0:3])
     )  # magnitude of distance from lagrange point
 
-# wander = np.linalg.norm((orbit_values.y[0:3] - orbits.lagrange_pos(time_span)[0:3]))
-
 print(
     "Maximum wander from the Lagrange point in the stationary frame over "
     + str("{0:.0f}".format(ORBIT_NUM * period))
@@ -92,12 +91,11 @@ print(np.abs(peak_freq).round(2)[0:5])
 
 # ENERGY CONSERVATION
 
-reduced_mass = (M_S * M_P) + (M_S + M_P)
-radius = np.linalg.norm(orbit_values.y[0:3], axis=0)
-velocity = np.linalg.norm(orbit_values.y[3:], axis=0)
-energy = -G * reduced_mass / radius + 1 / 2 * velocity ** 2
+energy = np.zeros(len(time_span))
+for i in range(len(time_span)):
+    energy[i] = orbits.specific_energy(time_span[i], orbit_values.y[:, i])
 
-plt.plot(time_span, energy - energy[0], linewidth=0.5)
+plt.plot(time_span, energy[:] - energy[0], linewidth=0.5)
 plt.title("Energy Conservation in the Stationary Frame")
 plt.xlabel("Time /years")
 plt.ylabel("Specific Energy offset from initial value(J/kg)")

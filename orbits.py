@@ -144,7 +144,7 @@ def stat_derivatives(t, y):
 
 
 def stationary_frame(y0_stat=(rcos, rsin, 0, -vsin, vcos, 0)):
-    """Gives position and vlocity of asteroids in the stationary frame
+    """Gives position and velocity of asteroids in the stationary frame
 
     Uses scipy solve_ivp method with LSODA, taking an input in the form
     of (x_pos, y_pos, z_pos, x_vel, y_vel, z_vel) for the initial state.
@@ -157,3 +157,17 @@ def stationary_frame(y0_stat=(rcos, rsin, 0, -vsin, vcos, 0)):
         y0=y0_stat,
         t_eval=time_span,
     )
+
+
+def specific_energy(t, y):
+    """ Gives energy per unit mass of asteroids
+
+    t is the time after the start of the orbit
+    y has 6 components; first three for position, second three for velocity
+    These are in the form of the output of a scipy intergrate function
+    """
+
+    radius_p = np.linalg.norm(y[0:3] - planet_pos(t), axis=0)
+    radius_s = np.linalg.norm(y[0:3] - solar_pos(t), axis=0)
+    velocity = np.linalg.norm(y[3:], axis=0)
+    return -G * M_P / radius_p - G * M_S / radius_s + 1 / 2 * velocity ** 2

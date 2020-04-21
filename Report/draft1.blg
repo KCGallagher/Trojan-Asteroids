@@ -1,20 +1,20 @@
 [0] Config.pm:304> INFO - This is Biber 2.14
 [1] Config.pm:307> INFO - Logfile is 'draft1.blg'
-[130] biber-MSWIN64:322> INFO - === 
-[162] Biber.pm:415> INFO - Reading 'draft1.bcf'
-[372] Biber.pm:943> INFO - Found 17 citekeys in bib section 0
-[401] Biber.pm:4256> INFO - Processing section 0
-[403] Utils.pm:75> INFO - Globbing data source 'references.bib'
-[428] Utils.pm:91> INFO - Globbed data source 'references.bib' to references.bib
-[451] Biber.pm:4455> INFO - Looking for bibtex format file 'references.bib' for section 0
-[457] bibtex.pm:1653> INFO - LaTeX decoding ...
-[524] bibtex.pm:1471> INFO - Found BibTeX data source 'references.bib'
-[581] Utils.pm:304> WARN - month field 'nov' in entry 'Brown2016' is not an integer - this will probably not sort properly.
-[585] Utils.pm:304> WARN - month field 'March' in entry 'Okada2017' is not an integer - this will probably not sort properly.
-[756] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[756] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[756] Biber.pm:4084> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'en-US'
-[756] Biber.pm:4090> INFO - No sort tailoring available for locale 'en-US'
-[790] bbl.pm:652> INFO - Writing 'draft1.bbl' with encoding 'UTF-8'
-[816] bbl.pm:755> INFO - Output to draft1.bbl
-[819] Biber.pm:128> INFO - WARNINGS: 2
+[152] biber-MSWIN64:322> INFO - === 
+[186] Biber.pm:415> INFO - Reading 'draft1.bcf'
+[410] Biber.pm:943> INFO - Found 19 citekeys in bib section 0
+[440] Biber.pm:4256> INFO - Processing section 0
+[440] Utils.pm:75> INFO - Globbing data source 'references.bib'
+[455] Utils.pm:91> INFO - Globbed data source 'references.bib' to references.bib
+[476] Biber.pm:4455> INFO - Looking for bibtex format file 'references.bib' for section 0
+[481] bibtex.pm:1653> INFO - LaTeX decoding ...
+[548] bibtex.pm:1471> INFO - Found BibTeX data source 'references.bib'
+[603] Utils.pm:304> WARN - month field 'nov' in entry 'Brown2016' is not an integer - this will probably not sort properly.
+[606] Utils.pm:304> WARN - month field 'March' in entry 'Okada2017' is not an integer - this will probably not sort properly.
+[784] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[784] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[784] Biber.pm:4084> INFO - Sorting list 'none/global//global/global' of type 'entry' with template 'none' and locale 'en-US'
+[784] Biber.pm:4090> INFO - No sort tailoring available for locale 'en-US'
+[817] bbl.pm:652> INFO - Writing 'draft1.bbl' with encoding 'UTF-8'
+[842] bbl.pm:755> INFO - Output to draft1.bbl
+[844] Biber.pm:128> INFO - WARNINGS: 2

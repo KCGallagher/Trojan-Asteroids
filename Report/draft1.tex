@@ -66,7 +66,7 @@ The asteroids exist at/near Lagrange points, defined in Lagrange's initial analy
 While orbits between Lagrange points are also possible, this report will focus on the tadpole orbits observed as asteroids deviate from L4 and L5 \cite{Murray1999}. \textit{More detail?}
 
 
-\subsection{Theoretical Model}
+\subsection{Theoretical Model} \label{theory}
 The three body problem, where the dynamics of three interacting bodies are determined given their initial positions and velocities, has no analytical (closed-form) solution in the general case \cite{Barrow2008}.
 
 In this report, I will consider the circular, restricted, three-body problem, where two of the bodies move in circular, coplanar orbits about their common centre of mass, unaffected by the negligible mass of the third body. I will also assume that all interactions are via Newtonian gravity.
@@ -83,7 +83,7 @@ In this, $g_{i}$ is given by:
 \end{equation}
 where the subscripts \textit{s} and \textit{p} refer to solar and planetary properties respectively.
 
-We may also consider a frame rotating at the same speed as the massive bodies. As there is 1:1 orbital resonance between Jupiter and the asteroids, all three bodies are stationary in this frame. This significantly increases the accuracy of numerical simulations, as \textbf{WHY}
+We may also consider a frame rotating at the same speed as the massive bodies. As there is 1:1 orbital resonance between Jupiter and the asteroids, all three bodies are stationary in this frame. This significantly increases the accuracy of numerical simulations, as the exact solution is stationary with no explicit time dependence, rather then requiring an infinite power series \cite{Guglielmi2001}, \cite{LeVeque2007}.
 
 When transforming into this rotating non-inertial frame, $g_{i}$ gains an additional virtual force term with coupling between the spatial coordinates. This is given below as the sum of the centripetal and Coriolis forces:
 
@@ -176,14 +176,13 @@ Finally, equating the gravitational and centripetal forces on the planet allows 
 \section{Methodology}
 This system of coupled first-order ordinary differential equations (ODEs) was solved using the scipy solve\_ivp function. The time span was taken as 100 orbits (with 100 points sampled per orbit) unless otherwise stated; this corresponds to 1185 Earth years. Rescaled solar system units are used for mathematical ease, so distances are measured in astronomical units (AU), time in earth years and mass in multiples of the solar mass, and to prevent floating point overflows due to the magnitude of the quantities considered in SI units.
 
-
 The wander was defined as the maximum distance of the asteroid from the initial point during the orbit (for small perturbations this is also approximately the separation from the Lagrange point).
 Initial conditions are defined by the Lagrange point in each frame, with the initial velocity in the stationary frame defined by the period of Jupiter's orbit, and split into Cartesian components.
 
 \subsection{Integration Method}
 %Put this with theory as "numerical methods"?
 %Then all theory could be in methodology?
-Within solve\_ivp, the default solver is RK45 (an explicit Runge-Kutta method of order 5(4) \cite{Dormand1980}) however this is non-stiff, giving a deviation in asteroid position (from the Lagrange point) in the order of $ 10^{-4}$ AU in the rotating frame over 50 years. This is larger than expected, suggesting the system of equations requires an unreasonable small step size for  numerically stability with respect to this numerical method, even regions where the solution curve is smooth \cite{Lambert1991}. This suggests the system is stiff, and solvers designed for this typically do more work per step, allowing them to take much larger steps, and have improved numerical stability compared to the non-stiff solvers \cite{Byrne1987}. 
+Within solve\_ivp, the default solver is RK45 (an explicit Runge-Kutta method of order 5(4) \cite{Dormand1980}) and gives a deviation in asteroid position (from the Lagrange point) in the order of $ 10^{-4}$ AU in the rotating frame over 50 years. This is larger than expected, indicating the system of equations requires an unreasonably small step size for numerical stability with respect to this method, even in regions where the solution curve is smooth \cite{Lambert1991}. This suggests the system is stiff, and solvers designed for this typically do more work per step, allowing them to take much larger steps, and have improved numerical stability compared to the non-stiff solvers such as RK45 \cite{Byrne1987}. 
 
 Instead the stiff "Radau" solver (an implicit Runge-Kutta method of the Radau IIA family of order 5 \cite{Hairer2010}) is used for increased stability \cite{Frank1985}, and achieves a deviation in asteroid position in the order of $ 10^{-13}$ AU instead. This also ensures stability in the stationary frame, with deviations of 0.76\% in asteroid separation from Jupiter over $ 10^{3} $ years, compared to 53\% for the best non-stiff solvers.
 
@@ -200,7 +199,7 @@ Complete code listings are given in appendix \ref{Code}.
 
 
 \subsection{Performance}
-Sampling 100 points per orbit for 100 orbits takes a mean time of $16.97 \pm 34$ \si{\milli\second} \textbf{(add error?)}, with sub-linear scaling for sampling rate and orbit number up to the array memory limit, achieved through the optimised integration routines within solve\_ivp.
+Sampling 100 points per orbit for 100 orbits takes a mean time of $16.97 \pm 34$ \si{\milli\second}, with sub-linear scaling for sampling rate and orbit number up to the array memory limit, achieved through the optimised integration routines within solve\_ivp.
 
 
 \section{Results}
@@ -209,15 +208,14 @@ Considering the Greeks' orbit without perturbations applied, it has a maximum de
 
 In the stationary frame, this wander from the (now moving) Lagrange point is depicted in Figure \ref{fig:greeksdeviationstationaryframe}. The deviation oscillates with a magnitude of $9.10 \times 10^{-2}$ AU, and a period of $148.2 \pm 0.8$ years, where the error was determined by the width of the Fourier peak. This is modulated with a faster oscillation component of $11.85 \pm 0.27$ years, equivalent to the orbital period of the asteroids and clearly demonstrating an periodic error in the integration routine, becoming more significant over time.
 
-These much more significant errors are due to \textbf{YYY}. Energy can also be evaluated, and conserved, in this inertial frame; asteroid specific energy varies within only 0.113\% of the initial value, and with a similar periodicity to wander.
-
 \begin{figure}
 	\centering
 	\includegraphics[width=\linewidth]{Figures/greeks_deviation_stationary_frame}
-	\caption[]{The wander of Greek asteroids from the Lagrange point in the stationary frame. Note the two oscillation components and constant maximum oscillation amplitude over time, demonstrating this point is indeed stable. }
+	\caption[]{The wander of Greek asteroids from the Lagrange point in the stationary frame. Note the two oscillation components and constant maximum oscillation amplitude over time, demonstrating this point is indeed stable.}
 	\label{fig:greeksdeviationstationaryframe}
 \end{figure}
 
+These much more significant errors are due to time dependence in the exact solution, as detailed in Section \ref{theory}. Energy can also be evaluated, and conserved, in this inertial frame; asteroid specific energy varies within only 0.113\% of the initial value, and with a similar periodicity to wander. 
 
 Animations show orbit....
 

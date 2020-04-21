@@ -599,6 +599,82 @@
       \field{pages}{726\bibrangedash 728}
       \range{pages}{3}
     \endentry
+    \entry{Guglielmi2001}{article}{}
+      \name{author}{2}{}{%
+        {{hash=d2cc568763e451c3f3a73055ecb6ff9c}{%
+           family={Guglielmi},
+           familyi={G\bibinitperiod},
+           given={Nicola},
+           giveni={N\bibinitperiod}}}%
+        {{hash=83e9309b497414bd7c7550110d37b3d7}{%
+           family={Hairer},
+           familyi={H\bibinitperiod},
+           given={Ernst},
+           giveni={E\bibinitperiod}}}%
+      }
+      \list{publisher}{2}{%
+        {Springer Science}%
+        {Business Media {LLC}}%
+      }
+      \strng{namehash}{90ec7d7bafcb734b10180e1afa3f87e9}
+      \strng{fullhash}{90ec7d7bafcb734b10180e1afa3f87e9}
+      \strng{bibnamehash}{90ec7d7bafcb734b10180e1afa3f87e9}
+      \strng{authorbibnamehash}{90ec7d7bafcb734b10180e1afa3f87e9}
+      \strng{authornamehash}{90ec7d7bafcb734b10180e1afa3f87e9}
+      \strng{authorfullhash}{90ec7d7bafcb734b10180e1afa3f87e9}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Computing}
+      \field{month}{7}
+      \field{number}{1}
+      \field{title}{Implementing Radau {IIA} Methods for Stiff Delay Differential Equations}
+      \field{volume}{67}
+      \field{year}{2001}
+      \field{pages}{1\bibrangedash 12}
+      \range{pages}{12}
+      \verb{doi}
+      \verb 10.1007/s006070170013
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1007/s006070170013
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1007/s006070170013
+      \endverb
+    \endentry
+    \entry{LeVeque2007}{book}{}
+      \name{author}{1}{}{%
+        {{hash=45bbbbe30f94acee5d8c86f21af4590f}{%
+           family={LeVeque},
+           familyi={L\bibinitperiod},
+           given={Randall},
+           giveni={R\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Philadelphia, PA}%
+      }
+      \list{publisher}{2}{%
+        {Society for Industrial}%
+        {Applied Mathematics}%
+      }
+      \strng{namehash}{45bbbbe30f94acee5d8c86f21af4590f}
+      \strng{fullhash}{45bbbbe30f94acee5d8c86f21af4590f}
+      \strng{bibnamehash}{45bbbbe30f94acee5d8c86f21af4590f}
+      \strng{authorbibnamehash}{45bbbbe30f94acee5d8c86f21af4590f}
+      \strng{authornamehash}{45bbbbe30f94acee5d8c86f21af4590f}
+      \strng{authorfullhash}{45bbbbe30f94acee5d8c86f21af4590f}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{9780898716290}
+      \field{title}{Finite difference methods for ordinary and partial differential equations : steady-state and time-dependent problems}
+      \field{year}{2007}
+      \field{pages}{131\bibrangedash 153}
+      \range{pages}{23}
+    \endentry
     \entry{Dormand1980}{article}{}
       \name{author}{2}{}{%
         {{hash=73df3ed0b29a46f298503ce5a624a142}{%
@@ -772,8 +848,8 @@
       \strng{authorbibnamehash}{5b46688f5842d9fb6c1459260c30a8b8}
       \strng{authornamehash}{fcd98a38c0867a0aafb78e32bf4b39cd}
       \strng{authorfullhash}{5b46688f5842d9fb6c1459260c30a8b8}
-      \field{sortinit}{1}
-      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{{SIAM} Journal on Numerical Analysis}
