@@ -75,7 +75,7 @@ fourier = np.abs(np.fft.fft(wander))
 plt.plot(freqs, fourier)
 plt.title("Fourier Transform of Wander")
 plt.ylabel("'Frequency Domain (Spectrum) Magnitude'")
-plt.xlabel("Frequency /Hz")
+plt.xlabel("Frequency (1/year)")
 plt.xlim(0, sampling_rate / 200)  # select low freq region of data
 plt.show()
 
@@ -86,8 +86,8 @@ peak_freq = np.zeros(len(peaks))
 for i in range(len(peaks)):
     peak_freq[i] = 1 / freqs[peaks[i]]
 print("Period (in years) of primary frequency components in Fourier spectrum: ")
-print(np.abs(peak_freq).round(2)[0:5])
-
+print(np.unique(np.abs(peak_freq)).round(2))
+# Evaluated for 100 points per orbit, 100 orbits
 
 # ENERGY CONSERVATION
 

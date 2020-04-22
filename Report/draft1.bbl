@@ -560,6 +560,148 @@
       \field{pages}{95\bibrangedash 102}
       \range{pages}{8}
     \endentry
+    \entry{Taylor1981}{article}{}
+      \name{author}{1}{}{%
+        {{hash=39b41b79ab22b8d1aff0791b9a3a42ed}{%
+           family={Taylor},
+           familyi={T\bibinitperiod},
+           given={D.\bibnamedelimi B.},
+           giveni={D\bibinitperiod\bibinitdelim B\bibinitperiod}}}%
+      }
+      \strng{namehash}{39b41b79ab22b8d1aff0791b9a3a42ed}
+      \strng{fullhash}{39b41b79ab22b8d1aff0791b9a3a42ed}
+      \strng{bibnamehash}{39b41b79ab22b8d1aff0791b9a3a42ed}
+      \strng{authorbibnamehash}{39b41b79ab22b8d1aff0791b9a3a42ed}
+      \strng{authornamehash}{39b41b79ab22b8d1aff0791b9a3a42ed}
+      \strng{authorfullhash}{39b41b79ab22b8d1aff0791b9a3a42ed}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Astronomy and Astrophysics}
+      \field{month}{11}
+      \field{number}{2}
+      \field{title}{{Horseshoe periodic orbits in the restricted problem of three bodies for a sun-Jupiter mass ratio}}
+      \field{volume}{103}
+      \field{year}{1981}
+      \field{pages}{288\bibrangedash 294}
+      \range{pages}{7}
+    \endentry
+    \entry{Garfinkel1983}{article}{}
+      \name{author}{1}{}{%
+        {{hash=34adeab7804db11c122bcacbd7641ba8}{%
+           family={Garfinkel},
+           familyi={G\bibinitperiod},
+           given={Boris},
+           giveni={B\bibinitperiod}}}%
+      }
+      \list{publisher}{2}{%
+        {Springer Science}%
+        {Business Media LLC}%
+      }
+      \strng{namehash}{34adeab7804db11c122bcacbd7641ba8}
+      \strng{fullhash}{34adeab7804db11c122bcacbd7641ba8}
+      \strng{bibnamehash}{34adeab7804db11c122bcacbd7641ba8}
+      \strng{authorbibnamehash}{34adeab7804db11c122bcacbd7641ba8}
+      \strng{authornamehash}{34adeab7804db11c122bcacbd7641ba8}
+      \strng{authorfullhash}{34adeab7804db11c122bcacbd7641ba8}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Celestial Mechanics}
+      \field{month}{8}
+      \field{number}{4}
+      \field{title}{Theory of the Trojan asteroids, IV}
+      \field{volume}{30}
+      \field{year}{1983}
+      \field{pages}{373\bibrangedash 383}
+      \range{pages}{11}
+      \verb{doi}
+      \verb 10.1007/bf01375507
+      \endverb
+      \verb{urlraw}
+      \verb http://dx.doi.org/10.1007/BF01375507
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1007/BF01375507
+      \endverb
+    \endentry
+    \entry{Dermott1981}{article}{}
+      \name{author}{2}{}{%
+        {{hash=14af8bdf7415718b15ee343ed64e8837}{%
+           family={Dermott},
+           familyi={D\bibinitperiod},
+           given={Stanley\bibnamedelima F.},
+           giveni={S\bibinitperiod\bibinitdelim F\bibinitperiod}}}%
+        {{hash=e9ff37c224d2d484079cfa0247060575}{%
+           family={Murray},
+           familyi={M\bibinitperiod},
+           given={Carl.D.},
+           giveni={C\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Elsevier BV}%
+      }
+      \strng{namehash}{bdbb73a931580369f6ce50eabc138c2f}
+      \strng{fullhash}{bdbb73a931580369f6ce50eabc138c2f}
+      \strng{bibnamehash}{bdbb73a931580369f6ce50eabc138c2f}
+      \strng{authorbibnamehash}{bdbb73a931580369f6ce50eabc138c2f}
+      \strng{authornamehash}{bdbb73a931580369f6ce50eabc138c2f}
+      \strng{authorfullhash}{bdbb73a931580369f6ce50eabc138c2f}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Icarus}
+      \field{month}{10}
+      \field{number}{1}
+      \field{title}{The dynamics of tadpole and horseshoe orbits}
+      \field{volume}{48}
+      \field{year}{1981}
+      \field{pages}{1\bibrangedash 11}
+      \range{pages}{11}
+      \verb{doi}
+      \verb 10.1016/0019-1035(81)90147-0
+      \endverb
+      \verb{urlraw}
+      \verb http://dx.doi.org/10.1016/0019-1035(81)90147-0
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1016/0019-1035(81)90147-0
+      \endverb
+    \endentry
+    \entry{Szebehely1969}{article}{}
+      \name{author}{2}{}{%
+        {{hash=66ae89359084503ae23d1e8b2b2f6e4e}{%
+           family={Szebehely},
+           familyi={S\bibinitperiod},
+           given={Victor},
+           giveni={V\bibinitperiod}}}%
+        {{hash=85ceda7b55ff13bfe3567c2ddd3ad689}{%
+           family={Grebenikov},
+           familyi={G\bibinitperiod},
+           given={E.},
+           giveni={E\bibinitperiod}}}%
+      }
+      \strng{namehash}{90c38ddd0086327ba47de5b1db1e388e}
+      \strng{fullhash}{90c38ddd0086327ba47de5b1db1e388e}
+      \strng{bibnamehash}{90c38ddd0086327ba47de5b1db1e388e}
+      \strng{authorbibnamehash}{90c38ddd0086327ba47de5b1db1e388e}
+      \strng{authornamehash}{90c38ddd0086327ba47de5b1db1e388e}
+      \strng{authorfullhash}{90c38ddd0086327ba47de5b1db1e388e}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Soviet Astronomy}
+      \field{month}{10}
+      \field{title}{Theory of Orbits-The Restricted Problem of Three Bodies}
+      \field{volume}{13}
+      \field{year}{1969}
+      \field{pages}{364}
+      \range{pages}{1}
+    \endentry
     \entry{Barrow2008}{inbook}{}
       \name{author}{1}{}{%
         {{hash=aacf71199a16fe03425ebde23c3be92b}{%
@@ -697,8 +839,8 @@
       \strng{authorbibnamehash}{1bd702d7326363c3232f1ff6810aa165}
       \strng{authornamehash}{1bd702d7326363c3232f1ff6810aa165}
       \strng{authorfullhash}{1bd702d7326363c3232f1ff6810aa165}
-      \field{sortinit}{1}
-      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Journal of Computational and Applied Mathematics}
@@ -739,8 +881,8 @@
       \strng{authorbibnamehash}{1d732bdcb336067c2b135039680bfe7a}
       \strng{authornamehash}{1d732bdcb336067c2b135039680bfe7a}
       \strng{authorfullhash}{1d732bdcb336067c2b135039680bfe7a}
-      \field{sortinit}{1}
-      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{isbn}{978-0-471-92990-1}
@@ -771,8 +913,8 @@
       \strng{authorbibnamehash}{9c6f16b685434e50eb88046bb944708d}
       \strng{authornamehash}{9c6f16b685434e50eb88046bb944708d}
       \strng{authorfullhash}{9c6f16b685434e50eb88046bb944708d}
-      \field{sortinit}{1}
-      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Journal of Computational Physics}
@@ -813,8 +955,8 @@
       \strng{authorbibnamehash}{547b6b3ff11140a2b5bf2c1abb588ff2}
       \strng{authornamehash}{547b6b3ff11140a2b5bf2c1abb588ff2}
       \strng{authorfullhash}{547b6b3ff11140a2b5bf2c1abb588ff2}
-      \field{sortinit}{1}
-      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{isbn}{978-3-642-05221-7}

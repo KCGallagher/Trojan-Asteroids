@@ -14,7 +14,7 @@
 
 %\author{
 	%\authorstyle{Christopher Gallagher}}
-\author{\authorstyle{Christopher Gallagher} 
+\author{\authorstyle{Christopher Gallagher} %Candidate 6952R
 	\institution{University of Cambridge}}
 % Example of a one line author/institution relationship
 %\author{\newauthor{John Marston} \newinstitution{Universidad Nacional Autónoma de México, Mexico City, Mexico}}
@@ -52,7 +52,7 @@ The purpose of this report is to use numerical simulation techniques to investig
 
 \section{Theoretical Background?}
 
-\subsection{Lagrange Points}
+\subsection{Lagrange Points} \label{lagrange}
 The asteroids exist at/near Lagrange points, defined in Lagrange's initial analysis of the three-body problem in 1772 \cite{Lagrange1772}, were he demonstrated the existence of five equilibrium points for an object of negligible mass orbiting under the gravitational effect of two larger masses. Three of these equilibrium points, L\subscript{1}-L\subscript{3} lie on the line joining the two masses, while each of the remaining two points, L\subscript{4} and L\subscript{5}, lie at the apex of an equilateral triangle with base equal to the separation of the two masses (see Figure \ref{fig:lagrangepoints}). Despite all these points being potential maxima, stable motion is possible around L\subscript{4} and L\subscript{5} due to the Coriolis force \cite{Lissauer2014}.
 %lissauer also says stability is provided that the most massive body has at least 25 times the mass of the secondary
 
@@ -63,13 +63,24 @@ The asteroids exist at/near Lagrange points, defined in Lagrange's initial analy
 	\label{fig:lagrangepoints}
 \end{figure}
 
-While orbits between Lagrange points are also possible, this report will focus on the tadpole orbits observed as asteroids deviate from L4 and L5 \cite{Murray1999}. \textit{More detail?}
+Figure \ref{fig:lagrangepoints} depicts orbits about L\subscript{4} and L\subscript{5} (known as tadpole orbits), as well as orbits between Lagrange points are also possible (such as horseshoe orbits), described by Murray et al. \cite{Murray1999}.
 
+Horseshoe taylor \cite{Taylor1981}
+
+This report will focus on tadpole orbits, a well documented feature of Trojan orbits \cite{Garfinkel1983}, \cite{Dermott1981}, and the restricted three-body problem in general. Their distinctive shape is result of a long-period motion about the equilibrium point combining with a short-period oscillation due to Keplerian motion of the asteroid.
+
+Szebehely et al. \cite{Szebehely1969} predict this short period tends to the planetary period in the small planetary mass limit, while the long period is given by
+
+\begin{equation}
+T_{long} = T_{P} \sqrt{\frac{4}{27 \mu_{2}}},  
+\end{equation}
+
+where $\mu_{2} = m_{2} / (m_{1} + m_{2})$ and $ T_{P} $ is the period of planetary orbit.
 
 \subsection{Theoretical Model} \label{theory}
 The three body problem, where the dynamics of three interacting bodies are determined given their initial positions and velocities, has no analytical (closed-form) solution in the general case \cite{Barrow2008}.
 
-In this report, I will consider the circular, restricted, three-body problem, where two of the bodies move in circular, coplanar orbits about their common centre of mass, unaffected by the negligible mass of the third body. I will also assume that all interactions are via Newtonian gravity.
+In this report, I will consider the circular, restricted, three-body problem, where two of the bodies move in circular, coplanar orbits about their common centre of mass (CoM), unaffected by the negligible mass of the third body. I will also assume that all interactions are via Newtonian gravity.
 
 The system of differential coordinates determine the position and velocity of the asteroids, with two equations per spatial coordinate.
 \begin{equation}
@@ -93,24 +104,8 @@ When transforming into this rotating non-inertial frame, $g_{i}$ gains an additi
 where $\Omega$ is the angular speed of the rotating frame, and $\textbf{v}$ is the velocity of the asteroid within this frame. 
 
 
-\subsubsection{Assumptions - FIX}
-\begin{itemize}
-	\item Circular orbit
-	\item Constant Jupiter-Sun separation
-	\item Coplanar orbits
-	\item Negligible asteroid mass
-	\item Newtonian gravity
-\end{itemize}
-
-I also applied the following symmetries:
-trojan and greek symmetry (analysis focused on greeks)
-rotational symmetry - arbitrary initial point 
-direction of orbit
-"The combination of these symmetries allows the problem to be simplified. Such that
-only the Greeks, orbiting counter-clockwise, with perturbations at t = 0, need to be
-investigated.
-"
-(This reduces computing time not hvaing to solve for trojans as well)
+\subsection{Symmetry}
+This problem contains a number of symmetries, which could be employed to simplify the problem and reduce the computational load. The Trojan and Greek asteroids are in equivalent positions, so experience the same forces, and the system is rotationally and inversion symmetric, so the choice of initial point and orbit direction is arbitrary. Therefore only the Greeks, orbiting counter-clockwise with perturbations applied at t = 0, need to be investigated.
 
 \subsection{Orbit Geometry}
 As the three bodies considered here form an equilateral triangle in the initial equilibrium state, as depicted in Figure \ref{fig:geometry}, we can derive the polar coordinates of each body with respect to the centre of mass about which the bodies orbit.
@@ -161,7 +156,7 @@ Using standard trigonometric relations, it is simple to show that the values $ r
 r_{a} = \sqrt{a^{2} + R_{s} R_{p}} , \enspace \theta =  \tan^{-1} \left( \frac{a \sin(\frac{\pi}{3})}{R_{p} - \frac{a}{2}} \right)
 \end{equation}
 
-Furthermore, the Lagrange point in Cartesian coordinates based about the centre of mass is easily found to be:
+Furthermore, the Lagrange point in Cartesian coordinates based about the CoM is easily found to be:
 
 \begin{equation}
 (x,y) = \left( R_{p} - \frac{a}{2}, \frac{ \sqrt{3} a}{2} \right)
@@ -189,7 +184,7 @@ Instead the stiff "Radau" solver (an implicit Runge-Kutta method of the Radau II
 %Can add more detail on A vs B stability (I believe B stability is relevant here but maybe check this)
 
 \subsection{Programme Structure}
-Global constants such as solar mass, and sun\textendash planet separation, along with derived values from these such as orbital period and solar radius from centre of mass, are given in an importable python module "\textit{constants}".
+Global constants such as solar mass, and sun\textendash planet separation, along with derived values from these such as orbital period and solar radius from the CoM, are given in an importable python module "\textit{constants}".
 
 Functions to evaluate these coupled differential equation systems are defined in module "\textit{orbits}", while additional functions to evaluate the wander during the orbit (under different sampling routines) are implemented in "\textit{wander}". Further files then import these modules and produce the plots given in this report, fully detailed in appendix \ref{structure}.
 
@@ -206,38 +201,123 @@ Sampling 100 points per orbit for 100 orbits takes a mean time of $16.97 \pm 34$
 \subsection{Stability of Lagrange Points}
 Considering the Greeks' orbit without perturbations applied, it has a maximum deviation of $4.68 \times 10^{-13}$ AU over 100 orbits (1185 years). This value is unchanged if 1000 orbits are considered instead, confirming the stability of this Lagrange point.
 
-In the stationary frame, this wander from the (now moving) Lagrange point is depicted in Figure \ref{fig:greeksdeviationstationaryframe}. The deviation oscillates with a magnitude of $9.10 \times 10^{-2}$ AU, and a period of $148.2 \pm 0.8$ years, where the error was determined by the width of the Fourier peak. This is modulated with a faster oscillation component of $11.85 \pm 0.27$ years, equivalent to the orbital period of the asteroids and clearly demonstrating an periodic error in the integration routine, becoming more significant over time.
+In the stationary frame, this wander from the (now moving) Lagrange point is depicted in Figure \ref{fig:greeksdeviationstationaryframe}. The deviation oscillates with a magnitude of $9.10 \times 10^{-2}$ AU, and a period of $148 \pm 4$ years, where the error was determined by the width of the Fourier peak. This is modulated with a faster oscillation component of $11.85 \pm 0.27$ years, equivalent to the orbital period of the asteroids.
 
 \begin{figure}
 	\centering
 	\includegraphics[width=\linewidth]{Figures/greeks_deviation_stationary_frame}
-	\caption[]{The wander of Greek asteroids from the Lagrange point in the stationary frame. Note the two oscillation components and constant maximum oscillation amplitude over time, demonstrating this point is indeed stable.}
+	\caption{The wander of Greek asteroids from the Lagrange point in the stationary frame. Note the two oscillation components and constant maximum oscillation amplitude over time, demonstrating this point is indeed stable.}
 	\label{fig:greeksdeviationstationaryframe}
 \end{figure}
 
-These much more significant errors are due to time dependence in the exact solution, as detailed in Section \ref{theory}. Energy can also be evaluated, and conserved, in this inertial frame; asteroid specific energy varies within only 0.113\% of the initial value, and with a similar periodicity to wander. 
+These much more significant errors are due to time dependence in the exact solution, as detailed in Section \ref{theory}. Energy can also be evaluated, and conserved, in this inertial frame; asteroid specific energy varies within only 0.113\% of the initial value, and with a similar periodicity to wander. Energy is also negative, confirming the asteroids are located within a bound orbit.
 
-Animations show orbit....
+Animations produced to demonstrate the orbit in the stationary frame are included in Supplementary Material I-II. Animation I depicts the orbit as evaluated by the radau solver, while II depicts it with LSODA, demonstrating the drift present over time with non-stiff solvers.
 
 \subsection{Wander Analysis}
-\subsubsection{Perturbations in z-direction}
+The wander from the initial point was calculated for random perturbations with a maximum magnitude of 1\% of the displacement from the origin, and considered  separately perturbation components parallel and perpendicular to the position vector from the CoM (hereafter referred to as radial and tangential components respectively). By considering these perturbations across position space, it was clear that the wander is fully determined by the radial component, with no tangential dependence (as shown in Figure \ref{fig:wanderplots}).
+
+
+\begin{figure}[ht]
+	\centering
+	\begin{subfigure}{.45\textwidth}
+		\centering
+		% include first image
+		\includegraphics[width=\linewidth]{Figures/wanderagainstradialpertubation2}  
+		\caption{Radial}
+		\label{fig:wander_rad}
+	\end{subfigure}
+	\hfill %% useful if width of each figure is less the .5\textwidth
+	\begin{subfigure}{.45\textwidth}
+		\centering
+		% include second image
+		\includegraphics[width=\linewidth]{Figures/wanderagainsttangentialpertubation2}  
+		\caption{Tangential}
+		\label{fig:wander_tan}
+	\end{subfigure}
+	\caption{Wander from an initial perturbation with maximum relative magnitude of 0.1\% of the displacement from the origin, given in radial and tangential directions.}
+	\label{fig:wanderplots}
+\end{figure}
+
+Figure \ref{fig:wander_rad} demonstrates a polynomial dependence on perturbation size in the radial direction, with a negligible constant term. While a quadratic has been fitted here, it was not possible to eliminate the possibility of higher order terms, as increasing perturbation size beyond 0.06 AU can lead to unstable orbits.
+
+We may consider the wander resulting from perturbations in position and velocity space. Figure \ref{fig:position_mesh} clearly shows the dependence on radial position perturbations only, while Figure \ref{fig:velocity_mesh} shows a similar the dependence on tangential velocity perturbations.
+
+\begin{figure}[ht]
+	\centering
+	\begin{subfigure}{.45\textwidth}
+		\centering
+		% include first image
+		\includegraphics[width=\linewidth]{Figures/testcolourmesh6}  
+		\caption{Position}
+		\label{fig:position_mesh}
+	\end{subfigure}
+	\hfill %% useful if width of each figure is less the .5\textwidth
+	\begin{subfigure}{.45\textwidth}
+		\centering
+		% include second image
+		\includegraphics[width=\linewidth]{Figures/testvelocitymesh2}  
+		\caption{Velocity}
+		\label{fig:velocity_mesh}
+	\end{subfigure}
+	\caption{Wander from an initial point in position and velocity space, only calculated over 50 orbits with 30 points per orbit to reduce computational load. Note the dependence on radial position and tangential velocity perturbation components. }
+	\label{fig:mesh_plots}
+\end{figure}
+
+\subsection{Orbit Types}
+Figure \ref{fig:orbitplots} displays orbits resulting from small perturbations in the radial and tangential directions.
+
+\begin{figure}[ht]
+	\centering
+	\begin{subfigure}{.23\textwidth}
+		\centering
+		% include first image
+		\includegraphics[width=\linewidth]{Figures/radialp_orbits}  
+		\caption{Radial}
+		\label{fig:orbit_rad}
+	\end{subfigure}
+	\hfill %% useful if width of each figure is less the .5\textwidth
+	\begin{subfigure}{.23\textwidth}
+		\centering
+		% include second image
+		\includegraphics[width=\linewidth]{Figures/tangentialp_orbits}  
+		\caption{Tangential}
+		\label{fig:orbit_tan}
+	\end{subfigure}
+	\caption{Orbits from an initial perturbation of magnitude 0.01 AU from the origin, in radial and tangential directions, over 12 orbital periods. Note the 'tadpole' features resulting from the radial perturbation, and the significantly larger wander than from the tangential perturbation.}
+	\label{fig:orbitplots}
+\end{figure}
+
+
+ 
+The "tadpole" orbit in Figure \ref{fig:orbit_rad} consists of two oscillating components, as described in Section \ref{lagrange}. The short period, measured at $11.85 \pm 0.61$ years, is in agreement with  planetary orbital period as expected; meanwhile the long period is measured to be $148 \pm 5$ years, in agreement with the analytical value of $144$ years.
+
+For larger perturbations, horseshoe orbits may also be observed...
+
+
+
+\subsection{Perturbations in z-direction}
 
 \section{Discussion}
 \section{Conclusion}
 
 
 
-%Talk about animations here too? or after solver method
+
+\clearpage
 \printbibliography
 
 \onecolumn
 \begin{appendices}
 \section{Program Structure} \label{structure}
-Global constants, along with derived values from these are given in an importable python module "\textit{constants}".
+Global constants, along with derived values from these are given in an python module "\textit{constants}", from which relevant variable are imported in all other scripts.
 
-Functions to evaluate these coupled differential equation systems are defined in module "\textit{orbits}", while additional functions to evaluate the wander during the orbit are implemented in "\textit{wander}".
+Functions to evaluate these coupled differential equation systems are defined in module "\textit{orbits}", while additional functions to evaluate the wander during the orbit are implemented in "\textit{wander}". These modules are both imported into the scripts below for plotting and analysis, and given in the listings in Appendix \ref{Code}.
 
-Wander from unperturbed initial conditions is calculated within \textit{lagrange\_stability}, with ODE solver performance also evaluated here.
+Wander from unperturbed initial conditions is calculated within "\textit{lagrange\_stability}", with ODE solver performance also evaluated here.
+Orbits in the stationary frame are animated and saved within "\textit{stat\_frame\_video}".
+
+2D perturbations are characterised in \textit{perturbation\_2D}.
 
 
 \section{Code Listings} \label{Code}

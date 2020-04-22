@@ -2199,14 +2199,18 @@
     <bcf:citekey order="10">Marzari2002</bcf:citekey>
     <bcf:citekey order="11">Marzari2002</bcf:citekey>
     <bcf:citekey order="12">Murray1999</bcf:citekey>
-    <bcf:citekey order="13">Barrow2008</bcf:citekey>
-    <bcf:citekey order="14">Guglielmi2001</bcf:citekey>
-    <bcf:citekey order="15">LeVeque2007</bcf:citekey>
-    <bcf:citekey order="16">Dormand1980</bcf:citekey>
-    <bcf:citekey order="17">Lambert1991</bcf:citekey>
-    <bcf:citekey order="18">Byrne1987</bcf:citekey>
-    <bcf:citekey order="19">Hairer2010</bcf:citekey>
-    <bcf:citekey order="20">Frank1985</bcf:citekey>
+    <bcf:citekey order="13">Taylor1981</bcf:citekey>
+    <bcf:citekey order="14">Garfinkel1983</bcf:citekey>
+    <bcf:citekey order="15">Dermott1981</bcf:citekey>
+    <bcf:citekey order="16">Szebehely1969</bcf:citekey>
+    <bcf:citekey order="17">Barrow2008</bcf:citekey>
+    <bcf:citekey order="18">Guglielmi2001</bcf:citekey>
+    <bcf:citekey order="19">LeVeque2007</bcf:citekey>
+    <bcf:citekey order="20">Dormand1980</bcf:citekey>
+    <bcf:citekey order="21">Lambert1991</bcf:citekey>
+    <bcf:citekey order="22">Byrne1987</bcf:citekey>
+    <bcf:citekey order="23">Hairer2010</bcf:citekey>
+    <bcf:citekey order="24">Frank1985</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="none">
