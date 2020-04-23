@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7300 64-bit) (preloaded format=pdflatex 2020.2.13)  22 APR 2020 19:28
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7300 64-bit) (preloaded format=pdflatex 2020.2.13)  22 APR 2020 23:11
 entering extended mode
 **./draft1.tex
 (draft1.tex
@@ -1936,7 +1936,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 ]
-Underfull \hbox (badness 1418) in paragraph at lines 99--100
+Underfull \hbox (badness 1418) in paragraph at lines 97--98
 []\T1/XCharter-TLF/m/n/10.95 (+20) When trans-form-ing into this ro-tat-ing non
 -
  []
@@ -1948,7 +1948,7 @@ We now make it that large for the rest of the document.
 This may cause the page layout to be inconsistent, however.
 
 [2 <./Figures/lagrange_points.png>]
-Underfull \hbox (badness 5388) in paragraph at lines 187--188
+Underfull \hbox (badness 5388) in paragraph at lines 185--186
 \T1/XCharter-TLF/m/n/10.95 (+20) Global con-stants such as so-lar mass, and
  []
 
@@ -1957,7 +1957,7 @@ Underfull \hbox (badness 5388) in paragraph at lines 187--188
 File: Figures/greeks_deviation_stationary_frame.png Graphic file (type png)
 <use Figures/greeks_deviation_stationary_frame.png>
 Package pdftex.def Info: Figures/greeks_deviation_stationary_frame.png  used on
- input line 208.
+ input line 206.
 (pdftex.def)             Requested size: 231.88997pt x 182.43178pt.
 
 Underfull \vbox (badness 1502) has occurred while \output is active []
@@ -1966,81 +1966,100 @@ Underfull \vbox (badness 1502) has occurred while \output is active []
 File: Figures/wanderagainstradialpertubation2.png Graphic file (type png)
 <use Figures/wanderagainstradialpertubation2.png>
 Package pdftex.def Info: Figures/wanderagainstradialpertubation2.png  used on i
-nput line 226.
+nput line 224.
 (pdftex.def)             Requested size: 217.66211pt x 169.80426pt.
 LaTeX Font Info:    Font shape `T1/XCharter-TLF/b/n' will be
-(Font)              scaled to size 9.0pt on input line 227.
+(Font)              scaled to size 9.0pt on input line 225.
 LaTeX Font Info:    Font shape `T1/XCharter-TLF/m/it' will be
-(Font)              scaled to size 9.0pt on input line 227.
+(Font)              scaled to size 9.0pt on input line 225.
 <Figures/wanderagainsttangentialpertubation2.png, id=34, 415.5525pt x 326.6604p
 t>
 File: Figures/wanderagainsttangentialpertubation2.png Graphic file (type png)
 <use Figures/wanderagainsttangentialpertubation2.png>
 Package pdftex.def Info: Figures/wanderagainsttangentialpertubation2.png  used 
-on input line 234.
+on input line 232.
 (pdftex.def)             Requested size: 217.66211pt x 171.10051pt.
 <Figures/testcolourmesh6.png, id=35, 410.4936pt x 336.7782pt>
 File: Figures/testcolourmesh6.png Graphic file (type png)
 <use Figures/testcolourmesh6.png>
-Package pdftex.def Info: Figures/testcolourmesh6.png  used on input line 251.
+Package pdftex.def Info: Figures/testcolourmesh6.png  used on input line 249.
 (pdftex.def)             Requested size: 217.66211pt x 178.5738pt.
 <Figures/testvelocitymesh2.png, id=36, 409.7709pt x 330.9966pt>
 File: Figures/testvelocitymesh2.png Graphic file (type png)
 <use Figures/testvelocitymesh2.png>
-Package pdftex.def Info: Figures/testvelocitymesh2.png  used on input line 259.
+Package pdftex.def Info: Figures/testvelocitymesh2.png  used on input line 257.
 
 (pdftex.def)             Requested size: 217.66211pt x 175.81624pt.
 <Figures/radialp_orbits.png, id=37, 416.2752pt x 306.4248pt>
 File: Figures/radialp_orbits.png Graphic file (type png)
 <use Figures/radialp_orbits.png>
-Package pdftex.def Info: Figures/radialp_orbits.png  used on input line 275.
+Package pdftex.def Info: Figures/radialp_orbits.png  used on input line 273.
 (pdftex.def)             Requested size: 111.2482pt x 81.8895pt.
 <Figures/tangentialp_orbits.png, id=38, 433.62pt x 310.0383pt>
 File: Figures/tangentialp_orbits.png Graphic file (type png)
 <use Figures/tangentialp_orbits.png>
-Package pdftex.def Info: Figures/tangentialp_orbits.png  used on input line 283
+Package pdftex.def Info: Figures/tangentialp_orbits.png  used on input line 281
 .
 (pdftex.def)             Requested size: 111.2482pt x 79.5389pt.
- [4 <./Figures/greeks_deviation_stationary_frame.png>] [5 <./Figures/wanderagai
-nstradialpertubation2.png> <./Figures/wanderagainsttangentialpertubation2.png> 
-<./Figures/testcolourmesh6.png> <./Figures/testvelocitymesh2.png> <./Figures/ra
-dialp_orbits.png> <./Figures/tangentialp_orbits.png>]
+ [4 <./Figures/greeks_deviation_stationary_frame.png>]
+<Figures/horseshoe.png, id=43, 409.0482pt x 326.6604pt>
+File: Figures/horseshoe.png Graphic file (type png)
+<use Figures/horseshoe.png>
+Package pdftex.def Info: Figures/horseshoe.png  used on input line 299.
+(pdftex.def)             Requested size: 185.51268pt x 148.14722pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [5 <./Figures/wanderagainstradialpertubation2.png> <./Figures/wanderagainsttan
+gentialpertubation2.png> <./Figures/testcolourmesh6.png> <./Figures/testvelocit
+ymesh2.png>] [6
+
+ <./Figures/radialp_orbits.png> <./Figures/tangentialp_orbits.png> <./Figures/h
+orseshoe.png>]
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `cmtt' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 
-Underfull \hbox (badness 3118) in paragraph at lines 309--309
+Underfull \hbox (badness 3118) in paragraph at lines 316--316
 []\T1/XCharter-TLF/m/n/10.95 (+20) F. Marzari, H. Scholl, C. Mur-ray, and C.
  []
 
-[6
+[7
 
 ]
 
 LaTeX Font Warning: Font shape `T1/cmtt/bx/n' in size <10> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 325.
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 332.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 330--331
+Underfull \hbox (badness 10000) in paragraph at lines 337--338
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][]
  []
 
 
 AED: lastpage setting LastPage
-[7
+[8
 
 ] (draft1.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+Package biblatex Warning: Please (re)run Biber on the file:
+(biblatex)                draft1
+(biblatex)                and rerun LaTeX afterwards.
+
 Package logreq Info: Writing requests to 'draft1.run.xml'.
 \openout1 = `draft1.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 34926 strings out of 481565
- 689109 string characters out of 2914627
- 1330518 words of memory out of 3000000
- 49301 multiletter control sequences out of 15000+200000
- 724649 words of font info for 267 fonts, out of 3000000 for 9000
+ 34941 strings out of 481565
+ 689458 string characters out of 2914627
+ 1330526 words of memory out of 3000000
+ 49309 multiletter control sequences out of 15000+200000
+ 725419 words of font info for 271 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  63i,12n,77p,1133b,1707s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\KitG\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\e
@@ -2066,9 +2085,9 @@ sfonts/cm/cmr8.pfb><C:/Users/KitG/AppData/Local/Programs/MiKTeX 2.9/fonts/type1
 /fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/KitG/AppData/Local/Programs
 /MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Users/KitG/AppData/Local/Pr
 ograms/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvro8a.pfb>
-Output written on draft1.pdf (7 pages, 680336 bytes).
+Output written on draft1.pdf (8 pages, 720178 bytes).
 PDF statistics:
- 190 PDF objects out of 1000 (max. 8388607)
+ 195 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 55861 words of extra memory for PDF output out of 61914 (max. 10000000)
+ 55866 words of extra memory for PDF output out of 61914 (max. 10000000)
 

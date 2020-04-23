@@ -162,12 +162,60 @@ orbit_sol = orbits.rotating_frame(
 )  # no perturbation
 orbit_sol_rad = orbits.rotating_frame(
     (initial_cond_rot + 0.01 * np.array((cos, sin, 0, 0, 0, 0)))
-)  # radial perturbation GIVES TADPOLES
+)  # radial perturbation
+orbit_sol_large_rad = orbits.rotating_frame(
+    (initial_cond_rot + 0.07 * np.array((cos, sin, 0, 0, 0, 0)))
+)  # large radial perturbation
 orbit_sol_tan = orbits.rotating_frame(
     (initial_cond_rot + 0.01 * np.array((sin, -cos, 0, 0, 0, 0)))
-)  # tangential perturbation   GIVES ORBITS
+)  # tangential perturbation
+
+# PLOT OF TADPOLE AND HORSESHOE ORBITS
+plt.plot(orbit_sol_large_rad.y[0, :], orbit_sol_large_rad.y[1, :], label="Horseshoe")
+plt.plot(orbit_sol_rad.y[0, :], orbit_sol_rad.y[1, :], label="Tadpole")
+
+plt.plot(
+    lagrange[0],
+    lagrange[1],
+    marker="+",
+    markersize=8,
+    color="black",
+    linestyle="",
+    label="Lagrange",
+)
+
+plt.plot(
+    lagrange[0], -lagrange[1], marker="+", markersize=8, color="black", linestyle="",
+)
+
+plt.plot(
+    orbits.solar_pos(0)[0],
+    0,
+    label="Sun",
+    color="yellow",
+    markersize=18,
+    marker="o",
+    linestyle="None",
+)
+plt.plot(
+    orbits.planet_pos(0)[0],
+    0,
+    label="Jupiter",
+    color="red",
+    markersize=9,
+    marker="o",
+    linestyle="None",
+)
+plt.title("Tadpole and Horseshoe Orbits in the Rotating Frame")
+plt.xlabel("X Position /AU")
+plt.ylabel("Y Position /AU")
+plt.legend(bbox_to_anchor=(0, 0, 1, 0.2), loc="lower left", mode="expand", ncol=5)
+plt.savefig("horseshoe.png")
+plt.show()
+
 
 # FOURIER ANALYSIS OF POLAR ANGLE
+# Consider polar angle from the centre of mass
 
 angle = np.zeros_like(time_span)
 for i in range(len(time_span)):
@@ -188,7 +236,7 @@ plt.title("Fourier Transform of Angle")
 plt.ylabel("'Frequency Domain (Spectrum) Magnitude'")
 plt.xlabel("Frequency (1/year)")
 plt.xlim(0, sampling_rate / 500)  # select low freq region of data
-plt.ylim(0, 1000)
+plt.ylim(0, 1000)  # Gives rough view of relevant peaks
 plt.show()
 
 peaks, properties = scipy.signal.find_peaks(fourier, prominence=(300,), width=(0,))
@@ -202,7 +250,7 @@ print(np.abs(np.unique(peak_freq)).round(2))
 
 # DEVIATION FROM LAGRANGE POINT
 
-plt.rcParams.update({"font.size": 15})
+plt.rcParams.update({"font.size": 15})  # larger font for these plots
 plt.xticks([2.585, 2.59, 2.595, 2.60, 2.605])
 plt.xlim([2.585, 2.605])
 plt.plot(orbit_sol_tan.y[0, :], orbit_sol_tan.y[1, :], label="Greeks")
@@ -228,7 +276,6 @@ plt.plot(
 # plt.title("Orbit under Tangential Perturbation in the Rotating Frame")
 plt.xlabel("X Position /AU")
 plt.ylabel("Y Position /AU")
-# plt.legend()
 plt.savefig("tangentialp_orbits.png")
 plt.show()
 

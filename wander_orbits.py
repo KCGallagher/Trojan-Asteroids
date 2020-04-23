@@ -70,11 +70,6 @@ orbit_sol_rad2 = orbits.rotating_frame(
 )  # radial perturbation GIVES TADPOLES
 
 
-orbit_sol_rad2 = orbits.rotating_frame(
-    np.array((-1.02745, 0, 0, 0.04032, 0, 0))
-)  # radial perturbation GIVES TADPOLES
-
-
 # FOURIER ANALYSIS OF POLAR ANGLE
 # angle = np.zeros_like(time_span)
 # for i in range(len(time_span)):
@@ -140,8 +135,17 @@ orbit_sol_rad2 = orbits.rotating_frame(
 # plt.savefig("tangentialp_orbits.png")
 # plt.show()
 
-plt.plot(orbit_sol_rad.y[0, :], orbit_sol_rad.y[1, :], label="Tadpole")
 plt.plot(orbit_sol_rad2.y[0, :], orbit_sol_rad2.y[1, :], label="Horseshoe")
+plt.plot(orbit_sol_rad.y[0, :], orbit_sol_rad.y[1, :], label="Tadpole")
+plt.plot(
+    orbit_sol_rad2.y[0, -1],
+    orbit_sol_rad2.y[1, -1],
+    marker="o",
+    markersize=10,
+    color="pink",
+    linestyle="",
+)
+
 # plt.plot(
 #     initial_cond_rot[0] + 0.01 * cos,
 #     initial_cond_rot[1] + 0.01 * sin,
@@ -158,19 +162,20 @@ plt.plot(
     markersize=8,
     color="black",
     linestyle="",
-    label="Lagrange Points",
+    label="Lagrange",
 )
 
 plt.plot(
     lagrange[0], -lagrange[1], marker="+", markersize=8, color="black", linestyle="",
 )
 
+
 plt.plot(
     orbits.solar_pos(0)[0],
     0,
     label="Sun",
     color="yellow",
-    markersize=12,
+    markersize=18,
     marker="o",
     linestyle="None",
 )
@@ -179,13 +184,14 @@ plt.plot(
     0,
     label="Jupiter",
     color="red",
-    markersize=8,
+    markersize=9,
     marker="o",
     linestyle="None",
 )
 plt.title("Tadpole and Horseshoe Orbits in the Rotating Frame")
 plt.xlabel("X Position /AU")
 plt.ylabel("Y Position /AU")
-plt.legend()
+# plt.legend()
+plt.legend(bbox_to_anchor=(0, 0, 1, 0.2), loc="lower left", mode="expand", ncol=5)
 plt.savefig("radialp_orbits.png")
 plt.show()
