@@ -14,7 +14,7 @@ greek_theta = np.arctan((R * math.sqrt(3) / 2) / (R / 2 - solar_rad))
 cos = math.cos(greek_theta)
 sin = math.sin(greek_theta)
 
-mass = np.linspace(0.002, 0.05, 100)  # range of planetary masses
+mass = np.linspace(0.001, 0.04, 50)  # range of planetary masses
 max_wander = np.zeros_like(mass)
 for n in range(len(mass)):
     import constants
@@ -50,34 +50,34 @@ for n in range(len(mass)):
     max_wander[n] = np.max(wander_t)
     print(str(n) + ": " + str(orbits.M_P))
 
-fig = plt.figure()
-ax = fig.add_subplot()
+# fig = plt.figure()
+# ax = fig.add_subplot()
 plt.plot(mass, max_wander, marker="x", linestyle="")
 
-coeff_quad = np.polyfit(
-    mass[0:50], max_wander[0:50], 2
-)  # for quadratic line of best fit
-best_fit_quad = np.poly1d(coeff_quad)
-best_fit_lin = np.poly1d(coeff_quad[1:])
-# without quadratic term for comparison
-order = np.argsort(mass)
+# coeff_quad = np.polyfit(
+#     mass[0:50], max_wander[0:50], 2
+# )  # for quadratic line of best fit
+# best_fit_quad = np.poly1d(coeff_quad)
+# best_fit_lin = np.poly1d(coeff_quad[1:])
+# # without quadratic term for comparison
+# order = np.argsort(mass)
 
-quad_label = str(
-    "Quadratic Best Fit: "
-    + str("{0:.2f}".format(coeff_quad[0]))
-    + "x\u00b2 "
-    + str("{0:+.2f}".format(coeff_quad[1]))
-    + "x "
-    + str("{0:+.2f}".format(coeff_quad[2]))
-)
+# quad_label = str(
+#     "Quadratic Best Fit: "
+#     + str("{0:.2f}".format(coeff_quad[0]))
+#     + "x\u00b2 "
+#     + str("{0:+.2f}".format(coeff_quad[1]))
+#     + "x "
+#     + str("{0:+.2f}".format(coeff_quad[2]))
+# )
 
-plt.plot(
-    mass[0:50],
-    best_fit_quad(mass)[0:50],
-    linewidth=0.75,
-    color="navy",
-    label=quad_label,
-)
+# plt.plot(
+#     mass[0:50],
+#     best_fit_quad(mass)[0:50],
+#     linewidth=0.75,
+#     color="navy",
+#     label=quad_label,
+# )
 # plt.plot(
 #     mass[0:55],
 #     best_fit_lin(mass)[0:55],
@@ -90,6 +90,5 @@ plt.plot(
 plt.title("Variation of wander with planet mass")
 plt.xlabel("Planet Mass /Solar Sasses")
 plt.ylabel("Wander /AU")
-plt.legend()
-# plt.savefig("wanderwithplanetmass_p5e.png")
+plt.savefig("wanderwithplanetmass_p6.png")
 plt.show()

@@ -186,7 +186,7 @@ Global constants such as solar mass, and sun\textendash planet separation, along
 
 Functions to evaluate these coupled differential equation systems are defined in module "\textit{orbits}", while additional functions to evaluate the wander during the orbit (under different sampling routines) are implemented in "\textit{wander}". Further files then import these modules and produce the plots given in this report, fully detailed in appendix \ref{structure}.
 
-To consider a varying planet mass, it was considered preferable to avoid reconstructing all functions to take this as an argument as this requires re-evaluating all initial derived constants. Therefore, I iterate over alternative masses, re-defining constant values in this instance, and then directly import the required functions to compute the orbit. \textbf{REPHRASE?}
+To consider a varying planet mass, it was considered preferable to avoid reconstructing all functions to take this as an argument, as this requires re-evaluating all initial derived constants. Therefore, I iterate over alternative planetary masses, re-defining constant values in this instance, and then directly importing the required functions to compute the orbit. \textbf{REPHRASE?}
 
 Complete code listings are given in appendix \ref{Code}.
 
@@ -302,9 +302,24 @@ For a narrow range of larger perturbations, stable horseshoe orbits encompassing
 \end{figure}
 
 \subsection{Perturbations in Z-direction} \label{3D}
-Perturbations in the Z-direction are aligned with angular velocity vector for rotating frame, so experience no virtual forces in this direction, and oscillate under the influence of gravity alone. Considering small perturbations in the z direction (so that the distance from the CoM can be considered constant), the period of such oscillations tends to the orbital period of the rotating frame, under Newtonian gravity.
+Perturbations in the Z-direction are aligned with angular velocity vector for rotating frame, so experience no virtual forces in this direction, and oscillate under the influence of gravity alone. Considering small perturbations in the z direction (so that the distance from the CoM can be considered constant), the period of such oscillations tends to the orbital period of the rotating frame, under Newtonian gravity. These are measured to be $11.85 \pm 0.48$ years, in strong agreement with the theoretical predictions.
 
-These are measured to be $11.85 \pm 0.48$ years, in strong agreement with the theoretical predictions.
+\begin{figure}
+	\centering
+	\includegraphics[width=0.8\linewidth]{Figures/z_perturbations5c}
+	\caption{Variation of wander with increasing z perturbations. A strong linear component is observed initially in the un-perturbed case, however tends towards the perturbed quadratic case, while the linear offsets result from the initial perturbation in the xy plane.}
+	\label{fig:zwander}
+\end{figure}
+
+The overall wander, however, is observed to follow Fig \ref{fig:zwander}.
+It is suggested that, while the maximum deviation from the Lagrange point in the z direction is simply twice the initial perturbation, wander in the xy plane increases quadratically. This can be initiated from a radial displacement due to the reduced gravitational force  under the z perturbation, demonstrated in Fig \ref{fig:zorbit}, or more significantly from an initial perturbation in the xy plane.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.8\linewidth]{Figures/z_perturb_orbit}
+	\caption{Orbit of Greek asteroids following a 0.2 AU perturbation in the positive z direction, over 12 orbital periods. Note the initial outwards radial displacement despite the lack of perturbation in the xy plane, and subsequent tadpole-like orbit.}
+	\label{fig:zorbit}
+\end{figure}
 
 \subsection{Variation of Planetary Mass} \label{planet}
 The variation of wander with planetary mass is given in Figure \ref{fig:planetmass}.
@@ -333,10 +348,10 @@ Global constants, along with derived values from these are given in an python mo
 
 Functions to evaluate these coupled differential equation systems are defined in module "\textit{orbits}", while additional functions to evaluate the wander during the orbit are implemented in "\textit{wander}". These modules are both imported into the scripts below for plotting and analysis, and given in the listings in Appendix \ref{Code}.
 
-\textit{Wander from unperturbed initial conditions is calculated within "\textit{lagrange\_stability}", with ODE solver performance also evaluated here.
+Wander from unperturbed initial conditions is calculated within "\textit{lagrange\_stability}", with ODE solver performance also evaluated here.
 Orbits in the stationary frame are animated and saved within "\textit{stat\_frame\_video}".
 
-2D perturbations are characterised in \textit{perturbation\_2D}, while perturbations in the z direction are considered in \textit{perturbation\_3D}. Variation in planetary mass, for results in section \ref{planet}, are given in \textit{planet\_mass\_variation}.}
+2D perturbations are characterised in \textit{perturbation\_2D}, while perturbations in the z direction are considered in \textit{perturbation\_3D}. Variation in planetary mass, for results in section \ref{planet}, are given in \textit{planet\_mass\_variation}.
 
 Other code files are listed by Section below in Table \ref{Codefiles}:
 
