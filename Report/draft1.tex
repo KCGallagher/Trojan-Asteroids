@@ -167,7 +167,7 @@ Finally, equating the gravitational and centripetal forces on the planet allows 
 \end{equation}
 
 \section{Methodology}
-This system of coupled first-order ordinary differential equations (ODEs) was solved using the scipy solve\_ivp function. The time span was taken as 100 orbits (with 100 points sampled per orbit) unless otherwise stated; this corresponds to 1185 Earth years. Rescaled solar system units are used for mathematical ease, so distances are measured in astronomical units (AU), time in earth years and mass in multiples of the solar mass, and to prevent floating point overflows due to the magnitude of the quantities considered in SI units.
+This system of coupled first-order ordinary differential equations (ODEs) was solved using the scipy \textit{solve\_ivp} function. The time span was taken as 100 orbits (with 100 points sampled per orbit) unless otherwise stated; this corresponds to 1185 Earth years. Rescaled solar system units are used for mathematical ease, so distances are measured in astronomical units (AU), time in earth years and mass in multiples of the solar mass, and to prevent floating point overflows due to the magnitude of the quantities considered in SI units.
 
 The wander was defined as the maximum distance of the asteroid from the initial point during the orbit (for small perturbations this is also approximately the separation from the Lagrange point).
 Initial conditions are defined by the Lagrange point in each frame, with the initial velocity in the stationary frame defined by the period of Jupiter's orbit, and split into Cartesian components.
@@ -175,7 +175,7 @@ Initial conditions are defined by the Lagrange point in each frame, with the ini
 \subsection{Integration Method}
 %Put this with theory as "numerical methods"?
 %Then all theory could be in methodology?
-Within solve\_ivp, the default solver is RK45 (an explicit Runge-Kutta method of order 5(4) \cite{Dormand1980}) and gives a deviation in asteroid position (from the Lagrange point) in the order of $ 10^{-4}$ AU in the rotating frame over 50 years. This is larger than expected, indicating the system of equations requires an unreasonably small step size for numerical stability with respect to this method, even in regions where the solution curve is smooth \cite{Lambert1991}. This suggests the system is stiff, and solvers designed for this typically do more work per step, allowing them to take much larger steps, and have improved numerical stability compared to the non-stiff solvers such as RK45 \cite{Byrne1987}. 
+Within \textit{solve\_ivp}, the default solver is RK45 (an explicit Runge-Kutta method of order 5(4) \cite{Dormand1980}) and gives a deviation in asteroid position (from the Lagrange point) in the order of $ 10^{-4}$ AU in the rotating frame over 50 years. This is larger than expected, indicating the system of equations requires an unreasonably small step size for numerical stability with respect to this method, even in regions where the solution curve is smooth \cite{Lambert1991}. This suggests the system is stiff, and solvers designed for this typically do more work per step, allowing them to take much larger steps, and have improved numerical stability compared to the non-stiff solvers such as RK45 \cite{Byrne1987}. 
 
 Instead the stiff "Radau" solver (an implicit Runge-Kutta method of the Radau IIA family of order 5 \cite{Hairer2010}) is used for increased stability \cite{Frank1985}, and achieves a deviation in asteroid position in the order of $ 10^{-13}$ AU instead. This also ensures stability in the stationary frame, with deviations of 0.76\% in asteroid separation from Jupiter over $ 10^{3} $ years, compared to 53\% for the best non-stiff solvers.
 
@@ -192,14 +192,16 @@ Complete code listings are given in appendix \ref{Code}.
 
 
 \subsection{Performance} \label{Performance}
-Sampling 100 points per orbit for 100 orbits takes a mean time of $16.97 \pm 34$ \si{\milli\second}, with sub-linear scaling for sampling rate and orbit number up to the array memory limit, achieved through the optimised integration routines within solve\_ivp.
+Sampling 100 points per orbit for 100 orbits takes a mean time of $16.97 \pm 34$ \si{\milli\second}, with sub-linear scaling for sampling rate and orbit number up to the array memory limit, achieved through the optimised integration routines within \textit{solve\_ivp}.
 
+\subsection{Fourier Analysis} \label{Fourier}
+For periodic oscillations/orbits, the Fast Fourier Transform (FFT) implemented in \textit{scipy} is used to obtain values for period, with peak finding in \textit{scipy.signal} identifying the exact values. The errors estimated using the associated peak widths of each frequency component.
 
 \section{Results}
 \subsection{Unperturbed Stability of Lagrange Points} \label{unperturbed}
 Considering the Greeks' orbit without perturbations applied, it has a maximum deviation of $4.68 \times 10^{-13}$ AU over 100 orbits (1185 years). This value is unchanged if 1000 orbits are considered instead, confirming the stability of this Lagrange point.
 
-In the stationary frame, this wander from the (now moving) Lagrange point is depicted in Figure \ref{fig:greeksdeviationstationaryframe}. The deviation oscillates with a magnitude of $9.10 \times 10^{-2}$ AU, and a period of $148 \pm 4$ years, where the error was determined by the width of the Fourier peak. This is modulated with a faster oscillation component of $11.85 \pm 0.27$ years, equivalent to the orbital period of the asteroids.
+In the stationary frame, this wander from the (now moving) Lagrange point is depicted in Figure \ref{fig:greeksdeviationstationaryframe}. The deviation oscillates with a magnitude of $9.10 \times 10^{-2}$ AU, and a period of $148 \pm 4$ years. This is modulated with a faster oscillation component of $11.85 \pm 0.27$ years, equivalent to the orbital period of the asteroids.
 
 \begin{figure}
 	\centering
@@ -286,8 +288,6 @@ Figure \ref{fig:orbitplots} displays orbits resulting from small perturbations i
 	\label{fig:orbitplots}
 \end{figure}
 
-
- 
 The "tadpole" orbit in Figure \ref{fig:orbit_rad} consists of two oscillating components, as described in Section \ref{lagrange}. The short period, measured at $11.85 \pm 0.61$ years, is in excellent agreement with  planetary orbital period as expected; meanwhile the long period is measured to be $148 \pm 5$ years, consistent with the analytical value of $144$ years.
 
 For a narrow range of larger perturbations, stable horseshoe orbits encompassing both Lagrange points may also be observed as depicted in Figure \ref{fig:horseshoe}. This has a full period of $353$ years, in agreement with Taylor et al.'s numerical result of $358 \pm 7$ years \cite{Taylor1981}.
@@ -301,7 +301,10 @@ For a narrow range of larger perturbations, stable horseshoe orbits encompassing
 	\label{fig:horseshoe}
 \end{figure}
 
-\subsection{Perturbations in z-direction} \label{3D}
+\subsection{Perturbations in Z-direction} \label{3D}
+Perturbations in the Z-direction are aligned with angular velocity vector for rotating frame, so experience no virtual forces in this direction, and oscillate under the influence of gravity alone. Considering small perturbations in the z direction (so that the distance from the CoM can be considered constant), the period of such oscillations tends to the orbital period of the rotating frame, under Newtonian gravity.
+
+These are measured to be $11.85 \pm 0.48$ years, in strong agreement with the theoretical predictions.
 
 \subsection{Variation of Planetary Mass} \label{planet}
 The variation of wander with planetary mass is given in Figure \ref{fig:planetmass}.
@@ -309,7 +312,7 @@ The variation of wander with planetary mass is given in Figure \ref{fig:planetma
 \begin{figure}
 	\centering
 	\includegraphics[width=0.8\linewidth]{Figures/wanderwithplanetmass_p5b}
-	\caption{Variation of maximum wander with planetary mass. Note the well defined quadratic trend up to $ M_{p} = 0.026 M_{s}$, and instability beyond this.}
+	\caption{Variation of maximum wander with planetary mass, under a 0.01 AU radial perturbation and 0.01 AU/year tangential boost. Note the well defined quadratic trend up to $ M_{p} = 0.026 M_{s}$, and instability beyond this.}
 	\label{fig:planetmass}
 \end{figure}
 
@@ -345,6 +348,8 @@ Other code files are listed by Section below in Table \ref{Codefiles}:
 		\textbf{Section} & \textbf{Description} & \textbf{Code File} \\
 		\hline \hline
 		\ref{Performance} & ODE solver performance & \textit{lagrange\_stability} \\
+		\hline
+		\ref{Fourier} & Fourier Analysis & \textit{lagrange\_stability} \\
 		\hline
 		\ref{unperturbed} & Wander from unperturbed initial conditions & \textit{lagrange\_stability} \\
 		\hline

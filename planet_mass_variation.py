@@ -28,6 +28,15 @@ for n in range(len(mass)):
 
     import orbits
 
+    orbits.M_P = mass[n]
+    orbits.solar_rad = R * mass[n] / (M_S + mass[n])
+    orbits.planet_rad = R * M_S / (M_S + mass[n])
+    orbits.period = math.sqrt(R ** 3 / (M_S + mass[n]))
+    orbits.time_span = np.linspace(
+        0, ORBIT_NUM * orbits.period, int(ORBIT_NUM * PRECISION)
+    )
+    orbits.omega = 2 * np.pi / constants.period  # angular velocity of frame
+
     initial_cond = np.array((constants.lagrange[0], constants.lagrange[1], 0, 0, 0, 0))
     # orbit = orbits.rotating_frame(initial_cond)
     orbit = orbits.rotating_frame(
@@ -39,7 +48,7 @@ for n in range(len(mass)):
             orbit.y[0:3, i] - initial_cond[0:3]
         )  # deviation in pos only
     max_wander[n] = np.max(wander_t)
-    print(n)
+    print(str(n) + ": " + str(orbits.M_P))
 
 fig = plt.figure()
 ax = fig.add_subplot()

@@ -245,7 +245,7 @@ peak_freq = np.zeros(len(peaks))
 for i in range(len(peaks)):
     peak_freq[i] = 1 / freqs[peaks[i]]
 print("Period (in years) of primary frequency components in Fourier spectrum: ")
-print(np.abs(np.unique(peak_freq)).round(2))
+print(np.unique(np.abs(peak_freq)).round(2))
 # Evaluated for 1000 points per orbit, 100 orbits
 
 # DEVIATION FROM LAGRANGE POINT

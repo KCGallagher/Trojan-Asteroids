@@ -67,13 +67,12 @@ def rand_sample(max_pertubation_size, samples):
     return output
 
 
-def initial_point(pertubation, samples=1, pertubation_type="position"):
+def initial_point(pertubation, pertubation_type="position"):
     """Returns maximum wander over orbit in the rotating frame for given initial point 
 
     
     Wander is the maximum deviation from the initial point (not the lagrange point) over this timespan
     perturbation is the initial point in 2D position/velocity space
-    samples denotes the number of random pertubations sampled within that point for gives perturbation size
     perturbation_type can be "position" or "velocity" 
     """
     if pertubation_type == "position":
