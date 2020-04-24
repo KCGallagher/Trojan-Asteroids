@@ -78,11 +78,11 @@ def initial_point(pertubation, samples=1, pertubation_type="position"):
     """
     if pertubation_type == "position":
         initial_cond = initial_cond_rot + np.array(
-            (pertubation[0], pertubation[1], 0, 0, 0, 0)
+            (pertubation[0], pertubation[1], pertubation[2], 0, 0, 0)
         )  # add position pertubation
     elif pertubation_type == "velocity":
         initial_cond = initial_cond_rot + np.array(
-            (0, 0, 0, pertubation[0], pertubation[1], 0)
+            (0, 0, 0, pertubation[0], pertubation[1], pertubation[2])
         )  # add velocity pertubation
     else:
         raise ValueError(

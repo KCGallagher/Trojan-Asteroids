@@ -560,33 +560,6 @@
       \field{pages}{95\bibrangedash 102}
       \range{pages}{8}
     \endentry
-    \entry{Taylor1981}{article}{}
-      \name{author}{1}{}{%
-        {{hash=39b41b79ab22b8d1aff0791b9a3a42ed}{%
-           family={Taylor},
-           familyi={T\bibinitperiod},
-           given={D.\bibnamedelimi B.},
-           giveni={D\bibinitperiod\bibinitdelim B\bibinitperiod}}}%
-      }
-      \strng{namehash}{39b41b79ab22b8d1aff0791b9a3a42ed}
-      \strng{fullhash}{39b41b79ab22b8d1aff0791b9a3a42ed}
-      \strng{bibnamehash}{39b41b79ab22b8d1aff0791b9a3a42ed}
-      \strng{authorbibnamehash}{39b41b79ab22b8d1aff0791b9a3a42ed}
-      \strng{authornamehash}{39b41b79ab22b8d1aff0791b9a3a42ed}
-      \strng{authorfullhash}{39b41b79ab22b8d1aff0791b9a3a42ed}
-      \field{sortinit}{1}
-      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Astronomy and Astrophysics}
-      \field{month}{11}
-      \field{number}{2}
-      \field{title}{{Horseshoe periodic orbits in the restricted problem of three bodies for a sun-Jupiter mass ratio}}
-      \field{volume}{103}
-      \field{year}{1981}
-      \field{pages}{288\bibrangedash 294}
-      \range{pages}{7}
-    \endentry
     \entry{Garfinkel1983}{article}{}
       \name{author}{1}{}{%
         {{hash=34adeab7804db11c122bcacbd7641ba8}{%
@@ -839,8 +812,8 @@
       \strng{authorbibnamehash}{1bd702d7326363c3232f1ff6810aa165}
       \strng{authornamehash}{1bd702d7326363c3232f1ff6810aa165}
       \strng{authorfullhash}{1bd702d7326363c3232f1ff6810aa165}
-      \field{sortinit}{2}
-      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{sortinit}{1}
+      \field{sortinithash}{50c6687d7fc80f50136d75228e3c59ba}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Journal of Computational and Applied Mathematics}
@@ -1010,6 +983,71 @@
       \endverb
       \verb{url}
       \verb https://doi.org/10.1137/0722030
+      \endverb
+    \endentry
+    \entry{Taylor1981}{article}{}
+      \name{author}{1}{}{%
+        {{hash=39b41b79ab22b8d1aff0791b9a3a42ed}{%
+           family={Taylor},
+           familyi={T\bibinitperiod},
+           given={D.\bibnamedelimi B.},
+           giveni={D\bibinitperiod\bibinitdelim B\bibinitperiod}}}%
+      }
+      \strng{namehash}{39b41b79ab22b8d1aff0791b9a3a42ed}
+      \strng{fullhash}{39b41b79ab22b8d1aff0791b9a3a42ed}
+      \strng{bibnamehash}{39b41b79ab22b8d1aff0791b9a3a42ed}
+      \strng{authorbibnamehash}{39b41b79ab22b8d1aff0791b9a3a42ed}
+      \strng{authornamehash}{39b41b79ab22b8d1aff0791b9a3a42ed}
+      \strng{authorfullhash}{39b41b79ab22b8d1aff0791b9a3a42ed}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Astronomy and Astrophysics}
+      \field{month}{11}
+      \field{number}{2}
+      \field{title}{{Horseshoe periodic orbits in the restricted problem of three bodies for a sun-Jupiter mass ratio}}
+      \field{volume}{103}
+      \field{year}{1981}
+      \field{pages}{288\bibrangedash 294}
+      \range{pages}{7}
+    \endentry
+    \entry{Darwin1897}{article}{}
+      \name{author}{1}{}{%
+        {{hash=48db96d75851fe36ab46b201abb09076}{%
+           family={Darwin},
+           familyi={D\bibinitperiod},
+           given={G.\bibnamedelimi H.},
+           giveni={G\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {International Press of Boston}%
+      }
+      \strng{namehash}{48db96d75851fe36ab46b201abb09076}
+      \strng{fullhash}{48db96d75851fe36ab46b201abb09076}
+      \strng{bibnamehash}{48db96d75851fe36ab46b201abb09076}
+      \strng{authorbibnamehash}{48db96d75851fe36ab46b201abb09076}
+      \strng{authornamehash}{48db96d75851fe36ab46b201abb09076}
+      \strng{authorfullhash}{48db96d75851fe36ab46b201abb09076}
+      \field{sortinit}{2}
+      \field{sortinithash}{ed39bb39cf854d5250e95b1c1f94f4ed}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Acta Mathematica}
+      \field{number}{0}
+      \field{title}{Periodic Orbits}
+      \field{volume}{21}
+      \field{year}{1897}
+      \field{pages}{99\bibrangedash 242}
+      \range{pages}{144}
+      \verb{doi}
+      \verb 10.1007/bf02417978
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1007/bf02417978
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1007/bf02417978
       \endverb
     \endentry
   \enddatalist

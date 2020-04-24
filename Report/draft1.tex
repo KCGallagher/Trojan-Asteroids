@@ -191,12 +191,12 @@ To consider a varying planet mass, it was considered preferable to avoid reconst
 Complete code listings are given in appendix \ref{Code}.
 
 
-\subsection{Performance}
+\subsection{Performance} \label{Performance}
 Sampling 100 points per orbit for 100 orbits takes a mean time of $16.97 \pm 34$ \si{\milli\second}, with sub-linear scaling for sampling rate and orbit number up to the array memory limit, achieved through the optimised integration routines within solve\_ivp.
 
 
 \section{Results}
-\subsection{Stability of Lagrange Points}
+\subsection{Unperturbed Stability of Lagrange Points} \label{unperturbed}
 Considering the Greeks' orbit without perturbations applied, it has a maximum deviation of $4.68 \times 10^{-13}$ AU over 100 orbits (1185 years). This value is unchanged if 1000 orbits are considered instead, confirming the stability of this Lagrange point.
 
 In the stationary frame, this wander from the (now moving) Lagrange point is depicted in Figure \ref{fig:greeksdeviationstationaryframe}. The deviation oscillates with a magnitude of $9.10 \times 10^{-2}$ AU, and a period of $148 \pm 4$ years, where the error was determined by the width of the Fourier peak. This is modulated with a faster oscillation component of $11.85 \pm 0.27$ years, equivalent to the orbital period of the asteroids.
@@ -212,7 +212,7 @@ These much more significant errors are due to time dependence in the exact solut
 
 Animations produced to demonstrate the orbit in the stationary frame are included in Supplementary Material I-II. Animation I depicts the orbit as evaluated by the radau solver, while II depicts it with LSODA, demonstrating the drift present over time with non-stiff solvers.
 
-\subsection{Wander Analysis}
+\subsection{Wander Analysis} \label{perturbed}
 The wander from the initial point was calculated for random perturbations with a maximum magnitude of 1\% of the displacement from the origin, and considered  separately perturbation components parallel and perpendicular to the position vector from the CoM (hereafter referred to as radial and tangential components respectively). By considering these perturbations across position space, it was clear that the wander is fully determined by the radial component, with no tangential dependence (as shown in Figure \ref{fig:wanderplots}).
 
 
@@ -262,7 +262,7 @@ We may consider the wander resulting from perturbations in position and velocity
 	\label{fig:mesh_plots}
 \end{figure}
 
-\subsection{Orbit Types}
+\subsection{Orbit Types} \label{orbits}
 Figure \ref{fig:orbitplots} displays orbits resulting from small perturbations in the radial and tangential directions.
 
 \begin{figure}[ht]
@@ -301,11 +301,20 @@ For a narrow range of larger perturbations, stable horseshoe orbits encompassing
 	\label{fig:horseshoe}
 \end{figure}
 
-\subsection{Perturbations in z-direction}
+\subsection{Perturbations in z-direction} \label{3D}
 
-\subsection{Variation of Planetary Mass}
+\subsection{Variation of Planetary Mass} \label{planet}
+The variation of wander with planetary mass is given in Figure \ref{fig:planetmass}.
 
-\section{Discussion}
+\begin{figure}
+	\centering
+	\includegraphics[width=0.8\linewidth]{Figures/wanderwithplanetmass_p5b}
+	\caption{Variation of maximum wander with planetary mass. Note the well defined quadratic trend up to $ M_{p} = 0.026 M_{s}$, and instability beyond this.}
+	\label{fig:planetmass}
+\end{figure}
+
+A quadratic trend (with a large quadratic component) is initially observed, but wander deviates from this at approximately $ M_{p} = 0.026 M_{s}$, with a sharp increase indicating orbit instability. This occurs significantly before the theoretical prediction of $ M_{p} = 0.04 M_{s}$ \cite{Darwin1897}, however it is suggested this is due to instabilities in the integration solver.
+
 \section{Conclusion}
 
 
@@ -321,10 +330,37 @@ Global constants, along with derived values from these are given in an python mo
 
 Functions to evaluate these coupled differential equation systems are defined in module "\textit{orbits}", while additional functions to evaluate the wander during the orbit are implemented in "\textit{wander}". These modules are both imported into the scripts below for plotting and analysis, and given in the listings in Appendix \ref{Code}.
 
-Wander from unperturbed initial conditions is calculated within "\textit{lagrange\_stability}", with ODE solver performance also evaluated here.
+\textit{Wander from unperturbed initial conditions is calculated within "\textit{lagrange\_stability}", with ODE solver performance also evaluated here.
 Orbits in the stationary frame are animated and saved within "\textit{stat\_frame\_video}".
 
-2D perturbations are characterised in \textit{perturbation\_2D}.
+2D perturbations are characterised in \textit{perturbation\_2D}, while perturbations in the z direction are considered in \textit{perturbation\_3D}. Variation in planetary mass, for results in section \ref{planet}, are given in \textit{planet\_mass\_variation}.}
+
+Other code files are listed by Section below in Table \ref{Codefiles}:
+
+\begin{table}[ht]
+	\caption{Program files used to generate results in each section, with a description of their role.}
+	\centering
+	\begin{tabular}{|c|c|c|}
+		\hline
+		\textbf{Section} & \textbf{Description} & \textbf{Code File} \\
+		\hline \hline
+		\ref{Performance} & ODE solver performance & \textit{lagrange\_stability} \\
+		\hline
+		\ref{unperturbed} & Wander from unperturbed initial conditions & \textit{lagrange\_stability} \\
+		\hline
+		\ref{unperturbed} & Animations of unperturbed orbits & \textit{stat\_frame\_video} \\
+		\hline
+		\ref{perturbed}& Perturbations restricted to the xy plane & \textit{perturbation\_2D} \\
+		\hline
+		\ref{orbits}& Plotting of Orbit types in xy plane & \textit{perturbation\_2D} \\
+		\hline
+		\ref{3D}& Perturbations in the z-direction & \textit{perturbation\_3D} \\
+		\hline
+		\ref{planet}& Variation of planetary mass & \textit{planet\_mass\_variation} \\
+		\hline
+	\end{tabular}
+	\label{Codefiles}
+\end{table}
 
 
 \section{Code Listings} \label{Code}

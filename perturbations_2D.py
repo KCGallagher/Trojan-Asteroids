@@ -89,7 +89,7 @@ import time
 z = np.zeros_like(x)
 for i, j in np.ndindex(z.shape):
     start = time.time()
-    z[i, j] = wander.initial_point((x[i, j], y[i, j]), pertubation_type="velocity")
+    z[i, j] = wander.initial_point((x[i, j], y[i, j], 0), pertubation_type="velocity")
     end = time.time()
     print(str((i, j)) + " in time " + str(end - start) + " s")
 
