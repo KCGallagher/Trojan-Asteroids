@@ -18,16 +18,12 @@ greek_theta = np.arctan((R * math.sqrt(3) / 2) / (R / 2 - solar_rad))
 greek_rad = math.sqrt(R ** 2 - solar_rad * planet_rad)
 greek_v = omega * (greek_rad)
 
-lagrange = (planet_rad - R / 2, R * math.sqrt(3) / 2, 0)
-# are these necessary as well as initial conditions?
-# decide later which are most useful to import etc
-
 # Initial conditions for Greeks, given as equillibrium state but can be changed in XXXXX
 cos, sin = np.cos(greek_theta), np.sin(greek_theta)
 rcos, rsin = greek_rad * cos, greek_rad * sin
 vcos, vsin = greek_v * cos, greek_v * sin
 
-# Positions of massize bodies
+# EXACT SOLUTIONS FOR POSITION
 def solar_pos(t=0):
     """Position of sun in 3-dimensions at time t
 
@@ -59,9 +55,7 @@ def lagrange_pos(t=0):
     )
 
 
-# assuming massive bodies do not deviate from xy plane
-
-
+# ODE SOLVER IN THE ROTATING FRAME
 def rot_derivatives(t, y):
     """Gives derivative of each term of y at time t in the rotating frame
 
@@ -70,7 +64,8 @@ def rot_derivatives(t, y):
 
     position, velocity = np.array(y[0:3]), np.array(y[3:6])
 
-    solar_dr3 = np.linalg.norm(solar_pos(0) - position) ** 3  # should this be zero?
+    # Factors defined for simplicity in acceleration term:
+    solar_dr3 = np.linalg.norm(solar_pos(0) - position) ** 3
     planet_dr3 = np.linalg.norm(planet_pos(0) - position) ** 3
 
     virtual_force = (
@@ -85,22 +80,22 @@ def rot_derivatives(t, y):
             M_S * (position[0] - solar_pos(0)[0]) / solar_dr3
             + M_P * (position[0] - planet_pos(0)[0]) / planet_dr3
         )
-        + virtual_force[0],
+        + virtual_force[0],  # x component
         -G * (M_S * position[1] / solar_dr3 + M_P * position[1] / planet_dr3)
-        + virtual_force[1],
+        + virtual_force[1],  # y component
         -G * (M_S * position[2] / solar_dr3 + M_P * position[2] / planet_dr3)
-        + virtual_force[2],
+        + virtual_force[2],  # z component
     )
 
     return np.concatenate((velocity, acceleration))
 
 
 def rotating_frame(y0_rot=(rcos, rsin, 0, 0, 0, 0)):
-    """Gives position and vlocity of asteroids in the rotating frame
+    """Gives position and velocity of asteroids in the rotating frame
 
-    Uses scipy solve_ivp method with LSODA, taking an input in the form
+    Uses scipy solve_ivp method with Radau, taking an input in the form
     of (x_pos, y_pos, z_pos, x_vel, y_vel, z_vel) for the initial state.
-    This has a default value of the equillibrium position if not given
+    This has a default value of the equillibrium position if this is not given
     """
 
     return integrate.solve_ivp(
@@ -112,7 +107,7 @@ def rotating_frame(y0_rot=(rcos, rsin, 0, 0, 0, 0)):
     )
 
 
-# DEFINED FUNCTIONS IN THE STATIONARY FRAME
+# ODE SOLVER IN THE STATIONARY FRAME
 def stat_acceleration(position, t):
     """Gives acceleration of asteroids in stationary frame at a given position and time"""
     # factors defined for convenience
@@ -163,8 +158,8 @@ def specific_energy(t, y):
     """ Gives energy per unit mass of asteroids
 
     t is the time after the start of the orbit
-    y has 6 components; first three for position, second three for velocity
-    These are in the form of the output of a scipy intergrate function
+    y has six components; first three for position, second three for velocity
+    These are in the form of the output of a scipy integrate function
     """
 
     radius_p = np.linalg.norm(y[0:3] - planet_pos(t), axis=0)

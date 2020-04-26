@@ -183,12 +183,13 @@
 \definecolor{MatchingBrackets}{rgb}{0.25,0.5,0.5}
 \definecolor{Keywords}{rgb}{0,0,1}
 \definecolor{self}{rgb}{0,0,0}
-\definecolor{Strings}{rgb}{0,0.63,0}
+\definecolor{Strings}{rgb}{0.874, 0.533, 0.047}
 \definecolor{Comments}{rgb}{0,0.63,0} %was 1 at the end
+\definecolor{Definitions}{rgb}{1,0,0}
 \definecolor{Backquotes}{rgb}{0,0,0}
-\definecolor{Classname}{rgb}{0,0,0}
-\definecolor{FunctionName}{rgb}{0,0,0}
-\definecolor{Operators}{rgb}{0,0,0}
+\definecolor{Classname}{rgb}{0.454, 0.090, 0.592}  % odd
+\definecolor{FunctionName}{rgb}{0.454, 0.090, 0.592} % odd
+\definecolor{Operators}{rgb}{0.090, 0.592, 0.560} % odd
 \definecolor{Background}{rgb}{0.98,0.98,0.98}
 %\lstdefinelanguage{Python}{  %replaces two lines below
 \lstset{
@@ -205,8 +206,8 @@
 	commentstyle=\color{Comments}\slshape,
 	% Strings
 	stringstyle=\color{Strings},
-	morecomment=[s][\color{Strings}]{"""}{"""},
-	morecomment=[s][\color{Strings}]{'''}{'''},
+	morecomment=[s][\color{Numbers}]{"""}{"""},
+	morecomment=[s][\color{Numbers}]{'''}{'''},
 	% keywords
 	morekeywords={import,from,class,def,for,while,if,is,in,elif,else,not,and,or,print,break,continue,return,True,False,None,access,as,del,except,exec,finally,global,import,lambda,pass,print,raise,try,assert},
 	keywordstyle={\color{Keywords}\bfseries},

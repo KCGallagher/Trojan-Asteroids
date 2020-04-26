@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7300 64-bit) (preloaded format=pdflatex 2020.2.13)  15 APR 2020 22:02
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7300 64-bit) (preloaded format=pdflatex 2020.2.13)  26 APR 2020 10:39
 entering extended mode
 **./drawing.tex
 (drawing.tex
@@ -439,7 +439,12 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <5> on input line 10.
 
-Overfull \hbox (28.78584pt too wide) in paragraph at lines 44--45
+Overfull \hbox (28.78584pt too wide) in paragraph at lines 41--42
+[][] 
+ []
+
+
+Overfull \hbox (15.7973pt too wide) in paragraph at lines 58--59
 [][] 
  []
 
@@ -450,10 +455,10 @@ Overfull \hbox (28.78584pt too wide) in paragraph at lines 44--45
 ]
 (drawing.aux) ) 
 Here is how much of TeX's memory you used:
- 11645 strings out of 481565
- 244398 string characters out of 2914627
- 450551 words of memory out of 3000000
- 26709 multiletter control sequences out of 15000+200000
+ 11671 strings out of 481565
+ 244877 string characters out of 2914627
+ 453551 words of memory out of 3000000
+ 26735 multiletter control sequences out of 15000+200000
  532338 words of font info for 24 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  60i,6n,60p,391b,624s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -463,7 +468,7 @@ ts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/KitG/AppData/Local/Programs/MiK
 TeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/KitG/AppData/Local/P
 rograms/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Users/KitG/AppDa
 ta/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
-Output written on drawing.pdf (1 page, 48250 bytes).
+Output written on drawing.pdf (1 page, 49868 bytes).
 PDF statistics:
  29 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

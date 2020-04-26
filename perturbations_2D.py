@@ -75,7 +75,7 @@ plt.show()
 # # # START OF MESH GRID PLOTS
 
 grid_size = 0.04
-sampling_points = 2
+sampling_points = 5
 # make these smaller to increase the resolution
 dx, dy = grid_size / sampling_points, grid_size / sampling_points
 

@@ -41,6 +41,22 @@
 \end{tikzpicture}
 
 
+\begin{tikzpicture}
+\draw (0,0) -- (6,0)  node[midway, below]{$a$}; 
+\draw [arrows=->] (6,0) --  (6, 1.95 ) node[above]{Asteroids} node[midway,right]{$z$};
+\draw [dashed] (6,2) -- (0,0) node[midway, above]{$R$};
+\node [label={[shift = {(-7mm,-7mm)}]{Sun}}] {};
+\node [label={[shift = {(54mm,-7mm)}]{Equillibrium Pos.}}] {};
+\fill[black] (0,0) circle (3.5mm);% node[anchor=north west] {Sun};
+\fill[black] (6,2) circle (0.5mm);
+\fill[gray] (6,0) circle (0.5mm);
+
+
+\draw  (1,0) arc (0:{atan(1/3)}:1cm)  ;
+\node [label={[shift = {(14mm,-1.6mm)}]{$\phi$}}] {};
+\draw[gray] (5.75,0) -- (5.75, 0.25) -- (6, 0.25);
+\end{tikzpicture}
+
 %planet mass is one third of solar mass 
 	
 \end{document}

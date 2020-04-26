@@ -3,24 +3,23 @@ import numpy as np
 import orbits
 from constants import omega, lagrange, greek_theta  # Derived constants
 
-# Initial Conditions
+# INITIAL CONDITIONS
 initial_cond_rot = np.array((lagrange[0], lagrange[1], 0, 0, 0, 0))  # in rotating frame
 initial_cond_stat = np.array(
     (lagrange[0], lagrange[1], 0, -omega * lagrange[1], omega * lagrange[0], 0)
 )
 
-
-# Defined Functions
+# DEFINED FUNCTIONS
 def perturb(initial_cond, max_pertubation_size=0.01):
     """ Returns perturbed version of initial conditions array
 
     init_cond is the initial conditions, submitted as a numpy array
     pertubation_size is the relative magnitude of the perturbation, measured as 
     the percentage deivation from the lagrange point (for position)
-    Note that this will give a different value each time it is run
 
     Perturbations are chosen randomly within a circle of radius one, 
     to give a more uniform radial distribution than from a square.
+    Note that this will give a different value each time it is run
     """
     rand_array = np.random.uniform(-1, 1, (np.shape(initial_cond)))
     while np.linalg.norm(rand_array[0:2]) > 1:
@@ -53,9 +52,7 @@ def rand_sample(max_pertubation_size, samples):
 
         for i in range(len(sample_wander)):
             sample_wander[i] = np.linalg.norm(
-                orbit.y[0:3, i]
-                - initial_cond[0:3]
-                # - lagrange[0:3]
+                orbit.y[0:3, i] - initial_cond[0:3]
             )  # deviation in pos only
         output[n, 0] = np.linalg.norm((initial_cond[0:3] - lagrange[0:3])) * np.abs(
             np.cos(greek_theta - perturb_theta)
@@ -69,7 +66,6 @@ def rand_sample(max_pertubation_size, samples):
 
 def initial_point(pertubation, pertubation_type="position"):
     """Returns maximum wander over orbit in the rotating frame for given initial point 
-
     
     Wander is the maximum deviation from the initial point (not the lagrange point) over this timespan
     perturbation is the initial point in 2D position/velocity space

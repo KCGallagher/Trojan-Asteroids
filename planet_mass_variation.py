@@ -11,7 +11,7 @@ greek_theta = np.arctan((R * math.sqrt(3) / 2) / (R / 2 - solar_rad))
 cos = math.cos(greek_theta)
 sin = math.sin(greek_theta)
 
-mass = np.linspace(0.0005, 0.0425, 100)  # range of planetary masses
+mass = np.linspace(0.0005, 0.0425, 10)  # range of planetary masses
 max_wander = np.zeros_like(mass)
 for n in range(len(mass)):
     import constants
@@ -49,5 +49,5 @@ plt.plot(mass, max_wander, marker="x", linestyle="")
 plt.title("Variation of Wander with Planetary Mass")
 plt.xlabel("Planet Mass /Solar Masses")
 plt.ylabel("Wander /AU")
-plt.savefig("wanderwithplanetmass_p6.png")
+plt.savefig("wanderwithplanetmass_p7.png")
 plt.show()
