@@ -1,4 +1,5 @@
 import math
+import matplotlib
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -11,7 +12,7 @@ greek_theta = np.arctan((R * math.sqrt(3) / 2) / (R / 2 - solar_rad))
 cos = math.cos(greek_theta)
 sin = math.sin(greek_theta)
 
-mass = np.linspace(0.0005, 0.0425, 10)  # range of planetary masses
+mass = np.linspace(1.0e-05, 1e-3, 150)  # range of planetary masses
 max_wander = np.zeros_like(mass)
 for n in range(len(mass)):
     import constants
@@ -34,7 +35,7 @@ for n in range(len(mass)):
 
     initial_cond = np.array((constants.lagrange[0], constants.lagrange[1], 0, 0, 0, 0))
     orbit = orbits.rotating_frame(
-        (initial_cond + 0.001 * np.array((cos, sin, 0, sin, -cos, 0)))
+        (initial_cond + 1e-3 * np.array((cos, sin, 0, sin, -cos, 0)))
     )  # radial perturbation
     wander_t = np.zeros((len(orbit.t)))
     for i in range(len(orbit.t)):
@@ -44,10 +45,32 @@ for n in range(len(mass)):
     max_wander[n] = np.max(wander_t)
     print(str(n) + ": " + str(orbits.M_P))
 
-plt.plot(mass, max_wander, marker="x", linestyle="")
 
+fig = plt.figure()
+ax = fig.add_subplot()
+
+coeff = np.polyfit(np.reciprocal(np.sqrt(mass)), max_wander, 1)  # for line of best fit
+order = np.argsort(max_wander)
+
+plt.plot(mass, max_wander, linestyle="None", marker="x", color="navy")
+plt.plot(
+    mass[order],
+    coeff[0] * np.reciprocal(np.sqrt(mass[order])) + coeff[1],
+    linewidth=0.75,
+)
+plt.ticklabel_format(axis="x", style="sci", scilimits=(0, 0))
+plt.text(
+    0.465,
+    0.95,
+    "Line of Best Fit: "
+    + str("{0:.2e}".format(coeff[0]))
+    + "/\u221AM"
+    + str("{0:+.2e}".format(coeff[1])),
+    transform=ax.transAxes,
+    fontsize=9.5,
+)
 plt.title("Variation of Wander with Planetary Mass")
 plt.xlabel("Planet Mass /Solar Masses")
 plt.ylabel("Wander /AU")
-plt.savefig("wanderwithplanetmass_p7.png")
+plt.savefig("wanderwithplanetmass_q7.png")
 plt.show()
