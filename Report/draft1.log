@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7300 64-bit) (preloaded format=pdflatex 2020.2.13)  27 APR 2020 01:06
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 2.9.7300 64-bit) (preloaded format=pdflatex 2020.2.13)  27 APR 2020 11:32
 entering extended mode
 **./draft1.tex
 (draft1.tex
@@ -1976,18 +1976,18 @@ Package pdftex.def Info: Figures/greeks_deviation_stationary_frame.png  used on
 File: Figures/wanderagainstradialpertubation2.png Graphic file (type png)
 <use Figures/wanderagainstradialpertubation2.png>
 Package pdftex.def Info: Figures/wanderagainstradialpertubation2.png  used on i
-nput line 231.
+nput line 229.
 (pdftex.def)             Requested size: 217.66211pt x 169.80426pt.
 LaTeX Font Info:    Font shape `T1/XCharter-TLF/b/n' will be
-(Font)              scaled to size 9.0pt on input line 232.
+(Font)              scaled to size 9.0pt on input line 230.
 LaTeX Font Info:    Font shape `T1/XCharter-TLF/m/it' will be
-(Font)              scaled to size 9.0pt on input line 232.
+(Font)              scaled to size 9.0pt on input line 230.
 <Figures/wanderagainsttangentialpertubation2.png, id=38, 415.5525pt x 326.6604p
 t>
 File: Figures/wanderagainsttangentialpertubation2.png Graphic file (type png)
 <use Figures/wanderagainsttangentialpertubation2.png>
 Package pdftex.def Info: Figures/wanderagainsttangentialpertubation2.png  used 
-on input line 239.
+on input line 237.
 (pdftex.def)             Requested size: 217.66211pt x 171.10051pt.
 <Figures/testcolourmesh6.png, id=39, 410.4936pt x 336.7782pt>
 File: Figures/testcolourmesh6.png Graphic file (type png)
@@ -2000,52 +2000,55 @@ File: Figures/testvelocitymesh2.png Graphic file (type png)
 Package pdftex.def Info: Figures/testvelocitymesh2.png  used on input line 264.
 
 (pdftex.def)             Requested size: 217.66211pt x 175.81624pt.
-<Figures/radialp_orbits.png, id=41, 416.2752pt x 306.4248pt>
+ [5 <./Figures/wanderagainstradialpertubation2.png> <./Figures/wanderagainsttan
+gentialpertubation2.png> <./Figures/testcolourmesh6.png> <./Figures/testvelocit
+ymesh2.png>]
+<Figures/radialp_orbits.png, id=48, 416.2752pt x 306.4248pt>
 File: Figures/radialp_orbits.png Graphic file (type png)
 <use Figures/radialp_orbits.png>
 Package pdftex.def Info: Figures/radialp_orbits.png  used on input line 280.
 (pdftex.def)             Requested size: 111.2482pt x 81.8895pt.
-<Figures/tangentialp_orbits.png, id=42, 433.62pt x 310.0383pt>
+<Figures/tangentialp_orbits.png, id=49, 433.62pt x 310.0383pt>
 File: Figures/tangentialp_orbits.png Graphic file (type png)
 <use Figures/tangentialp_orbits.png>
 Package pdftex.def Info: Figures/tangentialp_orbits.png  used on input line 288
 .
 (pdftex.def)             Requested size: 111.2482pt x 79.5389pt.
-<Figures/horseshoe.png, id=43, 409.0482pt x 326.6604pt>
+<Figures/horseshoe.png, id=50, 409.0482pt x 326.6604pt>
 File: Figures/horseshoe.png Graphic file (type png)
 <use Figures/horseshoe.png>
 Package pdftex.def Info: Figures/horseshoe.png  used on input line 304.
 (pdftex.def)             Requested size: 185.51268pt x 148.14722pt.
-<Figures/z_perturbations5c.png, id=44, 416.2752pt x 321.6015pt>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+<Figures/z_perturbations5c.png, id=51, 416.2752pt x 321.6015pt>
 File: Figures/z_perturbations5c.png Graphic file (type png)
 <use Figures/z_perturbations5c.png>
 Package pdftex.def Info: Figures/z_perturbations5c.png  used on input line 314.
 
 (pdftex.def)             Requested size: 185.51268pt x 143.32077pt.
- [5 <./Figures/wanderagainstradialpertubation2.png> <./Figures/wanderagainsttan
-gentialpertubation2.png>]
-<Figures/z_perturb_orbit.png, id=50, 419.8887pt x 324.4923pt>
+<Figures/z_perturb_orbit.png, id=52, 419.8887pt x 324.4923pt>
 File: Figures/z_perturb_orbit.png Graphic file (type png)
 <use Figures/z_perturb_orbit.png>
 Package pdftex.def Info: Figures/z_perturb_orbit.png  used on input line 324.
 (pdftex.def)             Requested size: 185.51268pt x 143.36626pt.
-<Figures/wanderwithplanetmass_q7.png, id=51, 424.2249pt x 319.4334pt>
+<Figures/wanderwithplanetmass_q7.png, id=53, 424.2249pt x 319.4334pt>
 File: Figures/wanderwithplanetmass_q7.png Graphic file (type png)
 <use Figures/wanderwithplanetmass_q7.png>
 Package pdftex.def Info: Figures/wanderwithplanetmass_q7.png  used on input lin
 e 334.
 (pdftex.def)             Requested size: 185.51268pt x 139.68839pt.
-<Figures/wanderwithplanetmass_p6.png, id=52, 416.9979pt x 323.0469pt>
+ [6 <./Figures/radialp_orbits.png> <./Figures/tangentialp_orbits.png> <./Figure
+s/horseshoe.png> <./Figures/z_perturbations5c.png>]
+<Figures/wanderwithplanetmass_p6.png, id=61, 416.9979pt x 323.0469pt>
 File: Figures/wanderwithplanetmass_p6.png Graphic file (type png)
 <use Figures/wanderwithplanetmass_p6.png>
 Package pdftex.def Info: Figures/wanderwithplanetmass_p6.png  used on input lin
 e 343.
 (pdftex.def)             Requested size: 185.51268pt x 143.71844pt.
- [6 <./Figures/testcolourmesh6.png> <./Figures/testvelocitymesh2.png> <./Figure
-s/radialp_orbits.png> <./Figures/tangentialp_orbits.png> <./Figures/horseshoe.p
-ng>]
-[7 <./Figures/z_perturbations5c.png> <./Figures/z_perturb_orbit.png> <./Figures
-/wanderwithplanetmass_q7.png> <./Figures/wanderwithplanetmass_p6.png>]
+ [7 <./Figures/z_perturb_orbit.png> <./Figures/wanderwithplanetmass_q7.png> <./
+Figures/wanderwithplanetmass_p6.png>]
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `cmtt' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
@@ -2148,11 +2151,11 @@ Package logreq Info: Writing requests to 'draft1.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 35210 strings out of 481565
- 694143 string characters out of 2914627
- 1369974 words of memory out of 3000000
+ 35213 strings out of 481565
+ 694221 string characters out of 2914627
+ 1369963 words of memory out of 3000000
  49549 multiletter control sequences out of 15000+200000
- 730141 words of font info for 287 fonts, out of 3000000 for 9000
+ 730526 words of font info for 289 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  63i,12n,77p,1133b,2069s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\KitG\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\t
@@ -2184,7 +2187,7 @@ KitG/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy8.pfb
 8a.pfb><C:/Users/KitG/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/helveti
 c/uhvbo8a.pfb><C:/Users/KitG/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/
 helvetic/uhvro8a.pfb>
-Output written on draft1.pdf (15 pages, 899051 bytes).
+Output written on draft1.pdf (15 pages, 899439 bytes).
 PDF statistics:
  322 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

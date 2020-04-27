@@ -9,7 +9,7 @@ R = 5.2  # average planetary radius from sun in AU
 
 
 PRECISION = 100  # evaluation points per orbit
-ORBIT_NUM = 10  # number of orbits
+ORBIT_NUM = 100  # number of orbits
 
 
 # DERIVED CONSTANTS

@@ -14,7 +14,7 @@
 
 %\author{
 	%\authorstyle{Christopher Gallagher}}
-\author{\authorstyle{Christopher Gallagher} %Candidate 6952R}
+\author{\authorstyle{Candidate 6952R}
 	\institution{University of Cambridge}}
 % Example of a one line author/institution relationship
 %\author{\newauthor{John Marston} \newinstitution{Universidad Nacional Autónoma de México, Mexico City, Mexico}}
@@ -41,7 +41,7 @@
 %	ABSTRACT
 
 \lettrineabstract{Trojan asteroids orbit the Sun in resonance with Jupiter at Lagrange points,
-	and have their own stable orbits about these points. This can be treated as a restricted three-body problem, which is numerically evaluated in this report using a stiff Radau method to solve the system of coupled differential equations. Without perturbations, a maximal deviation of 4.68\pmb{$\times$}10\pmb{$^{-13}$} AU  from the Lagrange points was observed over 1000 orbits (11,852 years). The application of perturbations to these asteroids demonstrated the predicted existence of stable tadpole and horseshoe orbits, and suggested that wander from the Lagrange point depends quadratically on perturbation size. Such orbits were observed to be stable up to a planetary mass of 0.04 \pmb{$M_{\odot}$}, also in agreement with theoretical predictions. Word Count: XXXX}
+	and have their own stable orbits about these points. This can be treated as a restricted three-body problem, which is numerically evaluated in this report using a stiff Radau method to solve the system of coupled differential equations. Without perturbations, a maximal deviation of 4.68\pmb{$\times$}10\pmb{$^{-13}$} AU  from the Lagrange points was observed over 1000 orbits (11,852 years). The application of perturbations to these asteroids demonstrated the predicted existence of stable tadpole and horseshoe orbits, and suggested that wander from the Lagrange point depends quadratically on perturbation size. Such orbits were observed to be stable up to a planetary mass of 0.04 \pmb{$M_{\odot}$}, also in agreement with theoretical predictions. Word Count: 2782}
 
 
 %	ARTICLE CONTENTS
@@ -175,7 +175,7 @@ Finally, equating the gravitational and centripetal forces on the planet allows 
 \end{equation}
 
 \section{Methodology}
-This system of coupled first-order ordinary differential equations (ODEs) was solved using the scipy \textit{solve\_ivp} function. The time span was taken as 100 orbits (with 100 points sampled per orbit) unless otherwise stated; this corresponds to 1185 Earth years. Rescaled solar system units are used for mathematical ease, so distances are measured in astronomical units (AU), time in Earth years and mass in multiples of the solar mass, to prevent floating point overflows due to the magnitude of the quantities considered in SI units.
+This system of coupled first-order ordinary differential equations (ODEs) was solved using the \textit{solve\_ivp} function from \textit{scipy}. The time span was taken as 100 orbits (with 100 points sampled per orbit) unless otherwise stated; this corresponds to 1185 Earth years. Rescaled solar system units are used for mathematical ease, so distances are measured in astronomical units (AU), time in Earth years and mass in multiples of the solar mass, to prevent floating point overflows due to the magnitude of the quantities considered in SI units.
 
 The wander was defined as the maximum distance of the asteroid from the initial point during the orbit (for small perturbations this is also approximately the separation from the Lagrange point). Initial conditions are defined by the Lagrange point in each frame, with the initial velocity in the stationary frame defined by the period of Jupiter's orbit, and split into Cartesian components.
 
@@ -220,10 +220,8 @@ These much more significant deviations are due to time-dependence in the exact s
 Animations produced to demonstrate the orbit in the stationary frame are included in Supplementary Material I-II. Animation I depicts the orbit as evaluated by the Radau solver, while II depicts it with LSODA, demonstrating the drift present over time with non-stiff solvers.
 
 \subsection{Wander Analysis} \label{perturbed}
-Wander from the initial point was calculated for random perturbations with a maximum magnitude of 1\% of the displacement from the origin. The perturbation components parallel and perpendicular to the position vector from the CoM (hereafter referred to as radial and tangential components respectively) were considered separately. By considering these perturbations across position space, it was clear that the wander is fully determined by the radial component, with no tangential dependence (as shown in Figure \ref{fig:wanderplots}).
 
-
-\begin{figure}[ht]
+\begin{figure}[hb!]
 	\centering
 	\begin{subfigure}{.45\textwidth}
 		\centering
@@ -243,6 +241,8 @@ Wander from the initial point was calculated for random perturbations with a max
 	\caption{Wander from an initial perturbation with maximum relative magnitude of 0.1\% of the displacement from the origin, given in radial and tangential directions.}
 	\label{fig:wanderplots}
 \end{figure}
+
+Wander from the initial point was calculated for random perturbations with a maximum magnitude of 1\% of the displacement from the origin. The perturbation components parallel and perpendicular to the position vector from the CoM (hereafter referred to as radial and tangential components respectively) were considered separately. By considering these perturbations across position space, it was clear that the wander is fully determined by the radial component, with no tangential dependence (as shown in Figure \ref{fig:wanderplots}).
 
 Figure \ref{fig:wander_rad} demonstrates a polynomial dependence on perturbation size in the radial direction, with a negligible constant term. While a quadratic has been fitted here, the possibility of higher order terms could not be eliminated, as increasing perturbation size beyond 0.06 AU can lead to unstable orbits.
 
@@ -309,7 +309,7 @@ For a narrow range of larger perturbations, stable horseshoe orbits encompassing
 \subsection{Perturbations in Z direction} \label{3D}
 Perturbations in the Z direction are aligned with the angular velocity vector for the rotating frame, so experience no virtual forces in this direction, and oscillate under the influence of gravity alone. Considering small perturbations in the Z direction (so that the distance from the CoM can be considered constant), the period of such oscillations tend to the orbital period of the rotating frame under Newtonian gravity, as detailed in Appendix \ref{zperiod}. These oscillations are observed to be approximately sinusoidal, with a measured period of $11.85 \pm 0.48$ years, in strong agreement with the theoretical predictions.
 
-\begin{figure}
+\begin{figure}[ht]
 	\centering
 	\includegraphics[width=0.8\linewidth]{Figures/z_perturbations5c}
 	\caption{Variation of wander with increasing Z perturbations. A strong linear component is observed initially in the un-perturbed case, but then tends towards the perturbed quadratic case, while the linear offsets result from the initial perturbation in the XY plane.}
@@ -319,7 +319,7 @@ Perturbations in the Z direction are aligned with the angular velocity vector fo
 The overall wander, however, is observed to follow Figure \ref{fig:zwander}.
 It is suggested that, while the maximum deviation from the Lagrange point in the Z direction is simply twice the initial perturbation, wander in the XY plane increases quadratically. This can be initiated from a radial displacement due to the reduced gravitational force  under the Z perturbation, demonstrated in Figure \ref{fig:zorbit} or, more significantly, from an initial perturbation in the XY plane. However, the oscillation of gravitational forces due to perturbations in the Z direction make this problem significantly more complicated and are a possible cause of the observed deviations from the quadratic relations.
 
-\begin{figure}
+\begin{figure}[ht]
 	\centering
 	\includegraphics[width=0.8\linewidth]{Figures/z_perturb_orbit}
 	\caption{Orbit of Greek asteroids following a 0.2 AU perturbation in the positive Z direction, over 12 orbital periods. Note the initial outwards radial displacement despite the lack of perturbation in the XY plane, and subsequent tadpole-like orbit.}
@@ -329,7 +329,7 @@ It is suggested that, while the maximum deviation from the Lagrange point in the
 \subsection{Variation of Planetary Mass} \label{planet}
 The variation of wander with planetary mass is given in Figure \ref{fig:planetmass}.
 
-\begin{figure}
+\begin{figure}[ht]
 	\centering
 	\includegraphics[width=0.8\linewidth]{Figures/wanderwithplanetmass_q7}
 	\caption{Variation of maximum wander with planetary mass, under a 0.001 AU radial perturbation and 0.001 AU/year tangential boost. Note the tendency }
@@ -338,7 +338,7 @@ The variation of wander with planetary mass is given in Figure \ref{fig:planetma
 
 For small planetary masses (up to approximately $ M_{p} = 0.01 M_{s}$), the wander follows a $ M_{P}^{-\frac{1}{2}}$ dependence, tending towards the initial perturbation for larger masses. However, wander increases unbounded and orbits become unstable beyond $ M_{p} = 0.04 M_{s}$, as depicted in Figure \ref{fig:planetmass2}, in agreement with theoretical predictions by Darwin \cite{Darwin1897}.
 
-\begin{figure}
+\begin{figure}[ht]
 	\centering
 	\includegraphics[width=0.8\linewidth]{Figures/wanderwithplanetmass_p6}
 	\caption{Variation of maximum wander with planetary mass, under a 0.01 AU radial perturbation and 0.01 AU/year tangential boost. Note the orbit stability up to $ M_{p} = 0.04 M_{s}$, and instability beyond this.}
@@ -737,30 +737,30 @@ def initial_point(pertubation, pertubation_type="position"):
 	Wander is the maximum deviation from the initial point 
 	(not the lagrange point) over this timespan
 	perturbation is the initial point in 2D position/velocity space
-	perturbation_type can be "position" or "velocity" 
-	"""
-	if pertubation_type == "position":
-		initial_cond = initial_cond_rot + np.array(
-			(pertubation[0], pertubation[1], pertubation[2], 0, 0, 0)
-		)  # add position pertubation
-	elif pertubation_type == "velocity":
-		initial_cond = initial_cond_rot + np.array(
-			(0, 0, 0, pertubation[0], pertubation[1], pertubation[2])
-		)  # add velocity pertubation
-	else:
-		raise ValueError(
-			"Unknown perturbation_type: Please use 'position' or 'velocity'"
-		)
-	
-	orbit = orbits.rotating_frame(initial_cond)
-	wander_t = np.zeros((len(orbit.t)))
-	for i in range(len(orbit.t)):
-		wander_t[i] = np.linalg.norm(
-			orbit.y[0:3, i]
-			- initial_cond[0:3]
-			# - lagrange[0:3]
-		)  # deviation in pos only
-	return np.max(wander_t)
+perturbation_type can be "position" or "velocity" 
+"""
+if pertubation_type == "position":
+	initial_cond = initial_cond_rot + np.array(
+		(pertubation[0], pertubation[1], pertubation[2], 0, 0, 0)
+	)  # add position pertubation
+elif pertubation_type == "velocity":
+	initial_cond = initial_cond_rot + np.array(
+		(0, 0, 0, pertubation[0], pertubation[1], pertubation[2])
+	)  # add velocity pertubation
+else:
+	raise ValueError(
+		"Unknown perturbation_type: Please use 'position' or 'velocity'"
+	)
+
+orbit = orbits.rotating_frame(initial_cond)
+wander_t = np.zeros((len(orbit.t)))
+for i in range(len(orbit.t)):
+	wander_t[i] = np.linalg.norm(
+		orbit.y[0:3, i]
+		- initial_cond[0:3]
+		# - lagrange[0:3]
+	)  # deviation in pos only
+return np.max(wander_t)
 
 \end{lstlisting}
 
