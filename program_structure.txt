@@ -1,0 +1,20 @@
+This file gives an overall outline of the function of each file.
+
+Global constants, along with derived values from these, are given in a python module "constants", from
+which relevant variables are imported in all other scripts.
+
+Functions to evaluate the coupled differential equation systems are defined in the module "orbits",
+while additional functions to evaluate the wander during the orbit are implemented in "wander". This is
+defined as the transverse motion away from the equillibrium orbit, under small perturbations.
+
+These modules are both imported into the scripts for plotting and analysis, and listed below:
+
+Description - Python File
+ODE solver performance - lagrange_stability
+Fourier analysis - lagrange_stability
+Wander from unperturbed initial conditions - lagrange_stability
+Animations of unperturbed orbits - stat_frame_video
+Perturbations restricted to the XY plane - perturbation_2D
+Plotting of orbit types in XY plane - perturbation_2D
+Perturbations in the Z direction - perturbation_3D
+Variation of planetary mass - planet_mass_variation
