@@ -1,4 +1,4 @@
-# Liquid Crystals Project
+# Trojan Orbit Stability
 ### Part II Long Computing Project modelling the stability of Trojan Asteroids in Jupiter's Orbit
 
 Trojan asteroids orbit the Sun in resonance with Jupiter at Lagrange points, and have their own stable orbits about these points. 
